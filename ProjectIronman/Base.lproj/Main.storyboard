@@ -20,8 +20,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="55r-7w-oCW" kind="custom" identifier="LoginFirst" customClass="EmptySegue" customModule="ProjectIronman" customModuleProvider="target" id="goT-J8-G9a"/>
-                        <segue destination="2i2-Wh-gHa" kind="custom" identifier="LoadMainApp" customClass="EmptySegue" customModule="ProjectIronman" id="jVC-Zu-8V3"/>
+                        <segue destination="55r-7w-oCW" kind="modal" identifier="LoginFirst" animates="NO" id="goT-J8-G9a"/>
+                        <segue destination="2i2-Wh-gHa" kind="modal" identifier="LoadMainApp" animates="NO" id="jVC-Zu-8V3"/>
+                        <segue destination="aIa-C3-B0o" kind="modal" identifier="ConnectDevice" animates="NO" id="XTN-83-fbj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8Z-Ff-xUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,6 +277,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="fetchButton" destination="9HO-wE-dxW" id="N6Y-pn-h30"/>
                         <outlet property="menuButton" destination="eMC-Fb-bLJ" id="NTj-Zo-euE"/>
                     </connections>
                 </viewController>
@@ -306,12 +308,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="aIa-C3-B0o" kind="modal" identifier="ConnectDevices" id="9NR-LP-fS8"/>
+                        <segue destination="rok-EM-bLk" kind="unwind" identifier="unwindToEntrance" unwindAction="unwindToEntranceViewcontroller:" id="sjn-iO-oFd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fpj-EW-5c5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rok-EM-bLk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="-145"/>
+            <point key="canvasLocation" x="1272" y="-191"/>
         </scene>
         <!--Connect Device View Controller-->
         <scene sceneID="qLn-Ae-llg">
@@ -345,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBI-Xq-0Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="-145"/>
+            <point key="canvasLocation" x="816" y="-585"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="oe4-jz-yWc">

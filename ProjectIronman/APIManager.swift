@@ -13,9 +13,9 @@ import FitnessAPI
     choosing to use delegates for APIManager because it just seems cleaner whe
     used in view controllers. Block call back works, but it gets kind of messy
 */
-protocol APIManagerAuthDelegate{
+@objc protocol APIManagerAuthDelegate{
     func authorizationComplete() -> Void
-    func deauthorizationComplete() -> Void
+    optional func deauthorizationComplete() -> Void
 }
 
 protocol APIManagerActivityDelegate{
@@ -27,11 +27,10 @@ protocol APIManagerActivityDelegate{
     choose the right api library to use and update activity data to firebase db
     appropriately
 */
-class APIManager {
-    static let sharedInstance = APIManager()
+public class APIManager {
+    public static let sharedInstance = APIManager()
     var lastSyncTimeStamp:NSTimeInterval = 0
-    var currentAPIClient: Client?
-    
+    private var currentAPIClient: Client?
     var authDelegate:APIManagerAuthDelegate?
     var activityDelegate:APIManagerActivityDelegate?
     
@@ -46,9 +45,10 @@ class APIManager {
         // set the appropriate currentAPIClient
         FirebaseManager.sharedInstance.getUserBasicInfo { (basicInfoDict) -> Void in
             if let basicInfo = basicInfoDict {
-                let deviceConnected:String = basicInfo["deviceConnected"] as! String
-                let device:Device = Device(rawValue: deviceConnected)!
-                self.setCurrentAPIClient(device)
+                if let deviceConnected:String = basicInfo["deviceConnected"] as? String {
+                    let device:Device = Device(rawValue: deviceConnected)!
+                    self.setCurrentAPIClient(device)
+                }
             }
         }
     }
@@ -59,7 +59,7 @@ class APIManager {
     
     func deauthorize(){
         currentAPIClient?.deauthorize()
-        self.authDelegate?.deauthorizationComplete()
+        self.authDelegate?.deauthorizationComplete?()
     }
     
     /**
@@ -72,7 +72,11 @@ class APIManager {
         })
     }
     
+    /**
+        
+    */
     func fetchActivities(){
+        // need to consider last time sync here
         currentAPIClient?.fetchActivities(completionHandler: { (activities, error) -> Void in
             self.activityDelegate?.activitiesFetched(activities, error: error)
         })

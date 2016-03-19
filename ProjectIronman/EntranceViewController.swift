@@ -13,6 +13,11 @@ class EntranceViewController: UIViewController {
     var currentSegueIdentifier:String!
     let validUserViewIdentifier:String = "LoadMainApp"
     let invalidUserViewIdentifier:String = "LoginFirst"
+    let connectDeviceViewIdentifier:String = "ConnectDevice"
+    
+    @IBAction func unwindToEntranceViewcontroller(unwindSegue: UIStoryboardSegue){
+    
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +25,32 @@ class EntranceViewController: UIViewController {
         print("container view controller view did load")
         // Check if user is valid here
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("view did appear")
+        self.swapViewControllers()
+        
+    }
+    
+    func swapViewControllers(){
+        
         if FirebaseManager.sharedInstance.isUserAuthenticated() {
-            print("load main app")
-            self.performSegueWithIdentifier(validUserViewIdentifier, sender: self)
-            self.currentSegueIdentifier = self.validUserViewIdentifier
-
+            FirebaseManager.sharedInstance.getUserConnectedDevice({ (device) -> Void in
+                if device != nil {
+                    // load dash board
+                    print("load main app")
+                    self.performSegueWithIdentifier(self.validUserViewIdentifier, sender: self)
+                    self.currentSegueIdentifier = self.validUserViewIdentifier
+                } else {
+                    // connect device first
+                    print("connect device")
+                    self.performSegueWithIdentifier(self.connectDeviceViewIdentifier, sender: self)
+                    self.currentSegueIdentifier = self.connectDeviceViewIdentifier
+                }
+            })
         }
         else {
             print("login first")
@@ -32,6 +58,7 @@ class EntranceViewController: UIViewController {
             self.currentSegueIdentifier = self.invalidUserViewIdentifier
         }
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,37 +73,37 @@ class EntranceViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        var destinationController:UIViewController!
-        
-        // TODO: not sure if this block of code is necessary right now. but might 
-        // be necessary if destination controller requires data transfer
-        if segue.identifier == self.invalidUserViewIdentifier {
-            destinationController = segue.destinationViewController
-//            destinationController.containerViewController = self
-            
-        }
-        else if segue.identifier == self.validUserViewIdentifier {
-            destinationController = segue.destinationViewController
-            
+//        var destinationController:UIViewController!
+//        
+//        // TODO: not sure if this block of code is necessary right now. but might 
+//        // be necessary if destination controller requires data transfer
+//        if segue.identifier == self.invalidUserViewIdentifier {
+//            destinationController = segue.destinationViewController
+////            destinationController.containerViewController = self
+//            
+//        }
+//        else if segue.identifier == self.validUserViewIdentifier {
+//            destinationController = segue.destinationViewController
+//            
+////            let fromViewController = self.childViewControllers[0]
+////            self.swapFromViewController(fromViewController, toViewController: destinationController)
+//        }
+//        
+//        // if there's something in the container view already
+//        // we need to transition from that existing view controller to the new controller
+//        if self.childViewControllers.count > 0 {
 //            let fromViewController = self.childViewControllers[0]
-//            self.swapFromViewController(fromViewController, toViewController: destinationController)
-        }
-        
-        // if there's something in the container view already
-        // we need to transition from that existing view controller to the new controller
-        if self.childViewControllers.count > 0 {
-            let fromViewController = self.childViewControllers[0]
-            self.swapFromViewController(fromViewController, toViewController: segue.destinationViewController)
-        }
-        // if no view controller is present. need to add one to the view
-        else {
-            // add the controller to container
-            self.addChildViewController(destinationController)
-            // add the view
-            self.view.addSubview(destinationController.view)
-            // assign the parent
-            destinationController.didMoveToParentViewController(self)
-        }
+//            self.swapFromViewController(fromViewController, toViewController: segue.destinationViewController)
+//        }
+//        // if no view controller is present. need to add one to the view
+//        else {
+//            // add the controller to container
+//            self.addChildViewController(destinationController)
+//            // add the view
+//            self.view.addSubview(destinationController.view)
+//            // assign the parent
+//            destinationController.didMoveToParentViewController(self)
+//        }
 
     }
     
@@ -96,10 +123,5 @@ class EntranceViewController: UIViewController {
         })
     }
     
-    func swapViewControllers(){
-        self.currentSegueIdentifier = (self.currentSegueIdentifier == invalidUserViewIdentifier) ? validUserViewIdentifier : invalidUserViewIdentifier
-        
-        self.performSegueWithIdentifier(self.currentSegueIdentifier, sender: nil)
-    }
-
+    
 }

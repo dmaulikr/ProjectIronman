@@ -8,28 +8,32 @@
 
 import UIKit
 
-class ConnectDeviceViewController: UIViewController {
+class ConnectDeviceViewController: UIViewController, APIManagerAuthDelegate {
 
+    // use NSBundle setting to store a variable that indicate whether device
+    // has been authorized. 
+    var connectingWithDevice:Device?
+    
     @IBAction func AuthorizeStrava(sender: AnyObject) {
-//        StravaClient.sharedInstance.authTokenCompletionHandler = {
-//            error -> Void in
-//            
-//            if error == nil {
-//                // once received start a segue back to the main app
-//                print("auth token received")
-//                
-//                let userData = ["deviceConnected": "Strava"]
-//                FirebaseManager.sharedInstance.updateUser(userData)
-//            }
-//            
-//        }
-//        
-//        StravaClient.sharedInstance.authorize()
+        connectingWithDevice = Device.Strava
+        APIManager.sharedInstance.authorize(Device.Strava)
+
+        // Need somesort of loading UI here
+    }
+    
+    func authorizationComplete() {
+        print("auth complete")
+
+        FirebaseManager.sharedInstance.updateUser(["deviceConnected": (connectingWithDevice?.rawValue)!])
+        
+        //dismiss this view and send to dashboard
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        APIManager.sharedInstance.authDelegate = self
         // Do any additional setup after loading the view.
     }
 

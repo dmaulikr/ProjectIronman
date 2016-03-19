@@ -38,7 +38,8 @@ class FirebaseManager {
     }
     
     /**
-        Retrieve user basic info asynchronously
+        Retrieve user basic info asynchronously. Completion Hander will receive nil
+        if no basicInfo or user hasn't been authenticated
         - Parameter completionHandler: pass a NSDictionary back to the call back function
     */
     func getUserBasicInfo(completionHandler: (NSDictionary? -> Void)){
@@ -56,6 +57,23 @@ class FirebaseManager {
                 })
         } else {
             completionHandler(nil)
+        }
+    }
+    
+    func getUserConnectedDevice(completionHandler: Device? -> Void){
+        self.getUserBasicInfo { (basicInfoDict) -> Void in
+            if let basicInfo = basicInfoDict {
+                // if user has connected to a device or app load dash board
+                if let deviceConnected:String = basicInfo["deviceConnected"] as? String {
+                    let device:Device = Device(rawValue: deviceConnected)!
+                    completionHandler(device)
+                }
+                else {
+                    completionHandler(nil)
+                }
+            } else {
+                completionHandler(nil)
+            }
         }
     }
     

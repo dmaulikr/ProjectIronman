@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
                             
                             FirebaseManager.sharedInstance.updateUser(newUser)
                             
-                            self.performSegueWithIdentifier("ConnectDevices", sender: self)
+                            self.dismissViewControllerAnimated(true, completion: nil)
                         }
                 })
             }
@@ -53,7 +53,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(self.parentViewController)
         // Do any additional setup after loading the view.
     }
 
