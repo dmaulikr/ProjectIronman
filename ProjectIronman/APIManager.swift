@@ -19,7 +19,7 @@ import FitnessAPI
 }
 
 protocol APIManagerActivityDelegate{
-   func activitiesFetched(activities: Array<Activity>?, error: NSError?) -> Void
+   func newActivitiesFetched(activities: Array<Activity>?, error: NSError?) -> Void
 }
 
 /**
@@ -73,12 +73,28 @@ public class APIManager {
     }
     
     /**
-        
+     
     */
-    func fetchActivities(){
+    func fetchNewActivities(){
         // need to consider last time sync here
         currentAPIClient?.fetchActivities(completionHandler: { (activities, error) -> Void in
-            self.activityDelegate?.activitiesFetched(activities, error: error)
+            var activityList = Array<Activity>()
+            
+            // sort out all the old activities. TO DO: if the apis handle querying with dates than
+            // maybe we should let them do it
+            if error == nil && activities != nil {
+                for activity in activities! {
+                    if activity.startDate > self.lastSyncTimeStamp {
+                        activityList.append(activity)
+                    }
+                }
+                
+                // update last sync timestamp
+                self.lastSyncTimeStamp = NSDate().timeIntervalSince1970
+            }
+            
+            
+            self.activityDelegate?.newActivitiesFetched(activityList, error: error)
         })
     }
     
