@@ -16,13 +16,13 @@ class SidebarMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let ref = FirebaseManager.sharedInstance.baseRef
-        let providerData = ref.authData.providerData
         
-        nameLabel.text = providerData["displayName"] as? String
-        emailLabel.text = providerData["email"] as? String
-        if let imageURLString:String = providerData["profileImageURL"] as? String {
-            profileImage.imageFromUrl(imageURLString)
+        FirebaseManager.sharedInstance.getUserBasicInfo { (basicInfo) -> Void in
+            self.nameLabel.text = basicInfo?.displayName
+            self.emailLabel.text = basicInfo?.email
+            if let imageURLString:String = basicInfo?.profileImageURL {
+                self.profileImage.imageFromUrl(imageURLString)
+            }
         }
         
         // Uncomment the following line to preserve selection between presentations

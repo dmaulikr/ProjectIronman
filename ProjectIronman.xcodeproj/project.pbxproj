@@ -27,6 +27,7 @@
 		96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */; };
 		96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */; };
 		96DB4D871C88ADFC00ACAF00 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D861C88ADFC00ACAF00 /* APIManager.swift */; };
+		96FE09B11CA1C71B00105C81 /* FUserBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */; };
 		D8CC3F7B8DA0DB789694DEDC /* Pods_ProjectIronman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386D42F2CCFEC99B8E427245 /* Pods_ProjectIronman.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarMenuTableViewController.swift; sourceTree = "<group>"; };
 		96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		96DB4D861C88ADFC00ACAF00 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FUserBasicInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,20 +151,17 @@
 		96DB4D261C84CC7400ACAF00 /* ProjectIronman */ = {
 			isa = PBXGroup;
 			children = (
+				96FE09B21CA1D20100105C81 /* SupportFiles */,
+				96FE09AE1CA1C6B200105C81 /* Models */,
 				96DB4D851C88ADDF00ACAF00 /* Managers */,
 				96DB4D7E1C86954700ACAF00 /* Authentication */,
 				96DB4D7D1C86950300ACAF00 /* SidebarMenuPageControllers */,
 				96DB4D761C86589500ACAF00 /* SWRevealViewController */,
 				96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */,
 				96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */,
-				96DB4D5D1C855CC700ACAF00 /* EmptySegue.swift */,
-				96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */,
-				9607531F1C99C8F200388AC7 /* Enums.swift */,
 				96DB4D551C850C9800ACAF00 /* EntranceViewController.swift */,
-				96DB4D331C84CC7400ACAF00 /* Info.plist */,
 				96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */,
 				96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */,
-				96DB4D741C86239400ACAF00 /* Keys.plist */,
 			);
 			path = ProjectIronman;
 			sourceTree = "<group>";
@@ -222,6 +221,34 @@
 				960753211C99DCF900388AC7 /* ChallengeManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		96FE09AE1CA1C6B200105C81 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96FE09AF1CA1C6C500105C81 /* FireBase */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		96FE09AF1CA1C6C500105C81 /* FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */,
+			);
+			name = FireBase;
+			sourceTree = "<group>";
+		};
+		96FE09B21CA1D20100105C81 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				96DB4D5D1C855CC700ACAF00 /* EmptySegue.swift */,
+				96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */,
+				9607531F1C99C8F200388AC7 /* Enums.swift */,
+				96DB4D331C84CC7400ACAF00 /* Info.plist */,
+				96DB4D741C86239400ACAF00 /* Keys.plist */,
+			);
+			name = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +441,7 @@
 				96DB4D7C1C86926B00ACAF00 /* SettingViewController.swift in Sources */,
 				96DB4D561C850C9800ACAF00 /* EntranceViewController.swift in Sources */,
 				96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */,
+				96FE09B11CA1C71B00105C81 /* FUserBasicInfo.swift in Sources */,
 				96DB4D5A1C85580800ACAF00 /* FirebaseManager.swift in Sources */,
 				960753201C99C8F200388AC7 /* Enums.swift in Sources */,
 				96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */,

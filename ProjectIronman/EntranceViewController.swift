@@ -38,8 +38,8 @@ class EntranceViewController: UIViewController {
     func swapViewControllers(){
         
         if FirebaseManager.sharedInstance.isUserAuthenticated() {
-            FirebaseManager.sharedInstance.getUserConnectedDevice({ (device) -> Void in
-                if device != nil {
+            FirebaseManager.sharedInstance.getUserBasicInfo({ (basicInfo) -> Void in
+                if basicInfo?.deviceConnected != nil{
                     // load dash board
                     print("load main app")
                     self.performSegueWithIdentifier(self.validUserViewIdentifier, sender: self)

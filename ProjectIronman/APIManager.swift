@@ -43,12 +43,9 @@ public class APIManager {
         // first need to find out which device or app the user is using
         // get from Firebase
         // set the appropriate currentAPIClient
-        FirebaseManager.sharedInstance.getUserBasicInfo { (basicInfoDict) -> Void in
-            if let basicInfo = basicInfoDict {
-                if let deviceConnected:String = basicInfo["deviceConnected"] as? String {
-                    let device:Device = Device(rawValue: deviceConnected)!
-                    self.setCurrentAPIClient(device)
-                }
+        FirebaseManager.sharedInstance.getUserBasicInfo { (basicInfo) -> Void in
+            if let device = basicInfo?.deviceConnected {
+                self.setCurrentAPIClient(device)
             }
         }
     }

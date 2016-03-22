@@ -21,13 +21,17 @@ class FirebaseManager {
     
     /**
         Check to see if the user has been authenticated
-        - Returns: Bool
+        - Returns: Bool True: user authenticated and token is valid. False: user not authenticated or token has expired needs to reauthorize
     */
     func isUserAuthenticated() -> Bool{
         var retVal = false //default to not authenticated
 
+        // check if access token has expired
         if baseRef.authData != nil {
-            retVal = true
+            let tokenExpireTime = baseRef.authData.expires
+            if tokenExpireTime.doubleValue > NSDate().timeIntervalSince1970 {
+                retVal = true
+            }
         }
         
         return retVal
@@ -37,45 +41,50 @@ class FirebaseManager {
         baseRef.unauth()
     }
     
+    
+    
     /**
         Retrieve user basic info asynchronously. Completion Hander will receive nil
         if no basicInfo or user hasn't been authenticated
         - Parameter completionHandler: pass a NSDictionary back to the call back function
     */
-    func getUserBasicInfo(completionHandler: (NSDictionary? -> Void)){
+    func getUserBasicInfo(completionHandler: (FUserBasicInfo? -> Void)){
         if baseRef.authData != nil {
             baseRef.childByAppendingPath("users")
                 .childByAppendingPath(baseRef.authData.uid)
                 .childByAppendingPath("basicInfo")
                 .observeSingleEventOfType(.Value, withBlock: {
                     snapshot in
+                    
                     if let basicInfo = snapshot.value as? NSDictionary {
-                        completionHandler(basicInfo)
+                        // map raw data to model
+                        let userBasicInfo:FUserBasicInfo = FUserBasicInfo(rawData: basicInfo)
+                        completionHandler(userBasicInfo)
                     } else {
-                        completionHandler(nil)
+                        completionHandler(nil) // error feedback to delegate
                     }
                 })
         } else {
-            completionHandler(nil)
+            completionHandler(nil) // error feedback to delegate
         }
     }
     
-    func getUserConnectedDevice(completionHandler: Device? -> Void){
-        self.getUserBasicInfo { (basicInfoDict) -> Void in
-            if let basicInfo = basicInfoDict {
-                // if user has connected to a device or app load dash board
-                if let deviceConnected:String = basicInfo["deviceConnected"] as? String {
-                    let device:Device = Device(rawValue: deviceConnected)!
-                    completionHandler(device)
-                }
-                else {
-                    completionHandler(nil)
-                }
-            } else {
-                completionHandler(nil)
-            }
-        }
-    }
+//    func getUserConnectedDevice(completionHandler: Device? -> Void){
+//        self.getUserBasicInfo { (basicInfoDict) -> Void in
+//            if let basicInfo = basicInfoDict {
+//                // if user has connected to a device or app load dash board
+//                if let deviceConnected:String = basicInfo["deviceConnected"] as? String {
+//                    let device:Device = Device(rawValue: deviceConnected)!
+//                    completionHandler(device)
+//                }
+//                else {
+//                    completionHandler(nil)
+//                }
+//            } else {
+//                completionHandler(nil)
+//            }
+//        }
+//    }
     
     func getLatestRun(completionHandler: (NSDictionary -> Void)){
         baseRef.childByAppendingPath("users")
