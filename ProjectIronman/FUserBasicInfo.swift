@@ -11,19 +11,14 @@ import Foundation
 /**
     Data model for Firebase data
 */
-class FUserBasicInfo {
+class FUserBasicInfo: FModel {
     var deviceConnected:Device?
     var displayName:String?
     var email:String?
     var profileImageURL:String?
     var provider:String?
     
-    init(rawData:NSDictionary){
-        // usee a map function here
-        mapToModel(rawData)
-    }
-    
-    private func mapToModel(rawData:NSDictionary){
+    override func mapToModel(rawData:NSDictionary){
         if let deviceString = rawData["deviceConnected"] as? String {
             self.deviceConnected = Device(rawValue: deviceString)
         }
@@ -32,5 +27,29 @@ class FUserBasicInfo {
         self.email = rawData["email"] as? String
         self.profileImageURL = rawData["profileImageURL"] as? String
         self.provider = rawData["provider"] as? String
+    }
+    
+    override func toDict() -> [String : AnyObject] {
+        var dict = [String: AnyObject]()
+        
+        // testing for nil first becasue some user data might not
+        // be available at the same time.
+        if self.displayName != nil {
+            dict["displayName"] = self.displayName
+        }
+        if self.email != nil {
+            dict["email"] = self.email
+        }
+        if self.profileImageURL != nil {
+            dict["profielImageURL"] = self.profileImageURL
+        }
+        if self.provider != nil {
+            dict["provider"] = self.provider
+        }
+        if self.deviceConnected != nil {
+            dict["deviceConnected"] = self.deviceConnected?.rawValue
+        }
+    
+        return dict
     }
 }

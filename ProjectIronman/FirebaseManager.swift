@@ -54,7 +54,7 @@ class FirebaseManager {
                 .childByAppendingPath(baseRef.authData.uid)
                 .observeSingleEventOfType(.Value, withBlock: {
                     snapshot in
-                    
+
                     if let basicInfo = snapshot.value as? NSDictionary {
                         // map raw data to model
                         let userBasicInfo:FUserBasicInfo = FUserBasicInfo(rawData: basicInfo)
@@ -68,24 +68,41 @@ class FirebaseManager {
         }
     }
     
-//    func getUserConnectedDevice(completionHandler: Device? -> Void){
-//        self.getUserBasicInfo { (basicInfoDict) -> Void in
-//            if let basicInfo = basicInfoDict {
-//                // if user has connected to a device or app load dash board
-//                if let deviceConnected:String = basicInfo["deviceConnected"] as? String {
-//                    let device:Device = Device(rawValue: deviceConnected)!
-//                    completionHandler(device)
-//                }
-//                else {
-//                    completionHandler(nil)
-//                }
-//            } else {
-//                completionHandler(nil)
-//            }
-//        }
-//    }
+    /**
+        set the device connected variable after device authorized
+    */
+    func updateUserDevice(device:String) -> Void {
+        updateUser(["deviceConnected": device])
+    }
     
-    func getLatestRun(completionHandler: (NSDictionary -> Void)){
+    /**
+         Update user
+         - Parameter values: the values that you want to add to a new or existing user
+    */
+    func updateUser() -> Void {
+        if baseRef.authData != nil {
+            let providerData = baseRef.authData.providerData
+            let newUser = FUserBasicInfo(rawData: providerData)
+            newUser.provider = baseRef.authData.provider
+            
+            self.updateUser(newUser.toDict())
+        }
+    }
+    
+    /**
+        Update user
+        - Parameter values: the values that you want to add to a new or existing user
+    */
+    private func updateUser(values: [NSObject: AnyObject]) -> Void {
+        if baseRef.authData != nil {
+            baseRef.childByAppendingPath("users")
+                .childByAppendingPath(baseRef.authData.uid)
+                .updateChildValues(values)
+            
+        }
+    }
+    
+    func getLatestRun(completionHandler: (FActivity? -> Void)){
         baseRef.childByAppendingPath("activities")
             .childByAppendingPath(baseRef.authData.uid)
             .childByAppendingPath("run")
@@ -94,26 +111,17 @@ class FirebaseManager {
             .observeSingleEventOfType(.Value, withBlock: {
                 (snapshot) -> Void in
                 
-                for data in snapshot.children {
-                    print(data)
-                    
-                    //pass to FActivity and call completionHandler
+                if snapshot.value is NSNull {
+                    completionHandler(nil)
+                } else {
+                    var activity:FActivity?
+                    for child in snapshot.children.allObjects as! [FDataSnapshot] {
+                        
+                        activity = FActivity(rawData: child.value as! NSDictionary)
+                    }
+                    completionHandler(activity)
                 }
-                
-        })
-    }
-    
-    /**
-        Update user
-        - Parameter values: the values that you want to add to a new or existing user
-    */
-    func updateUser(values: [NSObject: AnyObject]) -> Void {
-        if baseRef.authData != nil {
-            baseRef.childByAppendingPath("users")
-                .childByAppendingPath(baseRef.authData.uid)
-                .updateChildValues(values)
-            
-        }
+            })
     }
     
     /**
@@ -130,6 +138,10 @@ class FirebaseManager {
         }
     }
     
+    /**
+        Add new challenge
+        - Parameter
+    */
     func setChallenge(values: [NSObject: AnyObject]) -> Void {
         if baseRef.authData != nil {
             baseRef.childByAppendingPath("challenges")
@@ -138,6 +150,9 @@ class FirebaseManager {
         }
     }
     
+    /**
+        Update challenge
+    */
     func updateChallenge(id: String, values: [NSObject: AnyObject]) -> Void {
         if baseRef.authData != nil {
             baseRef.childByAppendingPath("challenges")

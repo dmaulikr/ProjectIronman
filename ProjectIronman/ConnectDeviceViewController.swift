@@ -24,7 +24,7 @@ class ConnectDeviceViewController: UIViewController, APIManagerAuthDelegate {
     func authorizationComplete() {
         print("auth complete")
 
-        FirebaseManager.sharedInstance.updateUser(["deviceConnected": (connectingWithDevice?.rawValue)!])
+        FirebaseManager.sharedInstance.updateUserDevice((connectingWithDevice?.rawValue)!)
         
         //dismiss this view and send to dashboard
         self.dismissViewControllerAnimated(false, completion: nil)

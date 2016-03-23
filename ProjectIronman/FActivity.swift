@@ -8,20 +8,15 @@
 
 import Foundation
 
-class FActivity {
+class FActivity: FModel{
     var id:String?
     var type:String?
     var distance:Float?
     var time:Int?
     var startDate:NSTimeInterval?
     var timeZone:String?
-
-    init(rawData:NSDictionary){
-        // usee a map function here
-        mapToModel(rawData)
-    }
     
-    private func mapToModel(rawData:NSDictionary){
+    override func mapToModel(rawData:NSDictionary){
         self.id = rawData["id"] as? String
         self.type = rawData["type"] as? String
         self.distance = rawData["distance"] as? Float

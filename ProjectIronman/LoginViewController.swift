@@ -32,15 +32,7 @@ class LoginViewController: UIViewController {
 //                            print("Logged in! \(authData)")
                             
                             // create new user
-                            let providerData = authData.providerData
-                            let newUser:[String:AnyObject] = [
-                                "provider": authData.provider,
-                                "displayName": providerData["displayName"]!,
-                                "email": providerData["email"]!,
-                                "profileImageURL": providerData["profileImageURL"]!
-                            ]
-                            
-                            FirebaseManager.sharedInstance.updateUser(newUser)
+                            FirebaseManager.sharedInstance.updateUser()
                             
                             self.dismissViewControllerAnimated(true, completion: nil)
                         }

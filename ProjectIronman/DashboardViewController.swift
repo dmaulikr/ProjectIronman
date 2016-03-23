@@ -52,6 +52,7 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
         FirebaseManager.sharedInstance.getLatestRun { (activity) -> Void in
 
         }
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"

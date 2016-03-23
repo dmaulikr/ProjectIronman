@@ -27,8 +27,11 @@
 		96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */; };
 		96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */; };
 		96DB4D871C88ADFC00ACAF00 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D861C88ADFC00ACAF00 /* APIManager.swift */; };
-		96FE09B11CA1C71B00105C81 /* FUserBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */; };
 		96FE09B41CA1EDFA00105C81 /* FActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B31CA1EDFA00105C81 /* FActivity.swift */; };
+		96FE09BE1CA32B5C00105C81 /* FChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B51CA30E0200105C81 /* FChallenge.swift */; };
+		96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B71CA3118D00105C81 /* FModel.swift */; };
+		96FE09C01CA32B6400105C81 /* FUserBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */; };
+		96FE09C21CA33F2100105C81 /* FModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B91CA3299200105C81 /* FModelTests.swift */; };
 		D8CC3F7B8DA0DB789694DEDC /* Pods_ProjectIronman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386D42F2CCFEC99B8E427245 /* Pods_ProjectIronman.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,9 @@
 		96DB4D861C88ADFC00ACAF00 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FUserBasicInfo.swift; sourceTree = "<group>"; };
 		96FE09B31CA1EDFA00105C81 /* FActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FActivity.swift; sourceTree = "<group>"; };
+		96FE09B51CA30E0200105C81 /* FChallenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FChallenge.swift; sourceTree = "<group>"; };
+		96FE09B71CA3118D00105C81 /* FModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FModel.swift; sourceTree = "<group>"; };
+		96FE09B91CA3299200105C81 /* FModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,7 @@
 			children = (
 				96DB4D3E1C84CC7400ACAF00 /* Info.plist */,
 				96DB4D3C1C84CC7400ACAF00 /* ProjectIronmanTests.swift */,
+				96FE09B91CA3299200105C81 /* FModelTests.swift */,
 			);
 			path = ProjectIronmanTests;
 			sourceTree = "<group>";
@@ -238,6 +245,8 @@
 			children = (
 				96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */,
 				96FE09B31CA1EDFA00105C81 /* FActivity.swift */,
+				96FE09B51CA30E0200105C81 /* FChallenge.swift */,
+				96FE09B71CA3118D00105C81 /* FModel.swift */,
 			);
 			name = FireBase;
 			sourceTree = "<group>";
@@ -441,10 +450,11 @@
 				96DB4D581C8514C800ACAF00 /* LoginViewController.swift in Sources */,
 				96DB4D731C861FAA00ACAF00 /* ConnectDeviceViewController.swift in Sources */,
 				960753221C99DCF900388AC7 /* ChallengeManager.swift in Sources */,
+				96FE09BE1CA32B5C00105C81 /* FChallenge.swift in Sources */,
 				96DB4D7C1C86926B00ACAF00 /* SettingViewController.swift in Sources */,
 				96DB4D561C850C9800ACAF00 /* EntranceViewController.swift in Sources */,
+				96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */,
 				96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */,
-				96FE09B11CA1C71B00105C81 /* FUserBasicInfo.swift in Sources */,
 				96DB4D5A1C85580800ACAF00 /* FirebaseManager.swift in Sources */,
 				960753201C99C8F200388AC7 /* Enums.swift in Sources */,
 				96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */,
@@ -452,6 +462,7 @@
 				96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */,
 				96FE09B41CA1EDFA00105C81 /* FActivity.swift in Sources */,
 				96DB4D5E1C855CC700ACAF00 /* EmptySegue.swift in Sources */,
+				96FE09C01CA32B6400105C81 /* FUserBasicInfo.swift in Sources */,
 				96DB4D7A1C8658CB00ACAF00 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FE09C21CA33F2100105C81 /* FModelTests.swift in Sources */,
 				96DB4D3D1C84CC7400ACAF00 /* ProjectIronmanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

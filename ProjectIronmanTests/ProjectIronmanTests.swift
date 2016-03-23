@@ -21,10 +21,34 @@ class ProjectIronmanTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testing(){
     }
+    
+//    func testExample() {
+//        // This is an example of a functional test case.
+//        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//    }
+    
+    func challengeMapToModelTest(){
+        let testChallengeDict = [
+            "type": "OneVOne",
+            "mode": "Distance",
+            "status": "Active",
+            "startTime": 234934934,
+            "duration": 4,
+            "createdBy": "user123",
+            "memberId": "user456",
+            "progress": [
+                "user123": 5,
+                "user456": 3
+            ]
+        ]
+        
+        let challenge = FChallenge(rawData: testChallengeDict)
+        
+        XCTAssertEqual(testChallengeDict["type"], challenge.type.rawValue, "type not the same")
+    }
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
