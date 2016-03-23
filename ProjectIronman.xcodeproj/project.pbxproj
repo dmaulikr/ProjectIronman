@@ -28,6 +28,7 @@
 		96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */; };
 		96DB4D871C88ADFC00ACAF00 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D861C88ADFC00ACAF00 /* APIManager.swift */; };
 		96FE09B11CA1C71B00105C81 /* FUserBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */; };
+		96FE09B41CA1EDFA00105C81 /* FActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B31CA1EDFA00105C81 /* FActivity.swift */; };
 		D8CC3F7B8DA0DB789694DEDC /* Pods_ProjectIronman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386D42F2CCFEC99B8E427245 /* Pods_ProjectIronman.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		96DB4D861C88ADFC00ACAF00 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FUserBasicInfo.swift; sourceTree = "<group>"; };
+		96FE09B31CA1EDFA00105C81 /* FActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */,
+				96FE09B31CA1EDFA00105C81 /* FActivity.swift */,
 			);
 			name = FireBase;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */,
 				96DB4D801C8695CB00ACAF00 /* DashboardViewController.swift in Sources */,
 				96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */,
+				96FE09B41CA1EDFA00105C81 /* FActivity.swift in Sources */,
 				96DB4D5E1C855CC700ACAF00 /* EmptySegue.swift in Sources */,
 				96DB4D7A1C8658CB00ACAF00 /* SWRevealViewController.m in Sources */,
 			);

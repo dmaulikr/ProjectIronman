@@ -31,7 +31,7 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
                 
                 //check to make sure activity is of type Run
 
-                FirebaseManager.sharedInstance.updateRunActivity(activity.toDict())
+                FirebaseManager.sharedInstance.setRunActivity(activity.toDict())
                 
                 //need to make challenge manager listen to activity/run update
                 //whenever there's an update challenge manager needs to check
@@ -49,7 +49,9 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
         super.viewDidLoad()
         
         APIManager.sharedInstance.activityDelegate = self
-        
+        FirebaseManager.sharedInstance.getLatestRun { (activity) -> Void in
+
+        }
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"

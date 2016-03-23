@@ -52,7 +52,6 @@ class FirebaseManager {
         if baseRef.authData != nil {
             baseRef.childByAppendingPath("users")
                 .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath("basicInfo")
                 .observeSingleEventOfType(.Value, withBlock: {
                     snapshot in
                     
@@ -87,13 +86,19 @@ class FirebaseManager {
 //    }
     
     func getLatestRun(completionHandler: (NSDictionary -> Void)){
-        baseRef.childByAppendingPath("users")
+        baseRef.childByAppendingPath("activities")
             .childByAppendingPath(baseRef.authData.uid)
-            .childByAppendingPath("activities/running")
-            .queryOrderedByChild("timestamp")
+            .childByAppendingPath("run")
+            .queryOrderedByChild("startDate")
+            .queryLimitedToLast(1)
             .observeSingleEventOfType(.Value, withBlock: {
                 (snapshot) -> Void in
                 
+                for data in snapshot.children {
+                    print(data)
+                    
+                    //pass to FActivity and call completionHandler
+                }
                 
         })
     }
@@ -106,7 +111,6 @@ class FirebaseManager {
         if baseRef.authData != nil {
             baseRef.childByAppendingPath("users")
                 .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath("basicInfo")
                 .updateChildValues(values)
             
         }
@@ -116,12 +120,28 @@ class FirebaseManager {
         Add new running activity to backend
         - Parameter values: the values of a running activity
     */
-    func updateRunActivity(values: [NSObject: AnyObject]) -> Void {
+    func setRunActivity(values: [NSObject: AnyObject]) -> Void {
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath("users")
+            baseRef.childByAppendingPath("activities")
                 .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath("activities/running")
+                .childByAppendingPath("run")
                 .childByAutoId()
+                .setValue(values)
+        }
+    }
+    
+    func setChallenge(values: [NSObject: AnyObject]) -> Void {
+        if baseRef.authData != nil {
+            baseRef.childByAppendingPath("challenges")
+                .childByAutoId()
+                .setValue(values)
+        }
+    }
+    
+    func updateChallenge(id: String, values: [NSObject: AnyObject]) -> Void {
+        if baseRef.authData != nil {
+            baseRef.childByAppendingPath("challenges")
+                .childByAppendingPath(id)
                 .updateChildValues(values)
         }
     }

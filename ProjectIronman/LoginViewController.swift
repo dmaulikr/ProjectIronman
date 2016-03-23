@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
                         if error != nil {
                             print("Login failed. \(error)")
                         } else {
-                            print("Logged in! \(authData)")
+//                            print("Logged in! \(authData)")
                             
                             // create new user
                             let providerData = authData.providerData
