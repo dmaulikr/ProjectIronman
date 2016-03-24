@@ -12,5 +12,7 @@ class ChallengeManager {
     static let sharedInstance = ChallengeManager()
     
     
-    
+    //need to make challenge manager listen to activity/run update
+    //whenever there's an update challenge manager needs to check
+    //if those activities count towards any type of challenges
 }

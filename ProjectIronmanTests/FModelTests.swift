@@ -13,23 +13,7 @@ class FModelTests: XCTestCase{
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        let testChallengeDict = [
-            "type": "OneVOne",
-            "mode": "Distance",
-            "status": "Active",
-            "startTime": NSDate().timeIntervalSince1970,
-            "duration": 4,
-            "createdBy": "user123",
-            "memberId": "user456",
-            "progress": [
-                "user123": 5,
-                "user456": 3
-            ]
-        ]
     }
-    
-
     
     func testChallengeMapToModel(){
         let testChallengeDict = [
@@ -59,7 +43,7 @@ class FModelTests: XCTestCase{
     }
     
     func testChallengeToDict(){
-        let testChallengeDict:[String:AnyObject] = [
+        let inputChallengeDict:[String:AnyObject] = [
             "type": "OneVOne",
             "mode": "Distance",
             "status": "Active",
@@ -73,11 +57,12 @@ class FModelTests: XCTestCase{
             ]
         ]
         
-        let challenge = FChallenge(rawData: testChallengeDict)
+        let challenge = FChallenge(rawData: inputChallengeDict)
         
-        let testDict = challenge.toDict()
+        let outputChallengeDict = challenge.toDict()
         
-        print(testDict)
+        XCTAssertEqual(inputChallengeDict["type"] as? String, outputChallengeDict["type"] as? String)
+        XCTAssertEqual(inputChallengeDict["duration"] as? Int, outputChallengeDict["duration"] as? Int)
 
     }
     

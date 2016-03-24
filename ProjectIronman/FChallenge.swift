@@ -19,8 +19,15 @@ class FChallenge: FModel{
     private var progress:[NSObject:AnyObject]! // Dictionary<userId, progress>
     // winning condition?
     
+    func updateProgress(userId:String, value:AnyObject){
+        if progress[userId] != nil {
+            progress[userId] = value
+        }
+    }
     
-    
+    func getProgress(userId:String) -> Int{
+        return progress[userId] as! Int
+    }
     
     override func mapToModel(rawData: NSDictionary){
         self.type = ChallengeType(rawValue: rawData["type"] as! String)

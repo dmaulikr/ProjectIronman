@@ -12,6 +12,10 @@ import SwiftyJSON
 
 class DashboardViewController: UIViewController, APIManagerActivityDelegate {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var paceLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var fetchButton: UIBarButtonItem!
     
@@ -30,28 +34,34 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
             for activity in activities!{
                 
                 //check to make sure activity is of type Run
-
                 FirebaseManager.sharedInstance.setRunActivity(activity.toDict())
-                
-                //need to make challenge manager listen to activity/run update
-                //whenever there's an update challenge manager needs to check
-                //if those activities count towards any type of challenges
-
-                print(activity)
             }
+            
+            //show the latest run stats
+            updateLatestRunStats()
+            
         } else {
             // update error. show the error in UI somewhere
         }
-        
+    }
+    
+    func updateLatestRunStats() -> Void {
+        FirebaseManager.sharedInstance.getLatestRun({ (latestRun) -> Void in
+            if let run:FActivity = latestRun {
+                self.timeLabel.text = self.timeFormatter(run.time!)
+                
+                // convert dsitance to Km or miles
+                let km = run.distance! / 1000.0
+                self.distanceLabel.text = String(format: "%0.2f km", arguments: [km])
+            }
+        })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         APIManager.sharedInstance.activityDelegate = self
-        FirebaseManager.sharedInstance.getLatestRun { (activity) -> Void in
-
-        }
+        updateLatestRunStats()
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -66,6 +76,24 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    private func timeFormatter(timeInSeconds:Int) -> String {
+        var timeString = "-"
+        if timeInSeconds > 3600 {
+            let hours = timeInSeconds / 3600
+            
+            let remainingSec = timeInSeconds - (3600 * hours)
+            
+            let minutes = remainingSec / 60
+            let seconds = remainingSec % 60
+            timeString = String(format: "%02d:%02d:%02d", arguments: [hours, minutes, seconds])
+        } else {
+            let minutes = timeInSeconds / 60
+            let seconds = timeInSeconds % 60
+            timeString = String(format: "%02d:%02d", arguments: [minutes, seconds])
+        }
+        
+        return timeString
+    }
 
     /*
     // MARK: - Navigation
