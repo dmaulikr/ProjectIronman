@@ -139,25 +139,81 @@ class FirebaseManager {
     }
     
     /**
-        Add new challenge
+        Add new challenge. Whenever a challenge is created. the challengeId
+        is also added to pending table for created user and invitation table 
+        for member
+     
         - Parameter
     */
-    func setChallenge(values: [NSObject: AnyObject]) -> Void {
+    func setChallenge(values: [NSObject: AnyObject],
+        completionHandler: (() -> Void)?) -> Void {
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath("challenges")
-                .childByAutoId()
-                .setValue(values)
+            let challengeRef = baseRef.childByAppendingPath("challenges")
+                                .childByAutoId()
+            
+            challengeRef.setValue(values, withCompletionBlock: {
+                (error, ref) -> Void in
+                
+                // set id to pending
+                self.baseRef.childByAppendingPath("pending")
+                    .childByAppendingPath(self.baseRef.authData.uid)
+                    .childByAppendingPath(challengeRef.key)
+                    .setValue(true, withCompletionBlock: {
+                        (error, ref) -> Void in
+                        
+                        if error == nil {
+                            completionHandler?()
+                        }
+                    })
+                
+            })
+            
         }
     }
     
     /**
         Update challenge
     */
-    func updateChallenge(id: String, values: [NSObject: AnyObject]) -> Void {
+    func updateChallenge(id: String, values: [NSObject: AnyObject],
+        completionHandler: (() -> Void)?) -> Void {
         if baseRef.authData != nil {
             baseRef.childByAppendingPath("challenges")
                 .childByAppendingPath(id)
-                .updateChildValues(values)
+                .updateChildValues(values, withCompletionBlock: { (error, ref) -> Void in
+                    if error == nil {
+                        completionHandler?()
+                    }
+                })
         }
+    }
+    
+    func setPendingChallenge(id:String, completionHandler: (() -> Void)?) -> Void {
+        if baseRef.authData != nil {
+            baseRef.childByAppendingPath("pending")
+                .childByAppendingPath(baseRef.authData.uid)
+                .childByAppendingPath(id)
+                .setValue(true, withCompletionBlock: { (error, ref) -> Void in
+                    if error == nil {
+                        completionHandler?()
+                    }
+                })
+        }
+    }
+    
+    
+    func updatePendingToActive(id:String) -> Void {
+        //test if id is in pending
+        //move id to active
+        //remove id from pending
+        
+    }
+    
+    func updateInvitationToActive(id:String) -> Void {
+    }
+    
+    func updatePendingToDeclined(id:String) -> Void {
+    }
+    
+    func updateActiveToCompleted(id:String) -> Void {
     }
 }

@@ -14,19 +14,45 @@ class FChallenge: FModel{
     var status:ChallengeStatus!
     var startTime:NSTimeInterval! // start time in UTC timestamp
     var duration:Int! // how many days
-    var createdBy:String! // user id
-    var memberId:String! //member id
-    private var progress:[NSObject:AnyObject]! // Dictionary<userId, progress>
+    private var progress:[NSObject:AnyObject] = [NSObject:AnyObject]() // Dictionary<userId, progress>
     // winning condition?
     
+    var createdBy:String! {
+        // make sure progress dict is initialized with this userId as well
+        didSet {
+            if progress[createdBy] == nil {
+                progress[createdBy] = 0
+            }
+        }
+    }
+    
+    var member:String! {
+        didSet {
+            if progress[member] == nil {
+                progress[member] = 0
+            }
+        }
+    }
+    
+    
+    /**
+        update user progress with value
+        - Parameter value: this value can be distance, speed, or streak depending on what challenge type and challenge mode
+    */
     func updateProgress(userId:String, value:AnyObject){
         if progress[userId] != nil {
             progress[userId] = value
         }
     }
     
-    func getProgress(userId:String) -> Int{
-        return progress[userId] as! Int
+    /**
+        return user progress
+    */
+    func getProgress(userId:String) -> AnyObject?{
+        if let userProgress = progress[userId] {
+            return userProgress
+        }
+        return nil
     }
     
     override func mapToModel(rawData: NSDictionary){
@@ -36,9 +62,7 @@ class FChallenge: FModel{
         self.startTime = rawData["startTime"] as! NSTimeInterval
         self.duration = rawData["duration"] as! Int
         self.createdBy = rawData["createdBy"] as! String
-        self.memberId = rawData["memberId"] as! String
-        
-//        let progressDict = rawData["progress"] as! [NSObject: AnyObject]
+        self.member = rawData["memberId"] as! String
         self.progress = rawData["progress"] as! [NSObject:AnyObject]
     }
     
@@ -50,7 +74,7 @@ class FChallenge: FModel{
             "startTime": self.startTime,
             "duration": self.duration,
             "createdBy": self.createdBy,
-            "memberId": self.memberId,
+            "member": self.member,
             "progress": self.progress
         ]
     }

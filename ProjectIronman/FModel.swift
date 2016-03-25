@@ -12,6 +12,8 @@ import Foundation
     Base class for all firebase models
 */
 class FModel {
+    init(){}
+    
     init(rawData: NSDictionary){
         mapToModel(rawData)
     }

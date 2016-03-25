@@ -32,6 +32,7 @@
 		96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B71CA3118D00105C81 /* FModel.swift */; };
 		96FE09C01CA32B6400105C81 /* FUserBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */; };
 		96FE09C21CA33F2100105C81 /* FModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B91CA3299200105C81 /* FModelTests.swift */; };
+		96FE09C61CA492A900105C81 /* FirebaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09C51CA492A900105C81 /* FirebaseManagerTests.swift */; };
 		D8CC3F7B8DA0DB789694DEDC /* Pods_ProjectIronman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386D42F2CCFEC99B8E427245 /* Pods_ProjectIronman.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		96FE09B51CA30E0200105C81 /* FChallenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FChallenge.swift; sourceTree = "<group>"; };
 		96FE09B71CA3118D00105C81 /* FModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FModel.swift; sourceTree = "<group>"; };
 		96FE09B91CA3299200105C81 /* FModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FModelTests.swift; sourceTree = "<group>"; };
+		96FE09C51CA492A900105C81 /* FirebaseManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				96DB4D3E1C84CC7400ACAF00 /* Info.plist */,
 				96DB4D3C1C84CC7400ACAF00 /* ProjectIronmanTests.swift */,
 				96FE09B91CA3299200105C81 /* FModelTests.swift */,
+				96FE09C51CA492A900105C81 /* FirebaseManagerTests.swift */,
 			);
 			path = ProjectIronmanTests;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FE09C21CA33F2100105C81 /* FModelTests.swift in Sources */,
+				96FE09C61CA492A900105C81 /* FirebaseManagerTests.swift in Sources */,
 				96DB4D3D1C84CC7400ACAF00 /* ProjectIronmanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
