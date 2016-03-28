@@ -518,7 +518,8 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="XNI-2k-Sln"/>
                         <barButtonItem key="rightBarButtonItem" title="Create" id="LgR-gF-pU9">
                             <connections>
-                                <segue destination="9ng-R5-Q6q" kind="push" id="w4B-dg-mq0"/>
+                                <action selector="createNewChallenge:" destination="Axg-w5-55M" id="i4n-v8-SKf"/>
+                                <segue destination="9ng-R5-Q6q" kind="push" identifier="CreateNewChallenge" id="w4B-dg-mq0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -527,6 +528,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="menuButton" destination="XNI-2k-Sln" id="rx6-Br-QaL"/>
                         <segue destination="eQg-UR-Rwe" kind="relationship" relationship="viewControllers" id="YV9-vB-4km"/>
                         <segue destination="ATr-oD-QcK" kind="relationship" relationship="viewControllers" id="4qx-lH-iEh"/>
                     </connections>
@@ -538,7 +540,7 @@
         <!--New Challenge-->
         <scene sceneID="8UB-fF-yYv">
             <objects>
-                <viewController id="9ng-R5-Q6q" sceneMemberID="viewController">
+                <viewController id="9ng-R5-Q6q" customClass="NewChallengeViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u0b-jB-dSP"/>
                         <viewControllerLayoutGuide type="bottom" id="76k-GS-qa4"/>
@@ -550,6 +552,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dN-8T-ITb">
                                 <rect key="frame" x="140" y="229" width="41" height="30"/>
                                 <state key="normal" title="Co op"/>
+                                <connections>
+                                    <action selector="coopButton:" destination="9ng-R5-Q6q" eventType="touchUpInside" id="RUO-9I-tR0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a challenge type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLT-AO-EhQ">
                                 <rect key="frame" x="67" y="117" width="186" height="21"/>
@@ -561,7 +566,7 @@
                                 <rect key="frame" x="143" y="170" width="34" height="30"/>
                                 <state key="normal" title="1 v 1 "/>
                                 <connections>
-                                    <segue destination="1Xr-1c-p7e" kind="push" id="uUS-su-sUe"/>
+                                    <action selector="oneVOneButton:" destination="9ng-R5-Q6q" eventType="touchUpInside" id="3rB-rD-100"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -577,15 +582,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Challenge" id="X6T-bk-gQA"/>
+                    <connections>
+                        <segue destination="1Xr-1c-p7e" kind="push" identifier="ChooseMode" id="ZGH-hK-vw7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lB6-fl-5q8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3686" y="1742"/>
         </scene>
-        <!--1 v 1 Mode-->
+        <!--Choose Mode-->
         <scene sceneID="hwm-gf-Jbr">
             <objects>
-                <viewController id="1Xr-1c-p7e" sceneMemberID="viewController">
+                <viewController id="1Xr-1c-p7e" customClass="ChooseModeViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WEE-Ba-QSC"/>
                         <viewControllerLayoutGuide type="bottom" id="MCv-Ur-Rca"/>
@@ -597,14 +605,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJW-Vn-aYa">
                                 <rect key="frame" x="138" y="274" width="45" height="30"/>
                                 <state key="normal" title="Streak"/>
+                                <connections>
+                                    <action selector="streakModeButtonClick:" destination="1Xr-1c-p7e" eventType="touchUpInside" id="Ls9-Hh-Kif"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr7-OJ-T9c">
                                 <rect key="frame" x="138" y="200" width="44" height="30"/>
                                 <state key="normal" title="Speed"/>
+                                <connections>
+                                    <action selector="speedModeButtonClick:" destination="1Xr-1c-p7e" eventType="touchUpInside" id="LIu-UB-c6J"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEk-Kb-lBd">
                                 <rect key="frame" x="130" y="132" width="60" height="30"/>
                                 <state key="normal" title="Distance"/>
+                                <connections>
+                                    <action selector="distanceModeButtonClick:" destination="1Xr-1c-p7e" eventType="touchUpInside" id="CFZ-2j-Rpk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -617,19 +634,19 @@
                             <constraint firstItem="kJW-Vn-aYa" firstAttribute="top" secondItem="Vr7-OJ-T9c" secondAttribute="bottom" constant="44" id="vRm-Tu-3pn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="1 v 1 Mode" id="xH1-6J-Rxi"/>
+                    <navigationItem key="navigationItem" title="Choose Mode" id="xH1-6J-Rxi"/>
                     <connections>
-                        <segue destination="QLf-Rc-aoa" kind="push" id="kI4-hm-Gdd"/>
+                        <segue destination="QLf-Rc-aoa" kind="push" identifier="EditChallengeDetails" id="kI4-hm-Gdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ilc-HB-ZfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4226" y="1742"/>
+            <point key="canvasLocation" x="4218" y="1748"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Detail View Controller-->
         <scene sceneID="5gj-8U-gNF">
             <objects>
-                <viewController id="QLf-Rc-aoa" sceneMemberID="viewController">
+                <viewController id="QLf-Rc-aoa" customClass="EditDetailViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YD9-mk-6wG"/>
                         <viewControllerLayoutGuide type="bottom" id="LF0-Fk-fTH"/>
@@ -640,10 +657,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="xE4-pS-3YS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uPN-6o-Ez4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uPN-6o-Ez4">
+                            <connections>
+                                <action selector="saveButtonClick:" destination="QLf-Rc-aoa" id="olW-1U-sGz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="qRv-Jv-flm" kind="unwind" identifier="UnwindToChallengeHome" unwindAction="unwindToChallengeHome:" id="cTa-Pn-BnY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOa-kU-iwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qRv-Jv-flm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4796" y="1742"/>
         </scene>
@@ -654,6 +679,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bia-lT-ZhG"/>
+        <segue reference="wtL-Xg-BN6"/>
     </inferredMetricsTieBreakers>
 </document>

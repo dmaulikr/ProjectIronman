@@ -1,5 +1,5 @@
 //
-//  NewChallengeViewController.swift
+//  EditDetailViewController.swift
 //  ProjectIronman
 //
 //  Created by Jason Cheng on 3/28/16.
@@ -8,23 +8,28 @@
 
 import UIKit
 
-class NewChallengeViewController: UIViewController {
+class EditDetailViewController: UIViewController {
     var newChallenge:FChallenge!
     
-    @IBAction func oneVOneButton(sender: AnyObject) {
-        self.newChallenge.type = ChallengeType.OneVOne
-        self.performSegueWithIdentifier("ChooseMode", sender: self)
-    }
-
-    @IBAction func coopButton(sender: AnyObject) {
-        self.newChallenge.type = ChallengeType.Coop
-        self.performSegueWithIdentifier("ChooseMode", sender: self)
+    @IBAction func saveButtonClick(sender: AnyObject) {
+        newChallenge.status = ChallengeStatus.Pending
+        // fill in other challenge properties
+        
+        // saving screen loading
+        FirebaseManager.sharedInstance.setChallenge(newChallenge.toDict()) { () -> Void in
+            
+            //dismiss loading screen
+            
+            //return to home
+            self.performSegueWithIdentifier("UnwindToChallengeHome", sender: self)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-           }
+        // Do any additional setup after loading the view.
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,18 +37,14 @@ class NewChallengeViewController: UIViewController {
     }
     
 
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "ChooseMode" {
-            let destinationController = segue.destinationViewController as! ChooseModeViewController
-            destinationController.newChallenge = self.newChallenge
-        }
     }
-
+    */
 
 }
