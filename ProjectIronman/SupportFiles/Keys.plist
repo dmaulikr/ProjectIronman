@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StravaClientId</key>
+	<string>10326</string>
+	<key>StravaClientSecret</key>
+	<string>a3099511cf1afc5dba6aba37836f1b558c4944be</string>
+</dict>
+</plist>

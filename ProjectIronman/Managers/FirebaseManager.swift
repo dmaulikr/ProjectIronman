@@ -171,6 +171,8 @@ class FirebaseManager {
         }
     }
     
+    //
+    
     /**
         Update challenge
     */
@@ -187,33 +189,33 @@ class FirebaseManager {
         }
     }
     
-    func setPendingChallenge(id:String, completionHandler: (() -> Void)?) -> Void {
-        if baseRef.authData != nil {
-            baseRef.childByAppendingPath("pending")
-                .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath(id)
-                .setValue(true, withCompletionBlock: { (error, ref) -> Void in
-                    if error == nil {
-                        completionHandler?()
-                    }
-                })
-        }
-    }
-    
-    
-    func updatePendingToActive(id:String) -> Void {
-        //test if id is in pending
-        //move id to active
-        //remove id from pending
-        
-    }
-    
-    func updateInvitationToActive(id:String) -> Void {
-    }
-    
-    func updatePendingToDeclined(id:String) -> Void {
-    }
-    
-    func updateActiveToCompleted(id:String) -> Void {
-    }
+//    func setPendingChallenge(id:String, completionHandler: (() -> Void)?) -> Void {
+//        if baseRef.authData != nil {
+//            baseRef.childByAppendingPath("pending")
+//                .childByAppendingPath(baseRef.authData.uid)
+//                .childByAppendingPath(id)
+//                .setValue(true, withCompletionBlock: { (error, ref) -> Void in
+//                    if error == nil {
+//                        completionHandler?()
+//                    }
+//                })
+//        }
+//    }
+//    
+//    
+//    func updatePendingToActive(id:String) -> Void {
+//        //test if id is in pending
+//        //move id to active
+//        //remove id from pending
+//        
+//    }
+//    
+//    func updateInvitationToActive(id:String) -> Void {
+//    }
+//    
+//    func updatePendingToDeclined(id:String) -> Void {
+//    }
+//    
+//    func updateActiveToCompleted(id:String) -> Void {
+//    }
 }

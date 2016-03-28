@@ -33,6 +33,8 @@
 		96FE09C01CA32B6400105C81 /* FUserBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */; };
 		96FE09C21CA33F2100105C81 /* FModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09B91CA3299200105C81 /* FModelTests.swift */; };
 		96FE09C61CA492A900105C81 /* FirebaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09C51CA492A900105C81 /* FirebaseManagerTests.swift */; };
+		96FE09C91CA9C19B00105C81 /* ChallengeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09C81CA9C19B00105C81 /* ChallengeTabBarViewController.swift */; };
+		96FE09CB1CA9C39D00105C81 /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */; };
 		D8CC3F7B8DA0DB789694DEDC /* Pods_ProjectIronman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386D42F2CCFEC99B8E427245 /* Pods_ProjectIronman.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,8 @@
 		96FE09B71CA3118D00105C81 /* FModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FModel.swift; sourceTree = "<group>"; };
 		96FE09B91CA3299200105C81 /* FModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FModelTests.swift; sourceTree = "<group>"; };
 		96FE09C51CA492A900105C81 /* FirebaseManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManagerTests.swift; sourceTree = "<group>"; };
+		96FE09C81CA9C19B00105C81 /* ChallengeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTabBarViewController.swift; sourceTree = "<group>"; };
+		96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,17 +165,19 @@
 		96DB4D261C84CC7400ACAF00 /* ProjectIronman */ = {
 			isa = PBXGroup;
 			children = (
-				96FE09B21CA1D20100105C81 /* SupportFiles */,
-				96FE09AE1CA1C6B200105C81 /* Models */,
-				96DB4D851C88ADDF00ACAF00 /* Managers */,
 				96DB4D7E1C86954700ACAF00 /* Authentication */,
-				96DB4D7D1C86950300ACAF00 /* SidebarMenuPageControllers */,
+				96DB4D851C88ADDF00ACAF00 /* Managers */,
+				96FE09AE1CA1C6B200105C81 /* Models */,
+				96FE09C71CA9C0A400105C81 /* NewChallenge */,
 				96DB4D761C86589500ACAF00 /* SWRevealViewController */,
+				96FE09B21CA1D20100105C81 /* SupportFiles */,
 				96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */,
 				96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */,
-				96DB4D551C850C9800ACAF00 /* EntranceViewController.swift */,
+				96DB4D7F1C8695CB00ACAF00 /* DashboardViewController.swift */,
 				96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */,
 				96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */,
+				96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */,
+				96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */,
 			);
 			path = ProjectIronman;
 			sourceTree = "<group>";
@@ -179,10 +185,10 @@
 		96DB4D3B1C84CC7400ACAF00 /* ProjectIronmanTests */ = {
 			isa = PBXGroup;
 			children = (
-				96DB4D3E1C84CC7400ACAF00 /* Info.plist */,
-				96DB4D3C1C84CC7400ACAF00 /* ProjectIronmanTests.swift */,
 				96FE09B91CA3299200105C81 /* FModelTests.swift */,
 				96FE09C51CA492A900105C81 /* FirebaseManagerTests.swift */,
+				96DB4D3E1C84CC7400ACAF00 /* Info.plist */,
+				96DB4D3C1C84CC7400ACAF00 /* ProjectIronmanTests.swift */,
 			);
 			path = ProjectIronmanTests;
 			sourceTree = "<group>";
@@ -199,40 +205,31 @@
 		96DB4D761C86589500ACAF00 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
+				96DB4D771C8658CB00ACAF00 /* ProjectIronman-Bridging-Header.h */,
 				96DB4D781C8658CB00ACAF00 /* SWRevealViewController.h */,
 				96DB4D791C8658CB00ACAF00 /* SWRevealViewController.m */,
-				96DB4D771C8658CB00ACAF00 /* ProjectIronman-Bridging-Header.h */,
 			);
-			name = SWRevealViewController;
-			sourceTree = "<group>";
-		};
-		96DB4D7D1C86950300ACAF00 /* SidebarMenuPageControllers */ = {
-			isa = PBXGroup;
-			children = (
-				96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */,
-				96DB4D7F1C8695CB00ACAF00 /* DashboardViewController.swift */,
-				96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */,
-			);
-			name = SidebarMenuPageControllers;
+			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		96DB4D7E1C86954700ACAF00 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				96DB4D571C8514C800ACAF00 /* LoginViewController.swift */,
 				96DB4D721C861FAA00ACAF00 /* ConnectDeviceViewController.swift */,
+				96DB4D551C850C9800ACAF00 /* EntranceViewController.swift */,
+				96DB4D571C8514C800ACAF00 /* LoginViewController.swift */,
 			);
-			name = Authentication;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		96DB4D851C88ADDF00ACAF00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				96DB4D591C85580800ACAF00 /* FirebaseManager.swift */,
 				96DB4D861C88ADFC00ACAF00 /* APIManager.swift */,
 				960753211C99DCF900388AC7 /* ChallengeManager.swift */,
+				96DB4D591C85580800ACAF00 /* FirebaseManager.swift */,
 			);
-			name = Managers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		96FE09AE1CA1C6B200105C81 /* Models */ = {
@@ -240,30 +237,39 @@
 			children = (
 				96FE09AF1CA1C6C500105C81 /* FireBase */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		96FE09AF1CA1C6C500105C81 /* FireBase */ = {
 			isa = PBXGroup;
 			children = (
-				96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */,
 				96FE09B31CA1EDFA00105C81 /* FActivity.swift */,
 				96FE09B51CA30E0200105C81 /* FChallenge.swift */,
 				96FE09B71CA3118D00105C81 /* FModel.swift */,
+				96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */,
 			);
-			name = FireBase;
+			path = FireBase;
 			sourceTree = "<group>";
 		};
 		96FE09B21CA1D20100105C81 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
 				96DB4D5D1C855CC700ACAF00 /* EmptySegue.swift */,
-				96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */,
 				9607531F1C99C8F200388AC7 /* Enums.swift */,
+				96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */,
 				96DB4D331C84CC7400ACAF00 /* Info.plist */,
 				96DB4D741C86239400ACAF00 /* Keys.plist */,
 			);
-			name = SupportFiles;
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		96FE09C71CA9C0A400105C81 /* NewChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				96FE09C81CA9C19B00105C81 /* ChallengeTabBarViewController.swift */,
+				96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */,
+			);
+			path = NewChallenge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96DB4D871C88ADFC00ACAF00 /* APIManager.swift in Sources */,
+				96FE09C91CA9C19B00105C81 /* ChallengeTabBarViewController.swift in Sources */,
 				96DB4D581C8514C800ACAF00 /* LoginViewController.swift in Sources */,
 				96DB4D731C861FAA00ACAF00 /* ConnectDeviceViewController.swift in Sources */,
 				960753221C99DCF900388AC7 /* ChallengeManager.swift in Sources */,
@@ -462,6 +469,7 @@
 				960753201C99C8F200388AC7 /* Enums.swift in Sources */,
 				96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */,
 				96DB4D801C8695CB00ACAF00 /* DashboardViewController.swift in Sources */,
+				96FE09CB1CA9C39D00105C81 /* NewChallengeViewController.swift in Sources */,
 				96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */,
 				96FE09B41CA1EDFA00105C81 /* FActivity.swift in Sources */,
 				96DB4D5E1C855CC700ACAF00 /* EmptySegue.swift in Sources */,
@@ -612,7 +620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = ProjectIronman/Info.plist;
+				INFOPLIST_FILE = ProjectIronman/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jason.ProjectIronman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -627,7 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = ProjectIronman/Info.plist;
+				INFOPLIST_FILE = ProjectIronman/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jason.ProjectIronman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
