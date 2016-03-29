@@ -636,7 +636,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Choose Mode" id="xH1-6J-Rxi"/>
                     <connections>
-                        <segue destination="QLf-Rc-aoa" kind="push" identifier="EditChallengeDetails" id="kI4-hm-Gdd"/>
+                        <segue destination="TEQ-lO-6Sb" kind="push" id="63N-B0-PQd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ilc-HB-ZfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,33 +644,59 @@
             <point key="canvasLocation" x="4218" y="1748"/>
         </scene>
         <!--Edit Detail View Controller-->
-        <scene sceneID="5gj-8U-gNF">
+        <scene sceneID="Or4-af-Y1I">
             <objects>
-                <viewController id="QLf-Rc-aoa" customClass="EditDetailViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YD9-mk-6wG"/>
-                        <viewControllerLayoutGuide type="bottom" id="LF0-Fk-fTH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rro-KD-eZ5">
+                <tableViewController id="TEQ-lO-6Sb" customClass="EditDetailViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Wd-hd-pTJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="xE4-pS-3YS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uPN-6o-Ez4">
+                        <sections>
+                            <tableViewSection id="bmu-rI-mxp">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dwH-ho-C7T">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwH-ho-C7T" id="phy-d3-dwt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VwS-EQ-fx6">
+                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VwS-EQ-fx6" id="dFt-K0-egp">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="w3A-c8-IBq">
+                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w3A-c8-IBq" id="gZV-j1-xa8">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="TEQ-lO-6Sb" id="ZAC-qr-U4N"/>
+                            <outlet property="delegate" destination="TEQ-lO-6Sb" id="K5I-Z9-sxk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9Mv-n6-I8u">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cUx-mp-J1y">
                             <connections>
-                                <action selector="saveButtonClick:" destination="QLf-Rc-aoa" id="olW-1U-sGz"/>
+                                <action selector="saveButtonClick:" destination="TEQ-lO-6Sb" id="cMN-Cf-Tfm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="qRv-Jv-flm" kind="unwind" identifier="UnwindToChallengeHome" unwindAction="unwindToChallengeHome:" id="cTa-Pn-BnY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OOa-kU-iwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="qRv-Jv-flm" userLabel="Exit" sceneMemberID="exit"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2L-OP-nwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4796" y="1742"/>
+            <point key="canvasLocation" x="4761" y="1748"/>
         </scene>
     </scenes>
     <resources>

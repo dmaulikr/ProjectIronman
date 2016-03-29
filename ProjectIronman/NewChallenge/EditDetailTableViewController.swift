@@ -8,12 +8,16 @@
 
 import UIKit
 
-class EditDetailViewController: UIViewController {
+class EditDetailViewController: UITableViewController {
     var newChallenge:FChallenge!
     
     @IBAction func saveButtonClick(sender: AnyObject) {
         newChallenge.status = ChallengeStatus.Pending
-        // fill in other challenge properties
+        // fill in other challenge properties for testing purpose
+        newChallenge.duration = 3
+        newChallenge.createdBy = FirebaseManager.sharedInstance.getUserFirebaseId()
+        newChallenge.member = "Friend1"
+        newChallenge.startTime = NSDate().timeIntervalSince1970
         
         // saving screen loading
         FirebaseManager.sharedInstance.setChallenge(newChallenge.toDict()) { () -> Void in

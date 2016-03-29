@@ -21,7 +21,6 @@
 		96DB4D5E1C855CC700ACAF00 /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D5D1C855CC700ACAF00 /* EmptySegue.swift */; };
 		96DB4D731C861FAA00ACAF00 /* ConnectDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D721C861FAA00ACAF00 /* ConnectDeviceViewController.swift */; };
 		96DB4D751C86239400ACAF00 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D741C86239400ACAF00 /* Keys.plist */; };
-		96DB4D7A1C8658CB00ACAF00 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D791C8658CB00ACAF00 /* SWRevealViewController.m */; };
 		96DB4D7C1C86926B00ACAF00 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */; };
 		96DB4D801C8695CB00ACAF00 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D7F1C8695CB00ACAF00 /* DashboardViewController.swift */; };
 		96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */; };
@@ -36,7 +35,7 @@
 		96FE09C91CA9C19B00105C81 /* ChallengeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09C81CA9C19B00105C81 /* ChallengeTabBarViewController.swift */; };
 		96FE09CB1CA9C39D00105C81 /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */; };
 		96FE09CD1CA9D95A00105C81 /* ChooseModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CC1CA9D95A00105C81 /* ChooseModeViewController.swift */; };
-		96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CE1CA9DA9600105C81 /* EditDetailViewController.swift */; };
+		96FE09CF1CA9DA9600105C81 /* EditDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CE1CA9DA9600105C81 /* EditDetailTableViewController.swift */; };
 		D8CC3F7B8DA0DB789694DEDC /* Pods_ProjectIronman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386D42F2CCFEC99B8E427245 /* Pods_ProjectIronman.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,9 +80,6 @@
 		96DB4D5D1C855CC700ACAF00 /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
 		96DB4D721C861FAA00ACAF00 /* ConnectDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectDeviceViewController.swift; sourceTree = "<group>"; };
 		96DB4D741C86239400ACAF00 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
-		96DB4D771C8658CB00ACAF00 /* ProjectIronman-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectIronman-Bridging-Header.h"; sourceTree = "<group>"; };
-		96DB4D781C8658CB00ACAF00 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		96DB4D791C8658CB00ACAF00 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		96DB4D7F1C8695CB00ACAF00 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +94,7 @@
 		96FE09C81CA9C19B00105C81 /* ChallengeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeTabBarViewController.swift; sourceTree = "<group>"; };
 		96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
 		96FE09CC1CA9D95A00105C81 /* ChooseModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseModeViewController.swift; sourceTree = "<group>"; };
-		96FE09CE1CA9DA9600105C81 /* EditDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
+		96FE09CE1CA9DA9600105C81 /* EditDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +169,6 @@
 				96DB4D851C88ADDF00ACAF00 /* Managers */,
 				96FE09AE1CA1C6B200105C81 /* Models */,
 				96FE09C71CA9C0A400105C81 /* NewChallenge */,
-				96DB4D761C86589500ACAF00 /* SWRevealViewController */,
 				96FE09B21CA1D20100105C81 /* SupportFiles */,
 				96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */,
 				96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */,
@@ -204,16 +199,6 @@
 				96DB4D471C84CC7500ACAF00 /* ProjectIronmanUITests.swift */,
 			);
 			path = ProjectIronmanUITests;
-			sourceTree = "<group>";
-		};
-		96DB4D761C86589500ACAF00 /* SWRevealViewController */ = {
-			isa = PBXGroup;
-			children = (
-				96DB4D771C8658CB00ACAF00 /* ProjectIronman-Bridging-Header.h */,
-				96DB4D781C8658CB00ACAF00 /* SWRevealViewController.h */,
-				96DB4D791C8658CB00ACAF00 /* SWRevealViewController.m */,
-			);
-			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		96DB4D7E1C86954700ACAF00 /* Authentication */ = {
@@ -271,9 +256,9 @@
 			isa = PBXGroup;
 			children = (
 				96FE09C81CA9C19B00105C81 /* ChallengeTabBarViewController.swift */,
-				96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */,
 				96FE09CC1CA9D95A00105C81 /* ChooseModeViewController.swift */,
-				96FE09CE1CA9DA9600105C81 /* EditDetailViewController.swift */,
+				96FE09CE1CA9DA9600105C81 /* EditDetailTableViewController.swift */,
+				96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */,
 			);
 			path = NewChallenge;
 			sourceTree = "<group>";
@@ -468,7 +453,7 @@
 				960753221C99DCF900388AC7 /* ChallengeManager.swift in Sources */,
 				96FE09BE1CA32B5C00105C81 /* FChallenge.swift in Sources */,
 				96DB4D7C1C86926B00ACAF00 /* SettingViewController.swift in Sources */,
-				96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */,
+				96FE09CF1CA9DA9600105C81 /* EditDetailTableViewController.swift in Sources */,
 				96DB4D561C850C9800ACAF00 /* EntranceViewController.swift in Sources */,
 				96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */,
 				96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */,
@@ -482,7 +467,6 @@
 				96DB4D5E1C855CC700ACAF00 /* EmptySegue.swift in Sources */,
 				96FE09C01CA32B6400105C81 /* FUserBasicInfo.swift in Sources */,
 				96FE09CD1CA9D95A00105C81 /* ChooseModeViewController.swift in Sources */,
-				96DB4D7A1C8658CB00ACAF00 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,11 +612,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ProjectIronman/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jason.ProjectIronman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ProjectIronman/SWRevealViewController/ProjectIronman-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -643,11 +628,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ProjectIronman/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jason.ProjectIronman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ProjectIronman/SWRevealViewController/ProjectIronman-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

@@ -41,6 +41,13 @@ class FirebaseManager {
         baseRef.unauth()
     }
     
+    func getUserFirebaseId() -> String? {
+        if baseRef.authData != nil {
+            return baseRef.authData.uid
+        }
+        
+        return nil
+    }
     
     
     /**

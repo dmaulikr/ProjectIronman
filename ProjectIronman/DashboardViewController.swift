@@ -9,6 +9,7 @@
 import UIKit
 import FitnessAPI
 import SwiftyJSON
+import SWRevealViewController
 
 class DashboardViewController: UIViewController, APIManagerActivityDelegate {
 
