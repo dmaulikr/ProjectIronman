@@ -9,19 +9,27 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
     @IBAction func LoginWithFB(sender: UIButton) {
-        let ref = Firebase(url: FirebaseManager.sharedInstance.baseURL)
+//        sender.enabled = false
+        SVProgressHUD.show()
         
+        let ref = Firebase(url: FirebaseManager.sharedInstance.baseURL)
         let facebookLogin = FBSDKLoginManager()
 
         facebookLogin.logInWithReadPermissions(["email"], fromViewController: self, handler: {
             (facebookResult, facebookError) -> Void in
+            
+            SVProgressHUD.dismiss()
+            
             if facebookError != nil {
                 print("Facebook login failed. Error \(facebookError)")
+                SVProgressHUD.showErrorWithStatus("login error")
             } else if facebookResult.isCancelled {
                 print("Facebook login was cancelled.")
+                SVProgressHUD.showInfoWithStatus("Facebook login was cancelled")
             } else {
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
                 ref.authWithOAuthProvider("facebook", token: accessToken,
@@ -46,7 +54,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(self.parentViewController)
+        
         // Do any additional setup after loading the view.
     }
 

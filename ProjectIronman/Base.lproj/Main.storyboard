@@ -557,7 +557,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a challenge type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLT-AO-EhQ">
-                                <rect key="frame" x="67" y="117" width="186" height="21"/>
+                                <rect key="frame" x="71" y="117" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -572,10 +572,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="hLT-AO-EhQ" secondAttribute="trailing" constant="51" id="2k0-sp-EgF"/>
                             <constraint firstItem="ogb-I1-fsy" firstAttribute="centerX" secondItem="hLT-AO-EhQ" secondAttribute="centerX" id="9gp-RB-ocv"/>
                             <constraint firstItem="4dN-8T-ITb" firstAttribute="top" secondItem="ogb-I1-fsy" secondAttribute="bottom" constant="29" id="VeO-Sc-Jva"/>
-                            <constraint firstItem="hLT-AO-EhQ" firstAttribute="leading" secondItem="R8T-2W-fob" secondAttribute="leadingMargin" constant="51" id="Xza-O7-W5s"/>
+                            <constraint firstItem="hLT-AO-EhQ" firstAttribute="centerX" secondItem="R8T-2W-fob" secondAttribute="centerX" id="bvJ-pf-EUY"/>
                             <constraint firstItem="4dN-8T-ITb" firstAttribute="centerX" secondItem="ogb-I1-fsy" secondAttribute="centerX" id="mE8-bF-Qa6"/>
                             <constraint firstItem="ogb-I1-fsy" firstAttribute="top" secondItem="hLT-AO-EhQ" secondAttribute="bottom" constant="32" id="nCr-n5-PQG"/>
                             <constraint firstItem="hLT-AO-EhQ" firstAttribute="top" secondItem="u0b-jB-dSP" secondAttribute="bottom" constant="53" id="yWP-oa-fuD"/>
@@ -636,7 +635,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Choose Mode" id="xH1-6J-Rxi"/>
                     <connections>
-                        <segue destination="TEQ-lO-6Sb" kind="push" id="63N-B0-PQd"/>
+                        <segue destination="6io-lS-wCl" kind="push" identifier="EditChallengeDetails" id="vEt-vZ-WaU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ilc-HB-ZfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,59 +643,33 @@
             <point key="canvasLocation" x="4218" y="1748"/>
         </scene>
         <!--Edit Detail View Controller-->
-        <scene sceneID="Or4-af-Y1I">
+        <scene sceneID="1tf-of-1ct">
             <objects>
-                <tableViewController id="TEQ-lO-6Sb" customClass="EditDetailViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Wd-hd-pTJ">
+                <viewController id="6io-lS-wCl" customClass="EditDetailViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qBO-XK-PrU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Upa-29-atK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6my-Rc-bxl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="bmu-rI-mxp">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dwH-ho-C7T">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwH-ho-C7T" id="phy-d3-dwt">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VwS-EQ-fx6">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VwS-EQ-fx6" id="dFt-K0-egp">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="w3A-c8-IBq">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w3A-c8-IBq" id="gZV-j1-xa8">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="TEQ-lO-6Sb" id="ZAC-qr-U4N"/>
-                            <outlet property="delegate" destination="TEQ-lO-6Sb" id="K5I-Z9-sxk"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="9Mv-n6-I8u">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cUx-mp-J1y">
+                    </view>
+                    <navigationItem key="navigationItem" id="6sp-nn-TmS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YeI-UW-iIt">
                             <connections>
-                                <action selector="saveButtonClick:" destination="TEQ-lO-6Sb" id="cMN-Cf-Tfm"/>
+                                <action selector="saveButtonClick:" destination="6io-lS-wCl" id="fM4-Xs-Qzc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J2L-OP-nwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <segue destination="Mm6-Rp-XP1" kind="unwind" identifier="UnwindToChallengeHome" unwindAction="unwindToChallengeHome:" id="myh-cg-6kF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNP-rZ-uWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Mm6-Rp-XP1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4761" y="1748"/>
+            <point key="canvasLocation" x="4681" y="1748"/>
         </scene>
     </scenes>
     <resources>

@@ -11,6 +11,8 @@ target 'ProjectIronman' do
 	pod 'FBSDKLoginKit', '~> 4.10'
 	pod 'Firebase', '~> 2.5'
     pod 'SWRevealViewController', '~> 2.3'
+    pod 'XLForm', '~> 3.0'
+    pod 'SVProgressHUD'
     
     pod 'Alamofire', '~> 3.0'
     pod 'AlamofireImage', '~> 2.0'
