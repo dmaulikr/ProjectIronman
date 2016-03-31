@@ -21,50 +21,22 @@ class FirebaseManagerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testSetChallenge(){
+    func testCreateNewChallenge(){
         let testChallenge = FChallenge()
         testChallenge.type = ChallengeType.OneVOne
         testChallenge.mode = ChallengeMode.Distance
-        testChallenge.status = ChallengeStatus.Active
+        testChallenge.status = ChallengeStatus.Pending
         testChallenge.startTime = NSDate().timeIntervalSince1970
         testChallenge.duration = 3
         testChallenge.createdBy = "Test1"
         testChallenge.member = "User1"
         
         let expectation = self.expectationWithDescription("challenge has been created")
-        FirebaseManager.sharedInstance.setChallenge(testChallenge.toDict()) { () -> Void in
+        FirebaseManager.sharedInstance.createNewChallenge(testChallenge.toDict()) { () -> Void in
             expectation.fulfill()
         }
         self.waitForExpectationsWithTimeout(1.5, handler: .None)
     }
     
-//    func testUpdateChallenge(){
-//        let challengeId = "-KDiu89MAyh3dmVROrdb"
-//        
-//        let testChallenge = FChallenge()
-//        testChallenge.type = ChallengeType.OneVOne
-//        testChallenge.mode = ChallengeMode.Distance
-//        testChallenge.status = ChallengeStatus.Completed
-//        testChallenge.startTime = NSDate().timeIntervalSince1970
-//        testChallenge.duration = 3
-//        testChallenge.createdBy = "Test1"
-//        testChallenge.member = "User1"
-//        
-//        let expectation = self.expectationWithDescription("challenge has been updated")
-//        FirebaseManager.sharedInstance.updateChallenge(challengeId, values: testChallenge.toDict()) { () -> Void in
-//            expectation.fulfill()
-//        }
-//        self.waitForExpectationsWithTimeout(1.5, handler: .None)
-//    }
-//    
-//    func testSetPendingChallenge(){
-//        let challengeId = "-KDiu89MAyh3dmVROrdb"
-//        
-//        let expectation = self.expectationWithDescription("pending challenge set")
-//        FirebaseManager.sharedInstance.setPendingChallenge(challengeId) { () -> Void in
-//            expectation.fulfill()
-//        }
-//        self.waitForExpectationsWithTimeout(1.5, handler: .None)
-//        
-//    }
+    
 }

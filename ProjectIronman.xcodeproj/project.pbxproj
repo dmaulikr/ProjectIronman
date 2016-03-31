@@ -36,6 +36,8 @@
 		96FE09CB1CA9C39D00105C81 /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */; };
 		96FE09CD1CA9D95A00105C81 /* ChooseModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CC1CA9D95A00105C81 /* ChooseModeViewController.swift */; };
 		96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09CE1CA9DA9600105C81 /* EditDetailViewController.swift */; };
+		96FE09D51CAD9D7F00105C81 /* FirebaseObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09D41CAD9D7F00105C81 /* FirebaseObservers.swift */; };
+		96FE09D91CADA8AB00105C81 /* LiveChallengesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */; };
 		D8CC3F7B8DA0DB789694DEDC /* Pods_ProjectIronman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386D42F2CCFEC99B8E427245 /* Pods_ProjectIronman.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,8 @@
 		96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
 		96FE09CC1CA9D95A00105C81 /* ChooseModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseModeViewController.swift; sourceTree = "<group>"; };
 		96FE09CE1CA9DA9600105C81 /* EditDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
+		96FE09D41CAD9D7F00105C81 /* FirebaseObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseObservers.swift; sourceTree = "<group>"; };
+		96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveChallengesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,7 @@
 				96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */,
 				96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */,
 				96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */,
+				96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */,
 			);
 			path = ProjectIronman;
 			sourceTree = "<group>";
@@ -214,9 +219,9 @@
 		96DB4D851C88ADDF00ACAF00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				96FE09D31CAD8F9900105C81 /* Firebase */,
 				96DB4D861C88ADFC00ACAF00 /* APIManager.swift */,
 				960753211C99DCF900388AC7 /* ChallengeManager.swift */,
-				96DB4D591C85580800ACAF00 /* FirebaseManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -261,6 +266,15 @@
 				96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */,
 			);
 			path = NewChallenge;
+			sourceTree = "<group>";
+		};
+		96FE09D31CAD8F9900105C81 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				96DB4D591C85580800ACAF00 /* FirebaseManager.swift */,
+				96FE09D41CAD9D7F00105C81 /* FirebaseObservers.swift */,
+			);
+			name = Firebase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,8 +460,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FE09D51CAD9D7F00105C81 /* FirebaseObservers.swift in Sources */,
 				96DB4D871C88ADFC00ACAF00 /* APIManager.swift in Sources */,
 				96FE09C91CA9C19B00105C81 /* ChallengeTabBarViewController.swift in Sources */,
+				96FE09D91CADA8AB00105C81 /* LiveChallengesTableViewController.swift in Sources */,
 				96DB4D581C8514C800ACAF00 /* LoginViewController.swift in Sources */,
 				96DB4D731C861FAA00ACAF00 /* ConnectDeviceViewController.swift in Sources */,
 				960753221C99DCF900388AC7 /* ChallengeManager.swift in Sources */,

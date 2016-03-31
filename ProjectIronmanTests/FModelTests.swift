@@ -23,7 +23,7 @@ class FModelTests: XCTestCase{
             "startTime": NSDate().timeIntervalSince1970,
             "duration": 4,
             "createdBy": "user123",
-            "memberId": "user456",
+            "member": "user456",
             "progress": [
                 "user123": 5,
                 "user456": 3
@@ -50,7 +50,7 @@ class FModelTests: XCTestCase{
             "startTime": NSDate().timeIntervalSince1970,
             "duration": 4,
             "createdBy": "user123",
-            "memberId": "user456",
+            "member": "user456",
             "progress": [
                 "user123": 5,
                 "user456": 3

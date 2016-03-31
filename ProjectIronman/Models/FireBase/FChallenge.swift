@@ -62,7 +62,7 @@ class FChallenge: FModel{
         self.startTime = rawData["startTime"] as! NSTimeInterval
         self.duration = rawData["duration"] as! Int
         self.createdBy = rawData["createdBy"] as! String
-        self.member = rawData["memberId"] as! String
+        self.member = rawData["member"] as! String
         self.progress = rawData["progress"] as! [NSObject:AnyObject]
     }
     

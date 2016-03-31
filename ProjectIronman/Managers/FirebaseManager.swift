@@ -14,6 +14,20 @@ class FirebaseManager {
     
     let baseURL:String = "http://projectironman.firebaseIO.com"
     let baseRef:Firebase!
+    
+    struct Paths {
+        static let Users = "users"
+        static let Activities = "activities"
+        static let Run = "run"
+        static let Challenges = "challenges"
+        static let Hosted = "hosted"
+        static let Live = "live"
+        static let Dead = "dead"
+        static let Pending = "pending"
+        static let Active = "active"
+        static let Completed = "completed"
+        
+    }
 
     init(){
         baseRef = Firebase(url: self.baseURL)
@@ -57,7 +71,7 @@ class FirebaseManager {
     */
     func getUserBasicInfo(completionHandler: (FUserBasicInfo? -> Void)){
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath("users")
+            baseRef.childByAppendingPath(Paths.Users)
                 .childByAppendingPath(baseRef.authData.uid)
                 .observeSingleEventOfType(.Value, withBlock: {
                     snapshot in
@@ -102,7 +116,7 @@ class FirebaseManager {
     */
     private func updateUser(values: [NSObject: AnyObject]) -> Void {
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath("users")
+            baseRef.childByAppendingPath(Paths.Users)
                 .childByAppendingPath(baseRef.authData.uid)
                 .updateChildValues(values)
             
@@ -110,36 +124,39 @@ class FirebaseManager {
     }
     
     func getLatestRun(completionHandler: (FActivity? -> Void)){
-        baseRef.childByAppendingPath("activities")
-            .childByAppendingPath(baseRef.authData.uid)
-            .childByAppendingPath("run")
-            .queryOrderedByChild("startDate")
-            .queryLimitedToLast(1)
-            .observeSingleEventOfType(.Value, withBlock: {
-                (snapshot) -> Void in
-                
-                if snapshot.value is NSNull {
-                    completionHandler(nil)
-                } else {
-                    var activity:FActivity?
-                    for child in snapshot.children.allObjects as! [FDataSnapshot] {
-                        
-                        activity = FActivity(rawData: child.value as! NSDictionary)
+        if baseRef.authData != nil {
+            baseRef.childByAppendingPath(Paths.Activities)
+                .childByAppendingPath(baseRef.authData.uid)
+                .childByAppendingPath(Paths.Run)
+                .queryOrderedByChild("startDate")
+                .queryLimitedToLast(1)
+                .observeSingleEventOfType(.Value, withBlock: {
+                    (snapshot) -> Void in
+                    
+                    if snapshot.value is NSNull {
+                        completionHandler(nil)
+                    } else {
+                        var activity:FActivity?
+                        for child in snapshot.children.allObjects as! [FDataSnapshot] {
+                            
+                            activity = FActivity(rawData: child.value as! NSDictionary)
+                        }
+                        completionHandler(activity)
                     }
-                    completionHandler(activity)
-                }
-            })
+                })
+        }
     }
     
+       
     /**
         Add new running activity to backend
         - Parameter values: the values of a running activity
     */
     func setRunActivity(values: [NSObject: AnyObject]) -> Void {
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath("activities")
+            baseRef.childByAppendingPath(Paths.Activities)
                 .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath("run")
+                .childByAppendingPath(Paths.Run)
                 .childByAutoId()
                 .setValue(values)
         }
@@ -147,34 +164,32 @@ class FirebaseManager {
     
     /**
         Add new challenge. Whenever a challenge is created. the challengeId
-        is also added to pending table for created user and invitation table 
-        for member
+        is also added to pending table and the hosted table
      
         - Parameter
     */
-    func setChallenge(values: [NSObject: AnyObject],
+    func createNewChallenge(values: [NSObject: AnyObject],
         completionHandler: (() -> Void)?) -> Void {
         if baseRef.authData != nil {
-            let challengeRef = baseRef.childByAppendingPath("challenges")
+            let challengeRef = baseRef.childByAppendingPath(Paths.Challenges)
                                 .childByAutoId()
             
             challengeRef.setValue(values, withCompletionBlock: {
                 (error, ref) -> Void in
+                let userId = self.baseRef.authData.uid
+                // set id to hosted/user_id/challenge_id
+                let hostedPath:String = "\(Paths.Hosted)/\(userId)/\(challengeRef.key)"
+                // set id to live/user_id/pending/challenge_id
+                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challengeRef.key)"
                 
-                // set id to pending
-                self.baseRef.childByAppendingPath("pending")
-                    .childByAppendingPath(self.baseRef.authData.uid)
-                    .childByAppendingPath(challengeRef.key)
-                    .setValue(true, withCompletionBlock: {
-                        (error, ref) -> Void in
-                        
-                        if error == nil {
-                            completionHandler?()
-                        }
-                    })
-                
+                self.baseRef.updateChildValues([
+                        hostedPath: true,
+                        livePath: true
+                    ],
+                    withCompletionBlock: { (error, ref) -> Void in
+                        if error == nil { completionHandler?() }
+                })
             })
-            
         }
     }
     
@@ -186,7 +201,7 @@ class FirebaseManager {
     func updateChallenge(id: String, values: [NSObject: AnyObject],
         completionHandler: (() -> Void)?) -> Void {
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath("challenges")
+            baseRef.childByAppendingPath(Paths.Challenges)
                 .childByAppendingPath(id)
                 .updateChildValues(values, withCompletionBlock: { (error, ref) -> Void in
                     if error == nil {

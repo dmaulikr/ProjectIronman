@@ -44,7 +44,7 @@ class EditDetailViewController: XLFormViewController {
         newChallenge.startTime = NSDate().timeIntervalSince1970
         
         // saving screen loading
-        FirebaseManager.sharedInstance.setChallenge(newChallenge.toDict()) { () -> Void in
+        FirebaseManager.sharedInstance.createNewChallenge(newChallenge.toDict()) { () -> Void in
             sender.enabled = true
             SVProgressHUD.dismiss()
             //dismiss loading screen
