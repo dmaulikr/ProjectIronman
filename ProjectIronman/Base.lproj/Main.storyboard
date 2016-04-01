@@ -176,14 +176,14 @@
         <!--Item-->
         <scene sceneID="Vad-oV-WOW">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="eQg-UR-Rwe" customClass="LiveChallengesTableViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="eQg-UR-Rwe" customClass="LiveChallengesTableViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cPf-nz-gXZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChallengeCell" textLabel="h4a-Tt-9yS" detailTextLabel="DCv-tj-VU5" style="IBUITableViewCellStyleSubtitle" id="peT-hv-TDc">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="peT-hv-TDc" id="t9A-xS-UJ9">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -213,7 +213,7 @@
                             <outlet property="delegate" destination="eQg-UR-Rwe" id="2gp-Ct-KNE"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="Item" id="vCw-TJ-WAw"/>
                     <navigationItem key="navigationItem" id="HYh-HK-XXS"/>
                 </tableViewController>

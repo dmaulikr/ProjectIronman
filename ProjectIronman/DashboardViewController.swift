@@ -49,11 +49,13 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
     func updateLatestRunStats() -> Void {
         FirebaseManager.sharedInstance.getLatestRun({ (latestRun) -> Void in
             if let run:FActivity = latestRun {
-                self.timeLabel.text = self.timeFormatter(run.time!)
+                self.timeLabel.text = self.formatTime(run.time!)
                 
                 // convert dsitance to Km or miles
                 let km = run.distance! / 1000.0
                 self.distanceLabel.text = String(format: "%0.2f km", arguments: [km])
+                
+                self.paceLabel.text = self.formatPace(run.time!, distance: run.distance!)
             }
         })
     }
@@ -77,7 +79,7 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    private func timeFormatter(timeInSeconds:Int) -> String {
+    private func formatTime(timeInSeconds:Int) -> String {
         var timeString = "-"
         if timeInSeconds > 3600 {
             let hours = timeInSeconds / 3600
@@ -94,6 +96,32 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
         }
         
         return timeString
+    }
+    
+    private func formatPace(timeInSeconds:Int, distance:Float) -> String{
+        // calculate pace
+        let pace = Float(timeInSeconds) / distance
+        
+        // check what is user's default measurement. then convert
+        let paceInMinPerKm = convertPaceToMinutePerKilometer(pace)
+        
+        // needs to separate min and sec to do formatting
+        var paceMin = Int(paceInMinPerKm)
+        var paceSec = Int(paceInMinPerKm % 1 * 60)
+        if paceSec == 60 {
+            paceMin++
+            paceSec = 0
+        }
+        
+        return String(format: "%02d\'%02d\'\'", arguments: [paceMin, paceSec])
+    }
+    
+    private func convertPaceToMinutePerKilometer(pace:Float) -> Float {
+        return (pace * 1000) / 60
+    }
+    
+    private func convertPaceToMinutePerMiles(pace:Float) -> Float {
+        return (pace * 1000) / (0.621371 * 60)
     }
 
     /*

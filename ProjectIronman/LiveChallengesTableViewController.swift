@@ -27,11 +27,6 @@ class LiveChallengesTableViewController: UITableViewController {
                 self.challenges.append(challenge!)
             }
             
-            print(self.challenges.count)
-            
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                self.tableView.reloadData()
-//            })
             self.tableView.reloadData()
             
         }
@@ -66,8 +61,6 @@ class LiveChallengesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        print("cell caled")
         let cell = tableView.dequeueReusableCellWithIdentifier("ChallengeCell", forIndexPath: indexPath)
         let challenge = challenges[indexPath.row]
         
