@@ -13,7 +13,7 @@ import Foundation
 */
 extension FirebaseManager {
     /**
-     Set an observer for child added event
+        Set an observer for child added event
      */
     func observeHostedChallenge(complitionHandler: (FChallenge? -> Void)) -> UInt? {
         var handle:UInt?
@@ -28,10 +28,10 @@ extension FirebaseManager {
                     let challengeQueryRef = self.baseRef.childByAppendingPath(Paths.Challenges)
                                                 .childByAppendingPath(challengeId)
                     challengeQueryRef.observeSingleEventOfType(.Value, withBlock: { (querySnapshot) -> Void in
-                        print(querySnapshot)
+//                        print(querySnapshot)
                         
                         if let valueDict = querySnapshot.value as? NSDictionary {
-                            print(valueDict)
+//                            print(valueDict)
                             let challenge = FChallenge(rawData: valueDict)
                             complitionHandler(challenge)
                         } else {

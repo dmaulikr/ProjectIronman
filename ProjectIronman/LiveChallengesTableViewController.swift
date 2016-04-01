@@ -9,7 +9,8 @@
 import UIKit
 
 class LiveChallengesTableViewController: UITableViewController {
-
+    var challenges:[FChallenge] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +21,19 @@ class LiveChallengesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         FirebaseManager.sharedInstance.observeHostedChallenge { (challenge) -> Void in
-
+            
+            print(challenge!)
+            if challenge != nil {
+                self.challenges.append(challenge!)
+            }
+            
+            print(self.challenges.count)
+            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                self.tableView.reloadData()
+//            })
+            self.tableView.reloadData()
+            
         }
 
     }
@@ -35,10 +48,6 @@ class LiveChallengesTableViewController: UITableViewController {
 //        FirebaseManager.sharedInstance.removeAllObservers()
     }
 
-//    override func viewDidUnload() {
-//        // remove observer
-//    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,12 +57,25 @@ class LiveChallengesTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.challenges.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        print("cell caled")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChallengeCell", forIndexPath: indexPath)
+        let challenge = challenges[indexPath.row]
+        
+        cell.textLabel?.text = challenge.type.rawValue
+        cell.detailTextLabel?.text = challenge.mode.rawValue
+        
+
+        return cell
     }
 
     /*

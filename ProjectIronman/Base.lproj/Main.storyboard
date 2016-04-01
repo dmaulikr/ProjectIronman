@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PEk-zu-muO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PEk-zu-muO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -173,17 +173,17 @@
             </objects>
             <point key="canvasLocation" x="3493" y="958"/>
         </scene>
-        <!--Hosted-->
+        <!--Item-->
         <scene sceneID="Vad-oV-WOW">
             <objects>
-                <tableViewController id="eQg-UR-Rwe" customClass="LiveChallengesTableViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cPf-nz-gXZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="eQg-UR-Rwe" customClass="LiveChallengesTableViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cPf-nz-gXZ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="h4a-Tt-9yS" detailTextLabel="plP-Ep-SDJ" style="IBUITableViewCellStyleSubtitle" id="peT-hv-TDc">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChallengeCell" textLabel="h4a-Tt-9yS" detailTextLabel="DCv-tj-VU5" style="IBUITableViewCellStyleSubtitle" id="peT-hv-TDc">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="peT-hv-TDc" id="t9A-xS-UJ9">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -193,31 +193,33 @@
                                             <rect key="frame" x="15" y="5" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="plP-Ep-SDJ">
-                                            <rect key="frame" x="15" y="25" width="31" height="14"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DCv-tj-VU5">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="eQg-UR-Rwe" id="kLc-by-t8s"/>
                             <outlet property="delegate" destination="eQg-UR-Rwe" id="2gp-Ct-KNE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Hosted" id="iQB-Gj-wnr"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="vCw-TJ-WAw"/>
                     <navigationItem key="navigationItem" id="HYh-HK-XXS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoG-BI-VMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3572" y="2595"/>
+            <point key="canvasLocation" x="3541" y="2501"/>
         </scene>
         <!--Requets-->
         <scene sceneID="37G-aH-4Sm">
@@ -229,7 +231,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dZr-RR-42O">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dZr-RR-42O" id="0FU-Pt-oQ4">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -246,7 +248,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5XJ-gQ-JDp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2833" y="2595"/>
+            <point key="canvasLocation" x="2529" y="2551"/>
         </scene>
         <!--Project Ironman-->
         <scene sceneID="Eve-WQ-l5e">
@@ -529,6 +531,7 @@
         <scene sceneID="mO5-Pa-2tz">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Axg-w5-55M" customClass="ChallengeTabBarViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Challenges" id="uuS-oA-a3i">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="XNI-2k-Sln"/>
@@ -545,8 +548,7 @@
                     </tabBar>
                     <connections>
                         <outlet property="menuButton" destination="XNI-2k-Sln" id="rx6-Br-QaL"/>
-                        <segue destination="eQg-UR-Rwe" kind="relationship" relationship="viewControllers" id="YV9-vB-4km"/>
-                        <segue destination="ATr-oD-QcK" kind="relationship" relationship="viewControllers" id="4qx-lH-iEh"/>
+                        <segue destination="eQg-UR-Rwe" kind="relationship" relationship="viewControllers" id="W9e-KN-yds"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5BV-uG-kLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,7 +577,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a challenge type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLT-AO-EhQ">
                                 <rect key="frame" x="71" y="117" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-I1-fsy">
