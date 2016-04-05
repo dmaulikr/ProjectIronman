@@ -12,6 +12,7 @@ target 'ProjectIronman' do
 	pod 'Firebase', '~> 2.5'
     pod 'SWRevealViewController', '~> 2.3'
     pod 'XLForm', '~> 3.0'
+    pod 'XLPagerTabStrip', '~> 5.0'
     pod 'SVProgressHUD'
     
     pod 'Alamofire', '~> 3.0'

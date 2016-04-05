@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		960753201C99C8F200388AC7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9607531F1C99C8F200388AC7 /* Enums.swift */; };
 		960753221C99DCF900388AC7 /* ChallengeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960753211C99DCF900388AC7 /* ChallengeManager.swift */; };
+		962316921CB442800001D999 /* ChildExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623168C1CB442800001D999 /* ChildExampleViewController.swift */; };
+		962316931CB442800001D999 /* TableChildExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623168D1CB442800001D999 /* TableChildExampleViewController.swift */; };
+		962316941CB442800001D999 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623168F1CB442800001D999 /* DataProvider.swift */; };
+		962316951CB442800001D999 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962316901CB442800001D999 /* PostCell.swift */; };
+		962316961CB442800001D999 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962316911CB442800001D999 /* PostCell.xib */; };
 		96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */; };
 		96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */; };
 		96DB4D2F1C84CC7400ACAF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */; };
@@ -64,6 +69,11 @@
 		858B055A1948D94E781BD728 /* Pods-ProjectIronman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectIronman.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectIronman/Pods-ProjectIronman.release.xcconfig"; sourceTree = "<group>"; };
 		9607531F1C99C8F200388AC7 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		960753211C99DCF900388AC7 /* ChallengeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeManager.swift; sourceTree = "<group>"; };
+		9623168C1CB442800001D999 /* ChildExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildExampleViewController.swift; sourceTree = "<group>"; };
+		9623168D1CB442800001D999 /* TableChildExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableChildExampleViewController.swift; sourceTree = "<group>"; };
+		9623168F1CB442800001D999 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		962316901CB442800001D999 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		962316911CB442800001D999 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		96DB4D241C84CC7400ACAF00 /* ProjectIronman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIronman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DB4D2C1C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +152,25 @@
 				858B055A1948D94E781BD728 /* Pods-ProjectIronman.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9623168B1CB442800001D999 /* ChildControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9623168C1CB442800001D999 /* ChildExampleViewController.swift */,
+				9623168D1CB442800001D999 /* TableChildExampleViewController.swift */,
+			);
+			path = ChildControllers;
+			sourceTree = "<group>";
+		};
+		9623168E1CB442800001D999 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9623168F1CB442800001D999 /* DataProvider.swift */,
+				962316901CB442800001D999 /* PostCell.swift */,
+				962316911CB442800001D999 /* PostCell.xib */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		96DB4D1B1C84CC7400ACAF00 = {
@@ -248,6 +277,8 @@
 		96FE09B21CA1D20100105C81 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9623168B1CB442800001D999 /* ChildControllers */,
+				9623168E1CB442800001D999 /* Helpers */,
 				96DB4D5D1C855CC700ACAF00 /* EmptySegue.swift */,
 				9607531F1C99C8F200388AC7 /* Enums.swift */,
 				96DB4D831C86A6DB00ACAF00 /* ImageViewExtension.swift */,
@@ -386,6 +417,7 @@
 			files = (
 				96DB4D751C86239400ACAF00 /* Keys.plist in Resources */,
 				96DB4D321C84CC7400ACAF00 /* LaunchScreen.storyboard in Resources */,
+				962316961CB442800001D999 /* PostCell.xib in Resources */,
 				96DB4D2F1C84CC7400ACAF00 /* Assets.xcassets in Resources */,
 				96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */,
 			);
@@ -464,6 +496,8 @@
 				96DB4D871C88ADFC00ACAF00 /* APIManager.swift in Sources */,
 				96FE09C91CA9C19B00105C81 /* ChallengeTabBarViewController.swift in Sources */,
 				96FE09D91CADA8AB00105C81 /* LiveChallengesTableViewController.swift in Sources */,
+				962316931CB442800001D999 /* TableChildExampleViewController.swift in Sources */,
+				962316951CB442800001D999 /* PostCell.swift in Sources */,
 				96DB4D581C8514C800ACAF00 /* LoginViewController.swift in Sources */,
 				96DB4D731C861FAA00ACAF00 /* ConnectDeviceViewController.swift in Sources */,
 				960753221C99DCF900388AC7 /* ChallengeManager.swift in Sources */,
@@ -471,6 +505,7 @@
 				96DB4D7C1C86926B00ACAF00 /* SettingViewController.swift in Sources */,
 				96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */,
 				96DB4D561C850C9800ACAF00 /* EntranceViewController.swift in Sources */,
+				962316941CB442800001D999 /* DataProvider.swift in Sources */,
 				96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */,
 				96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */,
 				96DB4D5A1C85580800ACAF00 /* FirebaseManager.swift in Sources */,
@@ -480,6 +515,7 @@
 				96FE09CB1CA9C39D00105C81 /* NewChallengeViewController.swift in Sources */,
 				96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */,
 				96FE09B41CA1EDFA00105C81 /* FActivity.swift in Sources */,
+				962316921CB442800001D999 /* ChildExampleViewController.swift in Sources */,
 				96DB4D5E1C855CC700ACAF00 /* EmptySegue.swift in Sources */,
 				96FE09C01CA32B6400105C81 /* FUserBasicInfo.swift in Sources */,
 				96FE09CD1CA9D95A00105C81 /* ChooseModeViewController.swift in Sources */,

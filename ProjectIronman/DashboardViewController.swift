@@ -9,9 +9,11 @@
 import UIKit
 import FitnessAPI
 import SwiftyJSON
+import XLPagerTabStrip
 import SWRevealViewController
 
-class DashboardViewController: UIViewController, APIManagerActivityDelegate {
+
+class DashboardViewController: ButtonBarPagerTabStripViewController, APIManagerActivityDelegate {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
@@ -71,7 +73,6 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,11 +80,26 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK: - PagerTabStripDataSource
+    
+    override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        let child_1 = TableChildExampleViewController(style: .Plain, itemInfo: "Active")
+        let child_2 = ChildExampleViewController(itemInfo: "Pending")
+        let child_3 = ChildExampleViewController(itemInfo: "Completed")
+        return [child_1, child_2, child_3]
+    }
+
+    
+    // MARK: - Time / Distance formatting
+    
     private func formatTime(timeInSeconds:Int) -> String {
         var timeString = "-"
         if timeInSeconds > 3600 {
+            // get hours
             let hours = timeInSeconds / 3600
             
+            // use the remaing second to figure out minutes and seconds
             let remainingSec = timeInSeconds - (3600 * hours)
             
             let minutes = remainingSec / 60
@@ -109,7 +125,7 @@ class DashboardViewController: UIViewController, APIManagerActivityDelegate {
         var paceMin = Int(paceInMinPerKm)
         var paceSec = Int(paceInMinPerKm % 1 * 60)
         if paceSec == 60 {
-            paceMin++
+            paceMin += 1
             paceSec = 0
         }
         
