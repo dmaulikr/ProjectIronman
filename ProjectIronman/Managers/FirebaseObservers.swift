@@ -43,6 +43,10 @@ extension FirebaseManager {
         return handle
     }
     
+    // observeActiveChallenges
+    // observePendingChallenges
+    // observeCompletedChallenges
+    
     func removeObserverWith(handle:UInt?) -> Void {
         if handle != nil && baseRef.authData != nil {
             baseRef.removeObserverWithHandle(handle!)

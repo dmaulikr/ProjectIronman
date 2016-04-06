@@ -14,6 +14,7 @@
 		962316941CB442800001D999 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623168F1CB442800001D999 /* DataProvider.swift */; };
 		962316951CB442800001D999 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962316901CB442800001D999 /* PostCell.swift */; };
 		962316961CB442800001D999 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962316911CB442800001D999 /* PostCell.xib */; };
+		962316981CB48E1E0001D999 /* LiveChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */; };
 		96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */; };
 		96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */; };
 		96DB4D2F1C84CC7400ACAF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		9623168F1CB442800001D999 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		962316901CB442800001D999 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		962316911CB442800001D999 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		96DB4D241C84CC7400ACAF00 /* ProjectIronman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIronman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DB4D2C1C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */,
 				96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */,
 				96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */,
+				962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */,
 			);
 			path = ProjectIronman;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */,
 				96DB4D561C850C9800ACAF00 /* EntranceViewController.swift in Sources */,
 				962316941CB442800001D999 /* DataProvider.swift in Sources */,
+				962316981CB48E1E0001D999 /* LiveChallengeTableViewCell.swift in Sources */,
 				96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */,
 				96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */,
 				96DB4D5A1C85580800ACAF00 /* FirebaseManager.swift in Sources */,

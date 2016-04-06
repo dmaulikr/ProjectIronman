@@ -61,12 +61,13 @@ class LiveChallengesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChallengeCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("LiveChallengeCell", forIndexPath: indexPath) as! LiveChallengeTableViewCell
+        
         let challenge = challenges[indexPath.row]
         
-        cell.textLabel?.text = challenge.type.rawValue
-        cell.detailTextLabel?.text = challenge.mode.rawValue
-        
+        cell.headerLabel.text = challenge.type.rawValue + " " + challenge.mode.rawValue
+        cell.userLabel.text = challenge.member
+        cell.statusLabel.text = challenge.status.rawValue
 
         return cell
     }
