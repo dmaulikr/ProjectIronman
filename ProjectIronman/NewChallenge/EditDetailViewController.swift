@@ -32,11 +32,11 @@ class EditDetailViewController: XLFormViewController {
         // fill in other challenge properties for testing purpose
         
         if let duration = self.form.formRowWithTag(Tags.Duration)?.value as? XLFormOptionsObject {
-            newChallenge.duration = duration.valueData() as? Int
+            newChallenge.duration = duration.valueData() as! Int
         }
         
-        if let distance = self.form.formRowWithTag(Tags.Distance)?.value as? Int {
-
+        if let distance = self.form.formRowWithTag(Tags.Distance)?.value as? XLFormOptionsObject {
+            newChallenge.completedCondition = distance.valueData() as! Int
         }
         
         newChallenge.createdBy = FirebaseManager.sharedInstance.getUserFirebaseId()

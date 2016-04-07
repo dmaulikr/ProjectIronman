@@ -12,8 +12,10 @@ class FChallenge: FModel{
     var type:ChallengeType!
     var mode:ChallengeMode!
     var status:ChallengeStatus!
-    var startTime:NSTimeInterval! // start time in UTC timestamp
+    var createTime:NSTimeInterval! // when challenge is created in UTC timestamp
+    var startTime:NSTimeInterval? // when challenge is accepted. only be set when challenge is accepted by member
     var duration:Int! // how many days
+    var completedCondition:Int! // the condition that the challenge will be regarded as completed. Ex. 5km or  5 min/km
     private var progress:[NSObject:AnyObject] = [NSObject:AnyObject]() // Dictionary<userId, progress>
     // winning condition?
     
@@ -59,23 +61,31 @@ class FChallenge: FModel{
         self.type = ChallengeType(rawValue: rawData["type"] as! String)
         self.mode = ChallengeMode(rawValue: rawData["mode"] as! String)
         self.status = ChallengeStatus(rawValue: rawData["status"] as! String)
-        self.startTime = rawData["startTime"] as! NSTimeInterval
+        self.createTime = rawData["createTime"] as! NSTimeInterval
         self.duration = rawData["duration"] as! Int
+        self.completedCondition = rawData["completedCondition"] as! Int
         self.createdBy = rawData["createdBy"] as! String
         self.member = rawData["member"] as! String
         self.progress = rawData["progress"] as! [NSObject:AnyObject]
     }
     
     override func toDict() -> [String : AnyObject] {
-        return [
+        var returnDict:[String: AnyObject] = [
             "type": self.type.rawValue,
             "mode": self.mode.rawValue,
             "status": self.status.rawValue,
-            "startTime": self.startTime,
+            "createTime": self.createTime,
             "duration": self.duration,
+            "completedCondition": self.completedCondition,
             "createdBy": self.createdBy,
             "member": self.member,
             "progress": self.progress
         ]
+        
+        if let startTime = self.startTime {
+            returnDict["startTime"] = startTime
+        }
+        
+        return returnDict
     }
 }

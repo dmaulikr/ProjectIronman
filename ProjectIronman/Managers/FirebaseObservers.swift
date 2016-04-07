@@ -14,6 +14,7 @@ import Foundation
 extension FirebaseManager {
     /**
         Set an observer for child added event
+        - Returns: observer handle Id
      */
     func observeHostedChallenge(complitionHandler: (FChallenge? -> Void)) -> UInt? {
         var handle:UInt?
@@ -40,6 +41,35 @@ extension FirebaseManager {
                     })
                 })
         }
+        return handle
+    }
+    
+    /**
+        Listen to new activity added
+        - Returns: observer handle Id
+    */
+    func observeNewActivityAdded(completionHandler: (FActivity? -> Void)) -> UInt? {
+        var handle:UInt?
+        
+        if baseRef.authData != nil {
+            let userId = baseRef.authData.uid
+            handle = baseRef.childByAppendingPath(Paths.Activities)
+                .childByAppendingPath(userId)
+                .childByAppendingPath(Paths.Run)
+                .observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    var returnActivity:FActivity?
+                    if !snapshot.value.isEqual(NSNull) {
+                        if let activityDict = snapshot.value as? NSDictionary {
+                            returnActivity = FActivity(rawData: activityDict)
+                        }
+                    }
+                    
+                    completionHandler(returnActivity)
+                    
+                })
+        }
+        
         return handle
     }
     

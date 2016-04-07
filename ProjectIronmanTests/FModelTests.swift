@@ -20,8 +20,9 @@ class FModelTests: XCTestCase{
             "type": "OneVOne",
             "mode": "Distance",
             "status": "Active",
-            "startTime": NSDate().timeIntervalSince1970,
+            "createTime": NSDate().timeIntervalSince1970,
             "duration": 4,
+            "completedCondition": 3,
             "createdBy": "user123",
             "member": "user456",
             "progress": [
@@ -47,8 +48,9 @@ class FModelTests: XCTestCase{
             "type": "OneVOne",
             "mode": "Distance",
             "status": "Active",
-            "startTime": NSDate().timeIntervalSince1970,
+            "createTime": NSDate().timeIntervalSince1970,
             "duration": 4,
+            "completedCondition": 3,
             "createdBy": "user123",
             "member": "user456",
             "progress": [

@@ -133,16 +133,18 @@ class FirebaseManager {
                 .observeSingleEventOfType(.Value, withBlock: {
                     (snapshot) -> Void in
                     
-                    if snapshot.value is NSNull {
-                        completionHandler(nil)
-                    } else {
+                    var returnActivity:FActivity?
+                    if !snapshot.value.isEqual(NSNull){
                         var activity:FActivity?
+                        
                         for child in snapshot.children.allObjects as! [FDataSnapshot] {
-                            
                             activity = FActivity(rawData: child.value as! NSDictionary)
                         }
-                        completionHandler(activity)
+                        
+                        returnActivity = activity
                     }
+                    
+                    completionHandler(returnActivity)
                 })
         }
     }
