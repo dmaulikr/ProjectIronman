@@ -97,6 +97,13 @@ class FirebaseManager {
     }
     
     /**
+        set the client last sync time between the tracking app/device and our firebase server
+    */
+    func updateClientLastSyncTime(timeStamp:NSTimeInterval) -> Void {
+        updateUser(["clientLastSyncTime": timeStamp])
+    }
+    
+    /**
          Update user
          - Parameter values: the values that you want to add to a new or existing user
     */
@@ -105,6 +112,7 @@ class FirebaseManager {
             let providerData = baseRef.authData.providerData
             let newUser = FUserBasicInfo(rawData: providerData)
             newUser.provider = baseRef.authData.provider
+            newUser.clientLastSyncTime = NSDate().timeIntervalSince1970
             
             self.updateUser(newUser.toDict())
         }

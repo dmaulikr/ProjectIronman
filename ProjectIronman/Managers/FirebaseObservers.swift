@@ -27,7 +27,7 @@ extension FirebaseManager {
                     print(snapshot.key)
                     let challengeId = snapshot.key
                     let challengeQueryRef = self.baseRef.childByAppendingPath(Paths.Challenges)
-                                                .childByAppendingPath(challengeId)
+                        .childByAppendingPath(challengeId)
                     challengeQueryRef.observeSingleEventOfType(.Value, withBlock: { (querySnapshot) -> Void in
 //                        print(querySnapshot)
                         
@@ -46,22 +46,27 @@ extension FirebaseManager {
     
     /**
         Listen to new activity added
+     
         - Returns: observer handle Id
     */
     func observeNewActivityAdded(completionHandler: (FActivity? -> Void)) -> UInt? {
         var handle:UInt?
-        
+//        Note: use queryLimitedToFirst to avoid getting list of existing activity when
+//        register
         if baseRef.authData != nil {
             let userId = baseRef.authData.uid
             handle = baseRef.childByAppendingPath(Paths.Activities)
                 .childByAppendingPath(userId)
                 .childByAppendingPath(Paths.Run)
+                .queryOrderedByChild("startDate")
+                .queryLimitedToLast(1)
                 .observeEventType(.ChildAdded, withBlock: { snapshot in
                     
                     var returnActivity:FActivity?
                     if !snapshot.value.isEqual(NSNull) {
                         if let activityDict = snapshot.value as? NSDictionary {
                             returnActivity = FActivity(rawData: activityDict)
+                            print(returnActivity)
                         }
                     }
                     

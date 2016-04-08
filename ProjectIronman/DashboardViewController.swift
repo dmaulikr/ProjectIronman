@@ -65,6 +65,8 @@ class DashboardViewController: ButtonBarPagerTabStripViewController, APIManagerA
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        ChallengeManager.sharedInstance.checkForCompletedChallenges()
         APIManager.sharedInstance.activityDelegate = self
         updateLatestRunStats()
         

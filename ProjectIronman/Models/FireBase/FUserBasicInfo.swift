@@ -17,6 +17,7 @@ class FUserBasicInfo: FModel {
     var email:String?
     var profileImageURL:String?
     var provider:String?
+    var clientLastSyncTime:NSTimeInterval?
     
     override func mapToModel(rawData:NSDictionary){
         if let deviceString = rawData["deviceConnected"] as? String {
@@ -27,6 +28,7 @@ class FUserBasicInfo: FModel {
         self.email = rawData["email"] as? String
         self.profileImageURL = rawData["profileImageURL"] as? String
         self.provider = rawData["provider"] as? String
+        self.clientLastSyncTime = rawData["clientLastSyncTime"] as? NSTimeInterval
     }
     
     override func toDict() -> [String : AnyObject] {
@@ -48,6 +50,9 @@ class FUserBasicInfo: FModel {
         }
         if self.deviceConnected != nil {
             dict["deviceConnected"] = self.deviceConnected?.rawValue
+        }
+        if self.clientLastSyncTime != nil {
+            dict["clientLastSyncTime"] = self.clientLastSyncTime
         }
     
         return dict
