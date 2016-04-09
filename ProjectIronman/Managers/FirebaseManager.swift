@@ -35,7 +35,8 @@ class FirebaseManager {
     
     /**
         Check to see if the user has been authenticated
-        - Returns: Bool True: user authenticated and token is valid. False: user not authenticated or token has expired needs to reauthorize
+        - Returns: Bool True: user authenticated and token is valid. 
+            False: user not authenticated or token has expired needs to reauthorize
     */
     func isUserAuthenticated() -> Bool{
         var retVal = false //default to not authenticated
@@ -97,7 +98,8 @@ class FirebaseManager {
     }
     
     /**
-        set the client last sync time between the tracking app/device and our firebase server
+        set the client last sync time between the tracking app/device and 
+        our firebase server
     */
     func updateClientLastSyncTime(timeStamp:NSTimeInterval) -> Void {
         updateUser(["clientLastSyncTime": timeStamp])
@@ -107,12 +109,13 @@ class FirebaseManager {
          Update user
          - Parameter values: the values that you want to add to a new or existing user
     */
-    func updateUser() -> Void {
+    func createNewUser() -> Void {
         if baseRef.authData != nil {
             let providerData = baseRef.authData.providerData
             let newUser = FUserBasicInfo(rawData: providerData)
             newUser.provider = baseRef.authData.provider
-            newUser.clientLastSyncTime = NSDate().timeIntervalSince1970
+            newUser.clientLastSyncTime = 0 // this will allow us to sync all users
+                                            //existing activity for the first time
             
             self.updateUser(newUser.toDict())
         }

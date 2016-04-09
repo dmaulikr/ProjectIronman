@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
 //                            print("Logged in! \(authData)")
                             
                             // create new user
-                            FirebaseManager.sharedInstance.updateUser()
+                            FirebaseManager.sharedInstance.createNewUser()
                             
                             self.dismissViewControllerAnimated(true, completion: nil)
                         }

@@ -45,6 +45,8 @@ class EntranceViewController: UIViewController {
                     self.performSegueWithIdentifier(self.validUserViewIdentifier, sender: self)
                     self.currentSegueIdentifier = self.validUserViewIdentifier
                 } else {
+                    // TODO: double check if new user is created correctly. 
+                    
                     // connect device first
                     print("connect device")
                     self.performSegueWithIdentifier(self.connectDeviceViewIdentifier, sender: self)
