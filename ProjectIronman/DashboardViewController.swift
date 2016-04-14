@@ -37,7 +37,7 @@ class DashboardViewController: ButtonBarPagerTabStripViewController, APIManagerA
             for activity in activities!{
                 
                 //check to make sure activity is of type Run
-                FirebaseManager.sharedInstance.setRunActivity(activity.toDict())
+                FirebaseManager.sharedInstance.setRunActivity(activity.toDict(), completionHandler: nil)
             }
             
             //show the latest run stats

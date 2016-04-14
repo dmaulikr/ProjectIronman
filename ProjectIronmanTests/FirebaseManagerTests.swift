@@ -38,5 +38,37 @@ class FirebaseManagerTests: XCTestCase {
         self.waitForExpectationsWithTimeout(1.5, handler: .None)
     }
     
+    func testCreateActivity(){
+        let newActivity = FActivity()
+        newActivity.id = "Strava_testnewactivity"
+        newActivity.distance = 5000.0
+        newActivity.startDate = NSDate().timeIntervalSince1970
+        newActivity.time = 3000
+        newActivity.timeZone = "PDT"
+        
+        let expectation = self.expectationWithDescription("new activity has been created")
+        FirebaseManager.sharedInstance.setRunActivity(newActivity.toDict()) { 
+            expectation.fulfill()
+        }
+        self.waitForExpectationsWithTimeout(1.5, handler: .None)
+    
+    }
+    
+    func testCreateOutdatedActivity(){
+//        1460301075 ...april 10
+        let newActivity = FActivity()
+        newActivity.id = "Strava_testoutdatedactivity"
+        newActivity.distance = 5000.0
+        newActivity.startDate = NSTimeInterval(1460301075)
+        newActivity.time = 3000
+        newActivity.timeZone = "PDT"
+        
+        let expectation = self.expectationWithDescription("new activity has been created")
+        FirebaseManager.sharedInstance.setRunActivity(newActivity.toDict()) {
+            expectation.fulfill()
+        }
+        self.waitForExpectationsWithTimeout(1.5, handler: .None)
+    }
+    
     
 }

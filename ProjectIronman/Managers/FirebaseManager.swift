@@ -18,6 +18,7 @@ class FirebaseManager {
     struct Paths {
         static let Users = "users"
         static let Activities = "activities"
+        static let UserActivities = "userActivities"
         static let Run = "run"
         static let Challenges = "challenges"
         static let Hosted = "hosted"
@@ -165,13 +166,31 @@ class FirebaseManager {
         Add new running activity to backend
         - Parameter values: the values of a running activity
     */
-    func setRunActivity(values: [NSObject: AnyObject]) -> Void {
+    func setRunActivity(values: [NSObject: AnyObject],
+        completionHandler: (() -> Void)?) -> Void {
+        
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath(Paths.Activities)
-                .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath(Paths.Run)
+            let userId = self.baseRef.authData.uid
+            
+            // activities/activity_id (public)
+            let activityRef = baseRef.childByAppendingPath(Paths.Activities)
                 .childByAutoId()
-                .setValue(values)
+            
+            //set user id to activity
+            var activityDict = values
+            activityDict["userId"] = userId
+            activityDict["isNew"] = true
+            
+            activityRef.setValue(activityDict, withCompletionBlock: { (error, ref) in
+                if error == nil {
+                    self.baseRef.childByAppendingPath(Paths.UserActivities)
+                        .childByAppendingPath(userId)
+                        .childByAppendingPath(activityRef.key)
+                        .setValue(true, withCompletionBlock: { (error, ref) in
+                            if error == nil { completionHandler?() }
+                        })
+                }
+            })
         }
     }
     
@@ -223,34 +242,4 @@ class FirebaseManager {
                 })
         }
     }
-    
-//    func setPendingChallenge(id:String, completionHandler: (() -> Void)?) -> Void {
-//        if baseRef.authData != nil {
-//            baseRef.childByAppendingPath("pending")
-//                .childByAppendingPath(baseRef.authData.uid)
-//                .childByAppendingPath(id)
-//                .setValue(true, withCompletionBlock: { (error, ref) -> Void in
-//                    if error == nil {
-//                        completionHandler?()
-//                    }
-//                })
-//        }
-//    }
-//    
-//    
-//    func updatePendingToActive(id:String) -> Void {
-//        //test if id is in pending
-//        //move id to active
-//        //remove id from pending
-//        
-//    }
-//    
-//    func updateInvitationToActive(id:String) -> Void {
-//    }
-//    
-//    func updatePendingToDeclined(id:String) -> Void {
-//    }
-//    
-//    func updateActiveToCompleted(id:String) -> Void {
-//    }
 }
