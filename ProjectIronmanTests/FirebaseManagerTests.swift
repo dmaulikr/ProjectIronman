@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import FitnessAPI
 @testable import ProjectIronman
 
 class FirebaseManagerTests: XCTestCase {
@@ -21,33 +22,60 @@ class FirebaseManagerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testCreateNewChallenge(){
+    func testCreateNewPendingChallenge(){
         let testChallenge = FChallenge()
         testChallenge.type = ChallengeType.OneVOne
         testChallenge.mode = ChallengeMode.Distance
         testChallenge.status = ChallengeStatus.Pending
-        testChallenge.startTime = NSDate().timeIntervalSince1970
+        testChallenge.completedCondition = 3 //3km race
+        testChallenge.createTime = NSDate().timeIntervalSince1970
         testChallenge.duration = 3
         testChallenge.createdBy = "Test1"
         testChallenge.member = "User1"
         
-        let expectation = self.expectationWithDescription("challenge has been created")
+        let expectation = self.expectationWithDescription("pending challenge has been created")
         FirebaseManager.sharedInstance.createNewChallenge(testChallenge.toDict()) { () -> Void in
             expectation.fulfill()
         }
         self.waitForExpectationsWithTimeout(1.5, handler: .None)
     }
     
+    func testCreateNewActiveChallenge(){
+        let testChallenge = FChallenge()
+        testChallenge.type = ChallengeType.OneVOne
+        testChallenge.mode = ChallengeMode.Distance
+        testChallenge.status = ChallengeStatus.Active
+        testChallenge.completedCondition = 3 //3km race
+        testChallenge.createTime = NSDate().timeIntervalSince1970
+        testChallenge.startTime = NSDate().timeIntervalSince1970
+        testChallenge.duration = 3
+        testChallenge.createdBy = "Test1"
+        testChallenge.member = "User1"
+        
+        let expectation = self.expectationWithDescription("active challenge has been created")
+        FirebaseManager.sharedInstance.createNewChallenge(testChallenge.toDict()) { () -> Void in
+            expectation.fulfill()
+        }
+        self.waitForExpectationsWithTimeout(1.5, handler: .None)
+    }
+    
+    /**
+        create new activity to be sync with firebase. 
+        using this to test the backend server code
+    */
     func testCreateActivity(){
-        let newActivity = FActivity()
-        newActivity.id = "Strava_testnewactivity"
-        newActivity.distance = 5000.0
-        newActivity.startDate = NSDate().timeIntervalSince1970
-        newActivity.time = 3000
-        newActivity.timeZone = "PDT"
+
+        let activityDict = [
+            "id": "Strava_activtytest",
+            "type": "run",
+            "distance": 5000,
+            "time": 3600,
+            "startDate": NSDate().timeIntervalSince1970,
+            "timeZone": "PDT"
+        ]
         
         let expectation = self.expectationWithDescription("new activity has been created")
-        FirebaseManager.sharedInstance.setRunActivity(newActivity.toDict()) { 
+        FirebaseManager.sharedInstance.setRunActivity(activityDict as [NSObject : AnyObject]) {
             expectation.fulfill()
         }
         self.waitForExpectationsWithTimeout(1.5, handler: .None)

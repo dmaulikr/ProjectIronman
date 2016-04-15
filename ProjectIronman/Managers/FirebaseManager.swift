@@ -17,16 +17,16 @@ class FirebaseManager {
     
     struct Paths {
         static let Users = "users"
-        static let Activities = "activities"
-        static let UserActivities = "userActivities"
+        static let Activities = "public_activities"
+        static let UserActivities = "user_activities"
         static let Run = "run"
-        static let Challenges = "challenges"
-        static let Hosted = "hosted"
-        static let Live = "live"
-        static let Dead = "dead"
+        static let Challenges = "public_challenges"
+        static let Hosted = "hosted_challenges"
+        static let Live = "live_challenges"
+        static let Dead = "dead_challenges"
         static let Pending = "pending"
         static let Active = "active"
-        static let Completed = "completed"
+//        static let Completed = "completed"
         
     }
 
@@ -211,8 +211,14 @@ class FirebaseManager {
                 let userId = self.baseRef.authData.uid
                 // set id to hosted/user_id/challenge_id
                 let hostedPath:String = "\(Paths.Hosted)/\(userId)/\(challengeRef.key)"
+                
                 // set id to live/user_id/pending/challenge_id
-                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challengeRef.key)"
+               
+                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Active)/\(challengeRef.key)"
+           
+//                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challengeRef.key)"
+               
+                
                 
                 self.baseRef.updateChildValues([
                         hostedPath: true,

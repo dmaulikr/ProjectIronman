@@ -61,7 +61,7 @@ class FChallenge: FModel{
         self.type = ChallengeType(rawValue: rawData["type"] as! String)
         self.mode = ChallengeMode(rawValue: rawData["mode"] as! String)
         self.status = ChallengeStatus(rawValue: rawData["status"] as! String)
-        self.createTime = rawData["createTime"] as! NSTimeInterval
+        self.createTime = rawData["createDate"] as! NSTimeInterval
         self.duration = rawData["duration"] as! Int
         self.completedCondition = rawData["completedCondition"] as! Int
         self.createdBy = rawData["createdBy"] as! String
@@ -74,7 +74,7 @@ class FChallenge: FModel{
             "type": self.type.rawValue,
             "mode": self.mode.rawValue,
             "status": self.status.rawValue,
-            "createTime": self.createTime,
+            "createDate": self.createTime,
             "duration": self.duration,
             "completedCondition": self.completedCondition,
             "createdBy": self.createdBy,
@@ -83,7 +83,7 @@ class FChallenge: FModel{
         ]
         
         if let startTime = self.startTime {
-            returnDict["startTime"] = startTime
+            returnDict["startDate"] = startTime
         }
         
         return returnDict
