@@ -45,11 +45,11 @@ class FirebaseManagerTests: XCTestCase {
         testChallenge.type = ChallengeType.OneVOne
         testChallenge.mode = ChallengeMode.Distance
         testChallenge.status = ChallengeStatus.Active
-        testChallenge.completedCondition = 3 //3km race
+        testChallenge.completedCondition = 3000 //3km race
         testChallenge.createTime = NSDate().timeIntervalSince1970
         testChallenge.startTime = NSDate().timeIntervalSince1970
         testChallenge.duration = 3
-        testChallenge.createdBy = "Test1"
+        testChallenge.createdBy = "facebook:10153784008215971"
         testChallenge.member = "User1"
         
         let expectation = self.expectationWithDescription("active challenge has been created")

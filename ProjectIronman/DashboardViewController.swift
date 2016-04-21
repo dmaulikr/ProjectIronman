@@ -86,7 +86,7 @@ class DashboardViewController: ButtonBarPagerTabStripViewController, APIManagerA
     // MARK: - PagerTabStripDataSource
     
     override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let child_1 = TableChildExampleViewController(style: .Plain, itemInfo: "Active")
+        let child_1 = ActiveChallengesTableViewController(style: .Plain, itemInfo: "Active")
         let child_2 = ChildExampleViewController(itemInfo: "Pending")
         let child_3 = ChildExampleViewController(itemInfo: "Completed")
         return [child_1, child_2, child_3]

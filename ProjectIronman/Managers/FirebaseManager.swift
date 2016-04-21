@@ -137,7 +137,7 @@ class FirebaseManager {
     
     func getLatestRun(completionHandler: (FActivity? -> Void)){
         if baseRef.authData != nil {
-            baseRef.childByAppendingPath(Paths.Activities)
+            baseRef.childByAppendingPath(Paths.UserActivities)
                 .childByAppendingPath(baseRef.authData.uid)
                 .childByAppendingPath(Paths.Run)
                 .queryOrderedByChild("startDate")
@@ -161,7 +161,46 @@ class FirebaseManager {
         }
     }
     
-       
+    /**
+        Return all active challenges that the user has
+    */
+    func getActiveChallenges(completionHandler: ([FChallenge] -> Void)){
+        if baseRef.authData != nil {
+            // get all live challenge Id of the user
+            baseRef.childByAppendingPath(Paths.Live)
+            .childByAppendingPath(baseRef.authData.uid)
+            .childByAppendingPath(Paths.Active)
+            .observeSingleEventOfType(.Value, withBlock: {
+                (snapshot) in
+                
+                var returnChallenges:[FChallenge] = []
+                if !snapshot.value.isEqual(NSNull){
+                    for challenge in snapshot.children {
+                        let challengeId = challenge.key
+                        
+                        // get challenge info from the challenge Id
+                        self.baseRef.childByAppendingPath(Paths.Challenges)
+                        .childByAppendingPath(challengeId)
+                        .observeSingleEventOfType(.Value, withBlock: {
+                            (snapshot) in
+                            
+                            if let valueDict = snapshot.value as? NSDictionary {
+                                let challenge = FChallenge(rawData: valueDict)
+                                returnChallenges.append(challenge)
+                            }
+                        })
+                    }
+                }
+                
+                completionHandler(returnChallenges)
+            })
+        }
+    }
+    
+    func getLiveChallenges(completionHandler: ([FChallenge]? -> Void), specificPath: Paths){
+        
+    }
+    
     /**
         Add new running activity to backend
         - Parameter values: the values of a running activity
@@ -194,6 +233,8 @@ class FirebaseManager {
         }
     }
     
+    
+    
     /**
         Add new challenge. Whenever a challenge is created. the challengeId
         is also added to pending table and the hosted table
@@ -214,6 +255,8 @@ class FirebaseManager {
                 
                 // set id to live/user_id/pending/challenge_id
                
+                // setting path to active right now, so we can test the single player mode without
+                // dealing with friends list for now
                 let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Active)/\(challengeRef.key)"
            
 //                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challengeRef.key)"
