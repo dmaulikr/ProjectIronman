@@ -30,9 +30,13 @@ class FirebaseManagerTests: XCTestCase {
         testChallenge.completedCondition = 3 //3km race
         testChallenge.createTime = NSDate().timeIntervalSince1970
         testChallenge.duration = 3
-        testChallenge.createdBy = "Test1"
-        testChallenge.member = "User1"
+        testChallenge.hostId = "facebook:10153784008215971"
+        testChallenge.hostName = "Jason Cheng"
+        testChallenge.hostProfileImage = "https://scontent.xx.fbcdn.net/hprofile-xlf1/v/t1.0-1/p100x100/12742803_10153767482015971_4404060236400761591_n.jpg?oh=2181a763507eea93638d11cb8fc874e2&oe=57A73253"
         
+        testChallenge.memberId = "friend1"
+        testChallenge.memberName = "Nancy Wang"
+        testChallenge.memberProfileImage = "https://scontent.xx.fbcdn.net/hprofile-xlf1/v/t1.0-1/p100x100/12742803_10153767482015971_4404060236400761591_n.jpg?oh=2181a763507eea93638d11cb8fc874e2&oe=57A73253"
         let expectation = self.expectationWithDescription("pending challenge has been created")
         FirebaseManager.sharedInstance.createNewChallenge(testChallenge.toDict()) { () -> Void in
             expectation.fulfill()
@@ -49,8 +53,13 @@ class FirebaseManagerTests: XCTestCase {
         testChallenge.createTime = NSDate().timeIntervalSince1970
         testChallenge.startTime = NSDate().timeIntervalSince1970
         testChallenge.duration = 3
-        testChallenge.createdBy = "facebook:10153784008215971"
-        testChallenge.member = "User1"
+        testChallenge.hostId = "facebook:10153784008215971"
+        testChallenge.hostName = "Jason Cheng"
+        testChallenge.hostProfileImage = "https://scontent.xx.fbcdn.net/hprofile-xlf1/v/t1.0-1/p100x100/12742803_10153767482015971_4404060236400761591_n.jpg?oh=2181a763507eea93638d11cb8fc874e2&oe=57A73253"
+        
+        testChallenge.memberId = "friend1"
+        testChallenge.memberName = "Nancy Wang"
+        testChallenge.memberProfileImage = "https://scontent.xx.fbcdn.net/hprofile-xlf1/v/t1.0-1/p100x100/12742803_10153767482015971_4404060236400761591_n.jpg?oh=2181a763507eea93638d11cb8fc874e2&oe=57A73253"
         
         let expectation = self.expectationWithDescription("active challenge has been created")
         FirebaseManager.sharedInstance.createNewChallenge(testChallenge.toDict()) { () -> Void in

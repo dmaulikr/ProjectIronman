@@ -65,6 +65,11 @@ class FirebaseManager {
         return nil
     }
     
+//    func getUserFirebaseName() -> String? {
+//        if baseRef.authData != nil {
+//            
+//        }
+//    }
     
     /**
         Retrieve user basic info asynchronously. Completion Hander will receive nil
@@ -139,7 +144,6 @@ class FirebaseManager {
         if baseRef.authData != nil {
             baseRef.childByAppendingPath(Paths.UserActivities)
                 .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath(Paths.Run)
                 .queryOrderedByChild("startDate")
                 .queryLimitedToLast(1)
                 .observeSingleEventOfType(.Value, withBlock: {
@@ -188,11 +192,11 @@ class FirebaseManager {
                                 let challenge = FChallenge(rawData: valueDict)
                                 returnChallenges.append(challenge)
                             }
+                            
+                            completionHandler(returnChallenges)
                         })
                     }
-                }
-                
-                completionHandler(returnChallenges)
+                } else { completionHandler(returnChallenges) }
             })
         }
     }
@@ -216,19 +220,22 @@ class FirebaseManager {
                 .childByAutoId()
             
             //set user id to activity
-            var activityDict = values
-            activityDict["userId"] = userId
-            activityDict["isNew"] = true
+            var publicActivityDict = values
+            publicActivityDict["userId"] = userId
+            publicActivityDict["isNew"] = true
             
-            activityRef.setValue(activityDict, withCompletionBlock: { (error, ref) in
+            activityRef.setValue(publicActivityDict, withCompletionBlock: {
+                (error, ref) in
+                
                 if error == nil {
                     self.baseRef.childByAppendingPath(Paths.UserActivities)
                         .childByAppendingPath(userId)
                         .childByAppendingPath(activityRef.key)
-                        .setValue(true, withCompletionBlock: { (error, ref) in
+                        .setValue(values, withCompletionBlock: { (error, ref) in
                             if error == nil { completionHandler?() }
                         })
                 }
+                
             })
         }
     }

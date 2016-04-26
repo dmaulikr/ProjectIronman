@@ -17,25 +17,27 @@ class FChallenge: FModel{
     var duration:Int! // how many days
     var completedCondition:Int! // the condition that the challenge will be regarded as completed. Ex. 5km or  5 min/km
     private var progress:[NSObject:AnyObject] = [NSObject:AnyObject]() // Dictionary<userId, progress>
-    // winning condition?
     
-    var createdBy:String! {
+    var hostName:String!
+    var hostProfileImage:String!
+    var hostId:String! {
         // make sure progress dict is initialized with this userId as well
         didSet {
-            if progress[createdBy] == nil {
-                progress[createdBy] = 0
+            if progress[hostId] == nil {
+                progress[hostId] = 0
             }
         }
     }
     
-    var member:String! {
+    var memberName:String!
+    var memberProfileImage:String!
+    var memberId:String! {
         didSet {
-            if progress[member] == nil {
-                progress[member] = 0
+            if progress[memberId] == nil {
+                progress[memberId] = 0
             }
         }
     }
-    
     
     /**
         update user progress with value
@@ -64,8 +66,12 @@ class FChallenge: FModel{
         self.createTime = rawData["createDate"] as! NSTimeInterval
         self.duration = rawData["duration"] as! Int
         self.completedCondition = rawData["completedCondition"] as! Int
-        self.createdBy = rawData["createdBy"] as! String
-        self.member = rawData["member"] as! String
+        self.hostId = rawData["hostId"] as! String
+        self.hostProfileImage = rawData["hostProfileImage"] as! String
+        self.hostName = rawData["hostName"] as! String
+        self.memberId = rawData["memberId"] as! String
+        self.memberProfileImage = rawData["memberProfileImage"] as! String
+        self.memberName = rawData["memberName"] as! String
         self.progress = rawData["progress"] as! [NSObject:AnyObject]
     }
     
@@ -77,8 +83,12 @@ class FChallenge: FModel{
             "createDate": self.createTime,
             "duration": self.duration,
             "completedCondition": self.completedCondition,
-            "createdBy": self.createdBy,
-            "member": self.member,
+            "hostId": self.hostId,
+            "hostProfileImage": self.hostProfileImage,
+            "hostName": self.hostName,
+            "memberId": self.memberId,
+            "memberProfileImage": self.memberProfileImage,
+            "memberName": self.memberName,
             "progress": self.progress
         ]
         

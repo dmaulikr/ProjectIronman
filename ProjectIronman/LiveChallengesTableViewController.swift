@@ -66,7 +66,7 @@ class LiveChallengesTableViewController: UITableViewController {
         let challenge = challenges[indexPath.row]
         
         cell.headerLabel.text = challenge.type.rawValue + " " + challenge.mode.rawValue
-        cell.userLabel.text = challenge.member
+        cell.userLabel.text = challenge.memberName
         cell.statusLabel.text = challenge.status.rawValue
 
         return cell

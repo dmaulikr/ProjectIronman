@@ -17,6 +17,7 @@
 		962316981CB48E1E0001D999 /* LiveChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */; };
 		9627A9751CC93BFB003601E2 /* ActiveChallengesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A9741CC93BFB003601E2 /* ActiveChallengesTableViewController.swift */; };
 		9627A9771CC93DE6003601E2 /* DashboardChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627A9761CC93DE6003601E2 /* DashboardChallengeCell.xib */; };
+		9627A97A1CCA984A003601E2 /* DashboardChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A9791CCA984A003601E2 /* DashboardChallengeTableViewCell.swift */; };
 		96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */; };
 		96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */; };
 		96DB4D2F1C84CC7400ACAF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		9627A9741CC93BFB003601E2 /* ActiveChallengesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveChallengesTableViewController.swift; sourceTree = "<group>"; };
 		9627A9761CC93DE6003601E2 /* DashboardChallengeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardChallengeCell.xib; sourceTree = "<group>"; };
+		9627A9791CCA984A003601E2 /* DashboardChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		96DB4D241C84CC7400ACAF00 /* ProjectIronman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIronman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DB4D2C1C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				96DB4D7F1C8695CB00ACAF00 /* DashboardViewController.swift */,
 				9627A9741CC93BFB003601E2 /* ActiveChallengesTableViewController.swift */,
+				9627A9791CCA984A003601E2 /* DashboardChallengeTableViewCell.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				96FE09BE1CA32B5C00105C81 /* FChallenge.swift in Sources */,
 				96DB4D7C1C86926B00ACAF00 /* SettingViewController.swift in Sources */,
 				96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */,
+				9627A97A1CCA984A003601E2 /* DashboardChallengeTableViewCell.swift in Sources */,
 				96DB4D561C850C9800ACAF00 /* EntranceViewController.swift in Sources */,
 				962316941CB442800001D999 /* DataProvider.swift in Sources */,
 				962316981CB48E1E0001D999 /* LiveChallengeTableViewCell.swift in Sources */,

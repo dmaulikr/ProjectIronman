@@ -32,6 +32,7 @@ class ActiveChallengesTableViewController: UITableViewController, IndicatorInfoP
         FirebaseManager.sharedInstance.getActiveChallenges{
             (challenges) in
             self.activeChallenges = challenges
+            print(challenges.count)
             self.tableView.reloadData()
         }
     }
@@ -51,6 +52,15 @@ class ActiveChallengesTableViewController: UITableViewController, IndicatorInfoP
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.activeChallenges.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DashboardChallengeTableViewCell
+        let challenge = self.activeChallenges[indexPath.row]
+        cell.populateWithData(challenge)
+        
+        return cell
     }
 
     // MARK: - IndicatorInfoProvider

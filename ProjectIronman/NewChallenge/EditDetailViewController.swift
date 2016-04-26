@@ -39,18 +39,29 @@ class EditDetailViewController: XLFormViewController {
             newChallenge.completedCondition = distance.valueData() as! Int
         }
         
-        newChallenge.createdBy = FirebaseManager.sharedInstance.getUserFirebaseId()
-        newChallenge.member = "Friend1"
-        newChallenge.startTime = NSDate().timeIntervalSince1970
         
-        // saving screen loading
-        FirebaseManager.sharedInstance.createNewChallenge(newChallenge.toDict()) { () -> Void in
-            sender.enabled = true
-            SVProgressHUD.dismiss()
-            //dismiss loading screen
-            
-            //return to home
-            self.performSegueWithIdentifier("UnwindToChallengeHome", sender: self)
+        
+        FirebaseManager.sharedInstance.getUserBasicInfo { (info) in
+            if let basicUserInfo = info {
+                self.newChallenge.hostId = FirebaseManager.sharedInstance.getUserFirebaseId()
+                self.newChallenge.hostName = basicUserInfo.displayName
+                self.newChallenge.hostProfileImage = basicUserInfo.profileImageURL
+                
+                self.newChallenge.memberId = "Friend1"
+                self.newChallenge.memberName = "testing"
+                self.newChallenge.memberProfileImage = basicUserInfo.profileImageURL
+                self.newChallenge.startTime = NSDate().timeIntervalSince1970
+                
+                // saving screen loading
+                FirebaseManager.sharedInstance.createNewChallenge(self.newChallenge.toDict()) { () -> Void in
+                    sender.enabled = true
+                    SVProgressHUD.dismiss()
+                    //dismiss loading screen
+                    
+                    //return to home
+                    self.performSegueWithIdentifier("UnwindToChallengeHome", sender: self)
+                }
+            }
         }
     }
     
