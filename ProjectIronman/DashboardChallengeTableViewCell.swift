@@ -11,7 +11,11 @@ import UIKit
 class DashboardChallengeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var playersLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var friendImage: UIImageView!
+    @IBOutlet weak var friendName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,9 +30,12 @@ class DashboardChallengeTableViewCell: UITableViewCell {
     }
     
     func populateWithData(challenge:FChallenge){
-        let title = "\(challenge.type.rawValue)"
+        let description = "\(challenge.type.rawValue) \(challenge.mode.rawValue)"
         
-        descriptionLabel.text = title
+        descriptionLabel.text = description
+        userImage.imageFromUrl(challenge.hostProfileImage)
+        userName.text = challenge.hostName
+        friendImage.imageFromUrl(challenge.memberProfileImage)
+        friendName.text = challenge.memberName
     }
-
 }

@@ -43,7 +43,7 @@ class FUserBasicInfo: FModel {
             dict["email"] = self.email
         }
         if self.profileImageURL != nil {
-            dict["profielImageURL"] = self.profileImageURL
+            dict["profileImageURL"] = self.profileImageURL
         }
         if self.provider != nil {
             dict["provider"] = self.provider

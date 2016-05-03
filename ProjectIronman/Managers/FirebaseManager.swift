@@ -169,40 +169,49 @@ class FirebaseManager {
         Return all active challenges that the user has
     */
     func getActiveChallenges(completionHandler: ([FChallenge] -> Void)){
+        getLiveChallenges(completionHandler, specificPath: Paths.Active)
+    }
+    
+    /**
+        Return all pending challenges
+    */
+    func getPendingChallenges(completionHandler: ([FChallenge] -> Void)){
+        getLiveChallenges(completionHandler, specificPath: Paths.Pending)
+    }
+    
+    private func getLiveChallenges(completionHandler: ([FChallenge] -> Void), specificPath: String){
         if baseRef.authData != nil {
             // get all live challenge Id of the user
             baseRef.childByAppendingPath(Paths.Live)
             .childByAppendingPath(baseRef.authData.uid)
-            .childByAppendingPath(Paths.Active)
+            .childByAppendingPath(specificPath)
             .observeSingleEventOfType(.Value, withBlock: {
                 (snapshot) in
                 
                 var returnChallenges:[FChallenge] = []
                 if !snapshot.value.isEqual(NSNull){
+                    
+                    // loop through all challenges and get the challenge Id
                     for challenge in snapshot.children {
                         let challengeId = challenge.key
                         
                         // get challenge info from the challenge Id
                         self.baseRef.childByAppendingPath(Paths.Challenges)
-                        .childByAppendingPath(challengeId)
-                        .observeSingleEventOfType(.Value, withBlock: {
-                            (snapshot) in
-                            
-                            if let valueDict = snapshot.value as? NSDictionary {
-                                let challenge = FChallenge(rawData: valueDict)
-                                returnChallenges.append(challenge)
-                            }
-                            
-                            completionHandler(returnChallenges)
-                        })
+                            .childByAppendingPath(challengeId)
+                            .observeSingleEventOfType(.Value, withBlock: {
+                                (snapshot) in
+                                
+                                if let valueDict = snapshot.value as? NSDictionary {
+                                    let challenge = FChallenge(rawData: valueDict)
+                                    returnChallenges.append(challenge)
+                                }
+                                
+                                completionHandler(returnChallenges)
+                            })
                     }
                 } else { completionHandler(returnChallenges) }
             })
         }
-    }
-    
-    func getLiveChallenges(completionHandler: ([FChallenge]? -> Void), specificPath: Paths){
-        
     }
     
     /**

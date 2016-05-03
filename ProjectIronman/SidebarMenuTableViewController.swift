@@ -10,7 +10,6 @@ import UIKit
 
 class SidebarMenuTableViewController: UITableViewController {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
 
     override func viewDidLoad() {
@@ -19,7 +18,6 @@ class SidebarMenuTableViewController: UITableViewController {
         
         FirebaseManager.sharedInstance.getUserBasicInfo { (basicInfo) -> Void in
             self.nameLabel.text = basicInfo?.displayName
-            self.emailLabel.text = basicInfo?.email
             if let imageURLString:String = basicInfo?.profileImageURL {
                 self.profileImage.imageFromUrl(imageURLString)
             }
