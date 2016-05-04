@@ -19,6 +19,9 @@
 		9627A9771CC93DE6003601E2 /* DashboardChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627A9761CC93DE6003601E2 /* DashboardChallengeCell.xib */; };
 		9627A97A1CCA984A003601E2 /* DashboardChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A9791CCA984A003601E2 /* DashboardChallengeTableViewCell.swift */; };
 		96C28BD61CD915640040149E /* PendingChallengesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C28BD51CD915640040149E /* PendingChallengesTableViewController.swift */; };
+		96C28BD81CDA6A1B0040149E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C28BD71CDA6A1B0040149E /* Assets.xcassets */; };
+		96C28BDC1CDA70080040149E /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C28BDB1CDA70080040149E /* FriendCell.xib */; };
+		96C28BDE1CDA75D70040149E /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */; };
 		96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */; };
 		96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */; };
 		96DB4D321C84CC7400ACAF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */; };
@@ -83,6 +86,9 @@
 		9627A9761CC93DE6003601E2 /* DashboardChallengeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardChallengeCell.xib; sourceTree = "<group>"; };
 		9627A9791CCA984A003601E2 /* DashboardChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		96C28BD51CD915640040149E /* PendingChallengesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingChallengesTableViewController.swift; sourceTree = "<group>"; };
+		96C28BD71CDA6A1B0040149E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96C28BDB1CDA70080040149E /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		96DB4D241C84CC7400ACAF00 /* ProjectIronman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIronman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DB4D2C1C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -227,10 +233,13 @@
 				96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */,
 				96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */,
 				96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */,
+				96C28BD71CDA6A1B0040149E /* Assets.xcassets */,
 				96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */,
 				96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */,
 				96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */,
 				962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */,
+				96C28BDB1CDA70080040149E /* FriendCell.xib */,
+				96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */,
 			);
 			path = ProjectIronman;
 			sourceTree = "<group>";
@@ -438,7 +447,9 @@
 				96DB4D751C86239400ACAF00 /* Keys.plist in Resources */,
 				96DB4D321C84CC7400ACAF00 /* LaunchScreen.storyboard in Resources */,
 				9627A9771CC93DE6003601E2 /* DashboardChallengeCell.xib in Resources */,
+				96C28BDC1CDA70080040149E /* FriendCell.xib in Resources */,
 				962316961CB442800001D999 /* PostCell.xib in Resources */,
+				96C28BD81CDA6A1B0040149E /* Assets.xcassets in Resources */,
 				96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +538,7 @@
 				96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */,
 				9627A97A1CCA984A003601E2 /* DashboardChallengeTableViewCell.swift in Sources */,
 				96DB4D561C850C9800ACAF00 /* EntranceViewController.swift in Sources */,
+				96C28BDE1CDA75D70040149E /* FriendTableViewCell.swift in Sources */,
 				962316941CB442800001D999 /* DataProvider.swift in Sources */,
 				962316981CB48E1E0001D999 /* LiveChallengeTableViewCell.swift in Sources */,
 				96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */,

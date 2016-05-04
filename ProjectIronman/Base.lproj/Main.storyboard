@@ -335,10 +335,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="QAg-fJ-dVb">
                         <rightBarButtonItems>
-                            <barButtonItem image="add_user_F" style="plain" id="gFU-A0-c0o">
-                                <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                            <barButtonItem title="Item" image="add_user_F" style="plain" id="gFU-A0-c0o"/>
+                            <barButtonItem image="bell_F" id="nQ6-E2-62k">
+                                <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-35" maxY="0.0"/>
                             </barButtonItem>
-                            <barButtonItem title="Item" id="nQ6-E2-62k"/>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
@@ -842,7 +842,8 @@
     </scenes>
     <resources>
         <image name="ConnectWithStrava" width="172" height="31"/>
-        <image name="add_user_F" width="47" height="49"/>
+        <image name="add_user_F" width="22" height="22"/>
+        <image name="bell_F" width="22" height="22"/>
         <image name="login_with_fb" width="416" height="101"/>
         <image name="menu" width="22" height="22"/>
     </resources>
