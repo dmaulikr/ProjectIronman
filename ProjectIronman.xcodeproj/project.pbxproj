@@ -21,7 +21,6 @@
 		96C28BD61CD915640040149E /* PendingChallengesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C28BD51CD915640040149E /* PendingChallengesTableViewController.swift */; };
 		96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */; };
 		96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */; };
-		96DB4D2F1C84CC7400ACAF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */; };
 		96DB4D321C84CC7400ACAF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */; };
 		96DB4D3D1C84CC7400ACAF00 /* ProjectIronmanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D3C1C84CC7400ACAF00 /* ProjectIronmanTests.swift */; };
 		96DB4D481C84CC7500ACAF00 /* ProjectIronmanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D471C84CC7500ACAF00 /* ProjectIronmanUITests.swift */; };
@@ -87,7 +86,6 @@
 		96DB4D241C84CC7400ACAF00 /* ProjectIronman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIronman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DB4D2C1C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DB4D311C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96DB4D331C84CC7400ACAF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96DB4D381C84CC7400ACAF00 /* ProjectIronmanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectIronmanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,7 +225,6 @@
 				96FE09C71CA9C0A400105C81 /* NewChallenge */,
 				96FE09B21CA1D20100105C81 /* SupportFiles */,
 				96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */,
-				96DB4D2E1C84CC7400ACAF00 /* Assets.xcassets */,
 				96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */,
 				96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */,
 				96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */,
@@ -442,7 +439,6 @@
 				96DB4D321C84CC7400ACAF00 /* LaunchScreen.storyboard in Resources */,
 				9627A9771CC93DE6003601E2 /* DashboardChallengeCell.xib in Resources */,
 				962316961CB442800001D999 /* PostCell.xib in Resources */,
-				96DB4D2F1C84CC7400ACAF00 /* Assets.xcassets in Resources */,
 				96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
