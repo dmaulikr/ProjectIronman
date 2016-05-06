@@ -186,6 +186,72 @@
             </objects>
             <point key="canvasLocation" x="3261" y="1014"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="H2c-7U-NHs">
+            <objects>
+                <viewController id="Ff0-y3-dbM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Twp-0d-JFB"/>
+                        <viewControllerLayoutGuide type="bottom" id="maj-Ce-WKm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8m1-8W-lV2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f78-TT-3JO">
+                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
+                                <items>
+                                    <navigationItem title="Find Friends" id="LbA-xB-3qn">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="moS-do-hGK"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-jH-YVe">
+                                <rect key="frame" x="0.0" y="64" width="320" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="f78-TT-3JO" secondAttribute="trailing" constant="-20" id="C19-qS-8W2"/>
+                            <constraint firstItem="f78-TT-3JO" firstAttribute="leading" secondItem="8m1-8W-lV2" secondAttribute="leadingMargin" constant="-20" id="Jqc-ck-KCH"/>
+                            <constraint firstItem="f78-TT-3JO" firstAttribute="top" secondItem="Twp-0d-JFB" secondAttribute="bottom" id="fFh-sc-fZj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mwy-s6-AVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3741" y="2608"/>
+        </scene>
+        <!--Friend requests-->
+        <scene sceneID="wrT-HD-LV0">
+            <objects>
+                <tableViewController id="9Ti-RS-9m0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BdR-k1-1JC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IRd-8T-VfT">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IRd-8T-VfT" id="BWu-ii-dYH">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Ti-RS-9m0" id="PQu-r3-cHI"/>
+                            <outlet property="delegate" destination="9Ti-RS-9m0" id="yDB-rU-1G6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friend requests" id="Xro-3I-ecW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mnl-2J-i7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3460" y="3274"/>
+        </scene>
         <!--Hosted-->
         <scene sceneID="Vad-oV-WOW">
             <objects>
@@ -205,7 +271,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V.S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35g-AO-txY">
                                             <rect key="frame" x="148" y="66" width="25" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLX-6u-ho6">
@@ -214,13 +280,13 @@
                                                 <constraint firstAttribute="width" constant="115" id="bTM-IR-ayO"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OneVOne Distance 5k" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSg-2r-jsi">
                                             <rect key="frame" x="12" y="8" width="300" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzm-iJ-A7G">
@@ -229,7 +295,7 @@
                                                 <constraint firstAttribute="width" constant="115" id="5a3-ww-k8w"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxI-FL-YXC">
@@ -238,7 +304,7 @@
                                                 <constraint firstAttribute="width" constant="115" id="m6y-Jc-AZh"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="faD-Mr-8AF">
@@ -261,7 +327,7 @@
                                                 <constraint firstAttribute="width" constant="120" id="qRB-9D-Hdm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -308,7 +374,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoG-BI-VMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4073" y="2501"/>
+            <point key="canvasLocation" x="4218" y="2447"/>
         </scene>
         <!--Friends-->
         <scene sceneID="xKO-gm-bgd">
@@ -335,16 +401,23 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="QAg-fJ-dVb">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="add_user_F" style="plain" id="gFU-A0-c0o"/>
-                            <barButtonItem image="bell_F" id="nQ6-E2-62k">
+                            <barButtonItem image="addUser" style="plain" id="gFU-A0-c0o">
+                                <connections>
+                                    <segue destination="Ff0-y3-dbM" kind="modal" id="FY4-Pg-bFG"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="bell" id="nQ6-E2-62k">
                                 <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-35" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="9Ti-RS-9m0" kind="push" id="Cju-0m-jCU"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5P-Vb-YcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3306" y="2610"/>
+            <point key="canvasLocation" x="3060" y="2608"/>
         </scene>
         <!--Requets-->
         <scene sceneID="37G-aH-4Sm">
@@ -842,8 +915,8 @@
     </scenes>
     <resources>
         <image name="ConnectWithStrava" width="172" height="31"/>
-        <image name="add_user_F" width="22" height="22"/>
-        <image name="bell_F" width="22" height="22"/>
+        <image name="addUser" width="22" height="22"/>
+        <image name="bell" width="22" height="22"/>
         <image name="login_with_fb" width="416" height="101"/>
         <image name="menu" width="22" height="22"/>
     </resources>

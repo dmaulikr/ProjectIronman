@@ -20,20 +20,29 @@
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-vQ-7cM">
                         <rect key="frame" x="257" y="37" width="35" height="35"/>
                         <state key="normal" title="B"/>
+                        <connections>
+                            <action selector="buttonLeftClicked:" destination="ibX-dw-ZbH" eventType="touchUpInside" id="Dyu-q4-Hzk"/>
+                            <action selector="fff:" destination="ibX-dw-ZbH" eventType="touchUpInside" id="JYV-bB-MkT"/>
+                            <action selector="leftButtonTapped:" destination="ibX-dw-ZbH" eventType="touchUpInside" id="u2F-B2-zqF"/>
+                        </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jason Cheng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-4d-2xV">
+                        <rect key="frame" x="88" y="30" width="150" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-AO-d5H">
                         <rect key="frame" x="300" y="37" width="35" height="35"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="B">
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="buttonRightClicked:" destination="ibX-dw-ZbH" eventType="touchUpInside" id="6eE-oR-nSc"/>
+                            <action selector="rightButtonTapped:" destination="ibX-dw-ZbH" eventType="touchUpInside" id="xY2-I4-qgU"/>
+                        </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jason Cheng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-4d-2xV">
-                        <rect key="frame" x="88" y="30" width="150" height="50"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
