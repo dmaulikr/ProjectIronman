@@ -9,6 +9,7 @@
 import Foundation
 
 class FFriend:FModel{
+    var id:String!
     var displayName:String!
     var profileImageURL:String?
     

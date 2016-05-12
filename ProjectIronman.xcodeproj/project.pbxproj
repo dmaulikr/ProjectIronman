@@ -24,6 +24,7 @@
 		96C28BDE1CDA75D70040149E /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */; };
 		96D42DDE1CE42B6C00314498 /* FFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D42DDD1CE42B6C00314498 /* FFriend.swift */; };
 		96D42DE11CE4575000314498 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D42DE01CE4575000314498 /* FriendsTableViewController.swift */; };
+		96D42DE31CE47C0B00314498 /* SelectOpponentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D42DE21CE47C0B00314498 /* SelectOpponentTableViewController.swift */; };
 		96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */; };
 		96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */; };
 		96DB4D321C84CC7400ACAF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */; };
@@ -93,6 +94,7 @@
 		96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		96D42DDD1CE42B6C00314498 /* FFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFriend.swift; sourceTree = "<group>"; };
 		96D42DE01CE4575000314498 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		96D42DE21CE47C0B00314498 /* SelectOpponentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOpponentTableViewController.swift; sourceTree = "<group>"; };
 		96DB4D241C84CC7400ACAF00 /* ProjectIronman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIronman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DB4D2C1C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				96FE09CC1CA9D95A00105C81 /* ChooseModeViewController.swift */,
 				96FE09CE1CA9DA9600105C81 /* EditDetailViewController.swift */,
 				96FE09CA1CA9C39D00105C81 /* NewChallengeViewController.swift */,
+				96D42DE21CE47C0B00314498 /* SelectOpponentTableViewController.swift */,
 			);
 			path = NewChallenge;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				9627A9751CC93BFB003601E2 /* ActiveChallengesTableViewController.swift in Sources */,
 				96DB4D5A1C85580800ACAF00 /* FirebaseManager.swift in Sources */,
 				960753201C99C8F200388AC7 /* Enums.swift in Sources */,
+				96D42DE31CE47C0B00314498 /* SelectOpponentTableViewController.swift in Sources */,
 				96DB4D841C86A6DB00ACAF00 /* ImageViewExtension.swift in Sources */,
 				96DB4D801C8695CB00ACAF00 /* DashboardViewController.swift in Sources */,
 				96FE09CB1CA9C39D00105C81 /* NewChallengeViewController.swift in Sources */,

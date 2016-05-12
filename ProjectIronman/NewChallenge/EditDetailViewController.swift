@@ -17,6 +17,7 @@ class EditDetailViewController: XLFormViewController {
         static let Mode = "mode"
         static let Distance = "distance"
         static let Duration = "duration"
+        static let Friend = "friend"
     }
 
     var newChallenge:FChallenge!
@@ -129,13 +130,19 @@ class EditDetailViewController: XLFormViewController {
         }
         
         //duration
-        row = XLFormRowDescriptor(tag :Tags.Duration, rowType:XLFormRowDescriptorTypeSelectorActionSheet, title:"Days to finish challenge:")
+        row = XLFormRowDescriptor(tag: Tags.Duration, rowType:XLFormRowDescriptorTypeSelectorActionSheet, title:"Days to finish challenge:")
         row.selectorOptions = [
             XLFormOptionsObject(value: 3, displayText: "3 days"),
             XLFormOptionsObject(value: 5, displayText:"5 days"),
             XLFormOptionsObject(value: 7, displayText:"7 days"),
         ]
         row.value = XLFormOptionsObject(value: 3, displayText: "3 days")
+        section.addFormRow(row)
+        
+        //add competitor
+        row = XLFormRowDescriptor(tag: Tags.Friend, rowType:XLFormRowDescriptorTypeSelectorPush,
+                               title: "Select Competitor:")
+        row.action.viewControllerClass = SelectOpponentTableViewController.self
         section.addFormRow(row)
         
         

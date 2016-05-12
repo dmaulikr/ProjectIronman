@@ -321,6 +321,7 @@ class FirebaseManager {
                     if !snapshot.value.isEqual(NSNull){
                         for child in snapshot.children.allObjects as! [FDataSnapshot] {
                             let friend = FFriend(rawData: child.value as! NSDictionary)
+                            friend.id = child.key
                             friends.append(friend)
                         }
                     }
