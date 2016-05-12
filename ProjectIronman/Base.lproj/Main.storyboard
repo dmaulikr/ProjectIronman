@@ -374,22 +374,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoG-BI-VMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4218" y="2447"/>
+            <point key="canvasLocation" x="4168" y="2501"/>
         </scene>
         <!--Friends-->
         <scene sceneID="xKO-gm-bgd">
             <objects>
-                <tableViewController id="xEe-FA-9cS" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5k7-B3-CNq">
+                <tableViewController id="xEe-FA-9cS" customClass="FriendsTableViewController" customModule="ProjectIronman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="5k7-B3-CNq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nvy-P9-X1c">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvy-P9-X1c" id="qYt-vH-sed">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -400,6 +400,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="QAg-fJ-dVb">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="KcZ-m7-Dc5"/>
                         <rightBarButtonItems>
                             <barButtonItem image="addUser" style="plain" id="gFU-A0-c0o">
                                 <connections>
@@ -414,6 +415,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="KcZ-m7-Dc5" id="iMQ-fK-zo5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5P-Vb-YcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

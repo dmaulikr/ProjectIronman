@@ -17,6 +17,7 @@ class FirebaseManager {
     
     struct Paths {
         static let Users = "users"
+        static let Friends = "friends"
         static let Activities = "public_activities"
         static let UserActivities = "user_activities"
         static let Run = "run"
@@ -290,8 +291,6 @@ class FirebaseManager {
         }
     }
     
-    //
-    
     /**
         Update challenge
     */
@@ -304,6 +303,29 @@ class FirebaseManager {
                     if error == nil {
                         completionHandler?()
                     }
+                })
+        }
+    }
+    
+    /**
+        return a list of friends
+     */
+    func getFriendList(completionHandler: [FFriend] -> Void){
+        if baseRef.authData != nil {
+            let userId = self.baseRef.authData.uid
+            baseRef.childByAppendingPath(Paths.Friends)
+                .childByAppendingPath(userId)
+                .observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    
+                    var friends:[FFriend] = []
+                    if !snapshot.value.isEqual(NSNull){
+                        for child in snapshot.children.allObjects as! [FDataSnapshot] {
+                            let friend = FFriend(rawData: child.value as! NSDictionary)
+                            friends.append(friend)
+                        }
+                    }
+                    
+                    completionHandler(friends)
                 })
         }
     }

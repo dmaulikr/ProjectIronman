@@ -22,6 +22,8 @@
 		96C28BD81CDA6A1B0040149E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C28BD71CDA6A1B0040149E /* Assets.xcassets */; };
 		96C28BDC1CDA70080040149E /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C28BDB1CDA70080040149E /* FriendCell.xib */; };
 		96C28BDE1CDA75D70040149E /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */; };
+		96D42DDE1CE42B6C00314498 /* FFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D42DDD1CE42B6C00314498 /* FFriend.swift */; };
+		96D42DE11CE4575000314498 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D42DE01CE4575000314498 /* FriendsTableViewController.swift */; };
 		96DB4D281C84CC7400ACAF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */; };
 		96DB4D2D1C84CC7400ACAF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */; };
 		96DB4D321C84CC7400ACAF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */; };
@@ -89,6 +91,8 @@
 		96C28BD71CDA6A1B0040149E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96C28BDB1CDA70080040149E /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		96D42DDD1CE42B6C00314498 /* FFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFriend.swift; sourceTree = "<group>"; };
+		96D42DE01CE4575000314498 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		96DB4D241C84CC7400ACAF00 /* ProjectIronman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectIronman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DB4D2C1C84CC7400ACAF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -199,6 +203,16 @@
 			name = Dashboard;
 			sourceTree = "<group>";
 		};
+		96D42DDF1CE4573800314498 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				96C28BDB1CDA70080040149E /* FriendCell.xib */,
+				96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */,
+				96D42DE01CE4575000314498 /* FriendsTableViewController.swift */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
 		96DB4D1B1C84CC7400ACAF00 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +238,7 @@
 		96DB4D261C84CC7400ACAF00 /* ProjectIronman */ = {
 			isa = PBXGroup;
 			children = (
+				96D42DDF1CE4573800314498 /* Friends */,
 				9627A9731CC93B6C003601E2 /* Dashboard */,
 				96DB4D7E1C86954700ACAF00 /* Authentication */,
 				96DB4D851C88ADDF00ACAF00 /* Managers */,
@@ -238,8 +253,6 @@
 				96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */,
 				96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */,
 				962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */,
-				96C28BDB1CDA70080040149E /* FriendCell.xib */,
-				96C28BDD1CDA75D70040149E /* FriendTableViewCell.swift */,
 			);
 			path = ProjectIronman;
 			sourceTree = "<group>";
@@ -299,6 +312,7 @@
 				96FE09B51CA30E0200105C81 /* FChallenge.swift */,
 				96FE09B71CA3118D00105C81 /* FModel.swift */,
 				96FE09B01CA1C71B00105C81 /* FUserBasicInfo.swift */,
+				96D42DDD1CE42B6C00314498 /* FFriend.swift */,
 			);
 			path = FireBase;
 			sourceTree = "<group>";
@@ -533,7 +547,9 @@
 				96DB4D731C861FAA00ACAF00 /* ConnectDeviceViewController.swift in Sources */,
 				96C28BD61CD915640040149E /* PendingChallengesTableViewController.swift in Sources */,
 				960753221C99DCF900388AC7 /* ChallengeManager.swift in Sources */,
+				96D42DDE1CE42B6C00314498 /* FFriend.swift in Sources */,
 				96FE09BE1CA32B5C00105C81 /* FChallenge.swift in Sources */,
+				96D42DE11CE4575000314498 /* FriendsTableViewController.swift in Sources */,
 				96DB4D7C1C86926B00ACAF00 /* SettingViewController.swift in Sources */,
 				96FE09CF1CA9DA9600105C81 /* EditDetailViewController.swift in Sources */,
 				9627A97A1CCA984A003601E2 /* DashboardChallengeTableViewCell.swift in Sources */,

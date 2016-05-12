@@ -32,7 +32,7 @@ class ActiveChallengesTableViewController: UITableViewController, IndicatorInfoP
         FirebaseManager.sharedInstance.getActiveChallenges{
             (challenges) in
             self.activeChallenges = challenges
-            print(challenges.count)
+    
             self.tableView.reloadData()
         }
     }

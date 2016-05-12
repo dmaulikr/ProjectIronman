@@ -3,22 +3,31 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ibX-dw-ZbH" customClass="FriendTableViewCell" customModule="ProjectIronman" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="104" id="ibX-dw-ZbH" customClass="FriendTableViewCell" customModule="ProjectIronman" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="353" height="104"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ibX-dw-ZbH" id="Kdt-Ou-wQD">
                 <rect key="frame" x="0.0" y="0.0" width="353" height="103"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Face" translatesAutoresizingMaskIntoConstraints="NO" id="ltT-9h-7wZ">
-                        <rect key="frame" x="17" y="27" width="50" height="50"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Face" translatesAutoresizingMaskIntoConstraints="NO" id="ltT-9h-7wZ">
+                        <rect key="frame" x="17" y="27" width="60" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="PNE-z0-6kO"/>
+                            <constraint firstAttribute="height" constant="56" id="jA2-cU-3y5"/>
+                        </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-vQ-7cM">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-vQ-7cM">
                         <rect key="frame" x="257" y="37" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="oYU-gu-Tyq"/>
+                            <constraint firstAttribute="width" constant="35" id="u9v-k7-WsL"/>
+                        </constraints>
                         <state key="normal" title="B"/>
                         <connections>
                             <action selector="buttonLeftClicked:" destination="ibX-dw-ZbH" eventType="touchUpInside" id="Dyu-q4-Hzk"/>
@@ -26,14 +35,22 @@
                             <action selector="leftButtonTapped:" destination="ibX-dw-ZbH" eventType="touchUpInside" id="u2F-B2-zqF"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jason Cheng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-4d-2xV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jason Cheng" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-4d-2xV">
                         <rect key="frame" x="88" y="30" width="150" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="5Io-Oq-5Ji"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Ozg-ph-BHf"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-AO-d5H">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-AO-d5H">
                         <rect key="frame" x="300" y="37" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="DOh-0e-JmH"/>
+                            <constraint firstAttribute="height" constant="35" id="MNw-Fw-Sfa"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="B">
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,6 +61,23 @@
                         </connections>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="hIX-AO-d5H" firstAttribute="leading" secondItem="Lrc-vQ-7cM" secondAttribute="trailing" constant="8" id="1KV-TB-HcX"/>
+                    <constraint firstItem="Sz9-4d-2xV" firstAttribute="top" secondItem="Kdt-Ou-wQD" secondAttribute="topMargin" constant="22" id="1aR-Jj-Byu"/>
+                    <constraint firstItem="Lrc-vQ-7cM" firstAttribute="top" secondItem="Kdt-Ou-wQD" secondAttribute="topMargin" constant="29" id="4xn-4O-OyV"/>
+                    <constraint firstItem="hIX-AO-d5H" firstAttribute="top" secondItem="Kdt-Ou-wQD" secondAttribute="topMargin" constant="29" id="BLK-gB-A8b"/>
+                    <constraint firstItem="Lrc-vQ-7cM" firstAttribute="leading" secondItem="Sz9-4d-2xV" secondAttribute="trailing" constant="19" id="HGP-8N-SlI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hIX-AO-d5H" secondAttribute="trailing" constant="10" id="Iwf-2L-N18"/>
+                    <constraint firstItem="ltT-9h-7wZ" firstAttribute="leading" secondItem="Kdt-Ou-wQD" secondAttribute="leadingMargin" constant="9" id="UMN-UZ-fm5"/>
+                    <constraint firstItem="Sz9-4d-2xV" firstAttribute="centerY" secondItem="ltT-9h-7wZ" secondAttribute="centerY" id="WG4-dw-DxX"/>
+                    <constraint firstItem="Sz9-4d-2xV" firstAttribute="leading" secondItem="ltT-9h-7wZ" secondAttribute="trailing" constant="11" id="rAX-or-3Zn"/>
+                    <constraint firstItem="ltT-9h-7wZ" firstAttribute="top" secondItem="Kdt-Ou-wQD" secondAttribute="topMargin" constant="19" id="z8M-or-TyE"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="HGP-8N-SlI"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="buttonLeft" destination="Lrc-vQ-7cM" id="RE8-6t-rnZ"/>

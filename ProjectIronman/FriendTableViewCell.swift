@@ -42,20 +42,24 @@ class FriendTableViewCell: UITableViewCell {
     // find friends
     // friend requests
     
-    func setUpBasicFriendCell(){
+    func populateBasicFriendCell(friend: FFriend){
+        generalSetup(friend)
         buttonLeft.hidden = true
         buttonRight.hidden = true
     }
     
-    func setUpFindFriendCell(addFriend: (button:UIButton) -> Void){
+    func populateFindFriendCell(friend: FFriend, addFriend: (button:UIButton) -> Void){
+        generalSetup(friend)
         buttonLeft.hidden = true
         buttonRight.hidden = false
         buttonRight.setImage(UIImage(named: "addUser.png"), forState: .Normal)
         self.buttonRightAction = addFriend
     }
     
-    func setUpFriendRequestCell(decline: (button:UIButton) -> Void,
+    func populateFriendRequestCell(friend: FFriend,
+                                decline: (button:UIButton) -> Void,
                                 accept: (button:UIButton) -> Void){
+        generalSetup(friend)
         self.buttonLeftAction = decline
         self.buttonRightAction = accept
         
@@ -64,5 +68,10 @@ class FriendTableViewCell: UITableViewCell {
         
         buttonRight.setImage(UIImage(named: "accept.png"), forState: .Normal)
         buttonLeft.setImage(UIImage(named: "decline.png"), forState: .Normal)
+    }
+    
+    private func generalSetup(friend: FFriend){
+        self.friendName.text = friend.displayName
+        self.friendImage.imageFromUrl(friend.profileImageURL!)
     }
 }

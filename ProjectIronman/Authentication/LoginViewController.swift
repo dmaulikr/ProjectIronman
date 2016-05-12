@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         let ref = Firebase(url: FirebaseManager.sharedInstance.baseURL)
         let facebookLogin = FBSDKLoginManager()
 
-        facebookLogin.logInWithReadPermissions(["email"], fromViewController: self, handler: {
+        facebookLogin.logInWithReadPermissions(["email", "user_friends"], fromViewController: self, handler: {
             (facebookResult, facebookError) -> Void in
             
             SVProgressHUD.dismiss()
