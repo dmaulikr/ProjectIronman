@@ -15,16 +15,20 @@ class FModelTests: XCTestCase{
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    func testChallengeMapToModel(){
+    func testChallengeModel(){
         let testChallengeDict = [
             "type": "OneVOne",
             "mode": "Distance",
             "status": "Active",
-            "createTime": NSDate().timeIntervalSince1970,
+            "createDate": NSDate().timeIntervalSince1970,
             "duration": 4,
             "completedCondition": 3,
-            "createdBy": "user123",
-            "member": "user456",
+            "hostId": "user123",
+            "hostName": "Jason Cheng",
+            "hostProfileImage": "http://image.com",
+            "memberName": "user456",
+            "memberId": "Jack Lantern",
+            "memberProfileImage": "http://image2.com",
             "progress": [
                 "user123": 5,
                 "user456": 3
@@ -32,44 +36,46 @@ class FModelTests: XCTestCase{
         ]
         
         let challenge = FChallenge(rawData: testChallengeDict)
+        let challengeDict = challenge.toDict()
         
-        XCTAssertEqual(testChallengeDict["type"] as? String, challenge.type.rawValue, "type not the same")
-        XCTAssertEqual(testChallengeDict["mode"] as? String, challenge.mode.rawValue, "mode not the same")
-        XCTAssertEqual(testChallengeDict["status"] as? String, challenge.status.rawValue, "status not the same")
+        let keys = testChallengeDict.allKeys
         
-        XCTAssertEqual(testChallengeDict["startTime"] as? NSTimeInterval, challenge.startTime, "start time not the same")
-        XCTAssertEqual(testChallengeDict["duration"] as? Int, challenge.duration)
-//        XCTAssertEqual(testChallengeDict["createdBy"] as? String, challenge.createdBy)
-        
+        for key in keys as! [String]{
+            XCTAssert(testChallengeDict[key]!.isEqual(challengeDict[key]!), "\(key) not the same")
+        }
     }
     
-    func testChallengeToDict(){
-        let inputChallengeDict:[String:AnyObject] = [
-            "type": "OneVOne",
-            "mode": "Distance",
-            "status": "Active",
-            "createTime": NSDate().timeIntervalSince1970,
-            "duration": 4,
-            "completedCondition": 3,
-            "createdBy": "user123",
-            "member": "user456",
-            "progress": [
-                "user123": 5,
-                "user456": 3
-            ]
+    func testValidActivityModel(){
+        let activityDict = [
+            "id": "starva_w2ioef",
+            "type": "run",
+            "distance": 3000.0,
+            "time": 30000,
+            "startDate": NSDate().timeIntervalSince1970,
+            "timeZone": "PDT"
         ]
         
-        let challenge = FChallenge(rawData: inputChallengeDict)
+        let activity = FActivity(rawData: activityDict)
         
-        let outputChallengeDict = challenge.toDict()
-        
-        XCTAssertEqual(inputChallengeDict["type"] as? String, outputChallengeDict["type"] as? String)
-        XCTAssertEqual(inputChallengeDict["duration"] as? Int, outputChallengeDict["duration"] as? Int)
-
+        XCTAssert(activity.id == activityDict["id"] as? String)
+        XCTAssert(activity.type == activityDict["type"] as? String)
+        XCTAssert(activity.distance == activityDict["distance"] as? Float)
+        XCTAssert(activity.time == activityDict["time"] as? Int)
+        XCTAssert(activity.startDate == activityDict["startDate"] as? NSTimeInterval)
+        XCTAssert(activity.timeZone == activityDict["timeZone"] as? String)
     }
     
-//    func FChallengeToDictTest(){
-//    }
+    func testFriendModel(){
+        let friendDict = [
+            "displayName": "Jason Cheng",
+            "profileImageURL": "https://image.com"
+        ]
+        
+        let friend = FFriend(rawData: friendDict)
+        
+        XCTAssert(friend.displayName == friendDict["displayName"])
+        XCTAssert(friend.profileImageURL == friendDict["profileImageURL"])
+    }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.

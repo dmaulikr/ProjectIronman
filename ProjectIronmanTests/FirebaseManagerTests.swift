@@ -38,7 +38,7 @@ class FirebaseManagerTests: XCTestCase {
         testChallenge.memberName = "Nancy Wang"
         testChallenge.memberProfileImage = "https://scontent.xx.fbcdn.net/hprofile-xlf1/v/t1.0-1/p100x100/12742803_10153767482015971_4404060236400761591_n.jpg?oh=2181a763507eea93638d11cb8fc874e2&oe=57A73253"
         let expectation = self.expectationWithDescription("pending challenge has been created")
-        FirebaseManager.sharedInstance.createNewChallenge(testChallenge.toDict()) { () -> Void in
+        FirebaseManager.sharedInstance.createNewChallenge(testChallenge) { () -> Void in
             expectation.fulfill()
         }
         self.waitForExpectationsWithTimeout(1.5, handler: .None)
@@ -62,7 +62,7 @@ class FirebaseManagerTests: XCTestCase {
         testChallenge.memberProfileImage = "https://scontent.xx.fbcdn.net/hprofile-xlf1/v/t1.0-1/p100x100/12742803_10153767482015971_4404060236400761591_n.jpg?oh=2181a763507eea93638d11cb8fc874e2&oe=57A73253"
         
         let expectation = self.expectationWithDescription("active challenge has been created")
-        FirebaseManager.sharedInstance.createNewChallenge(testChallenge.toDict()) { () -> Void in
+        FirebaseManager.sharedInstance.createNewChallenge(testChallenge) { () -> Void in
             expectation.fulfill()
         }
         self.waitForExpectationsWithTimeout(1.5, handler: .None)
