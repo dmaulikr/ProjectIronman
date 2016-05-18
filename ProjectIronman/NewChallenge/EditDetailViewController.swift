@@ -30,7 +30,6 @@ class EditDetailViewController: XLFormViewController {
         SVProgressHUD.show()
         
         newChallenge.status = ChallengeStatus.Pending
-        // fill in other challenge properties for testing purpose
         
         if let duration = self.form.formRowWithTag(Tags.Duration)?.value as? XLFormOptionsObject {
             newChallenge.duration = duration.valueData() as! Int
@@ -40,21 +39,21 @@ class EditDetailViewController: XLFormViewController {
             newChallenge.completedCondition = distance.valueData() as! Int
         }
         
-        
+        if let opponent = self.form.formRowWithTag(Tags.Friend)?.value as? XLFormFriend {
+            newChallenge.memberId = opponent.friend.id
+            newChallenge.memberName = opponent.friend.displayName
+            newChallenge.memberProfileImage = opponent.friend.profileImageURL
+        }
         
         FirebaseManager.sharedInstance.getUserBasicInfo { (info) in
             if let basicUserInfo = info {
                 self.newChallenge.hostId = FirebaseManager.sharedInstance.getUserFirebaseId()
                 self.newChallenge.hostName = basicUserInfo.displayName
                 self.newChallenge.hostProfileImage = basicUserInfo.profileImageURL
-                
-                self.newChallenge.memberId = "Friend1"
-                self.newChallenge.memberName = "testing"
-                self.newChallenge.memberProfileImage = basicUserInfo.profileImageURL
-                self.newChallenge.startTime = NSDate().timeIntervalSince1970
+                self.newChallenge.createTime = NSDate().timeIntervalSince1970
                 
                 // saving screen loading
-                FirebaseManager.sharedInstance.createNewChallenge(self.newChallenge.toDict()) { () -> Void in
+                FirebaseManager.sharedInstance.createNewChallenge(self.newChallenge) { () -> Void in
                     sender.enabled = true
                     SVProgressHUD.dismiss()
                     //dismiss loading screen

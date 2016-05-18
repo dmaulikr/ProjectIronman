@@ -22,6 +22,7 @@ class FirebaseManager {
         static let UserActivities = "user_activities"
         static let Run = "run"
         static let Challenges = "public_challenges"
+        static let ChallengeInvitation = "invitation_challenges"
         static let Hosted = "hosted_challenges"
         static let Live = "live_challenges"
         static let Dead = "dead_challenges"
@@ -167,60 +168,11 @@ class FirebaseManager {
     }
     
     /**
-        Return all active challenges that the user has
-    */
-    func getActiveChallenges(completionHandler: ([FChallenge] -> Void)){
-        getLiveChallenges(completionHandler, specificPath: Paths.Active)
-    }
-    
-    /**
-        Return all pending challenges
-    */
-    func getPendingChallenges(completionHandler: ([FChallenge] -> Void)){
-        getLiveChallenges(completionHandler, specificPath: Paths.Pending)
-    }
-    
-    private func getLiveChallenges(completionHandler: ([FChallenge] -> Void), specificPath: String){
-        if baseRef.authData != nil {
-            // get all live challenge Id of the user
-            baseRef.childByAppendingPath(Paths.Live)
-            .childByAppendingPath(baseRef.authData.uid)
-            .childByAppendingPath(specificPath)
-            .observeSingleEventOfType(.Value, withBlock: {
-                (snapshot) in
-                
-                var returnChallenges:[FChallenge] = []
-                if !snapshot.value.isEqual(NSNull){
-                    
-                    // loop through all challenges and get the challenge Id
-                    for challenge in snapshot.children {
-                        let challengeId = challenge.key
-                        
-                        // get challenge info from the challenge Id
-                        self.baseRef.childByAppendingPath(Paths.Challenges)
-                            .childByAppendingPath(challengeId)
-                            .observeSingleEventOfType(.Value, withBlock: {
-                                (snapshot) in
-                                
-                                if let valueDict = snapshot.value as? NSDictionary {
-                                    let challenge = FChallenge(rawData: valueDict)
-                                    returnChallenges.append(challenge)
-                                }
-                                
-                                completionHandler(returnChallenges)
-                            })
-                    }
-                } else { completionHandler(returnChallenges) }
-            })
-        }
-    }
-    
-    /**
-        Add new running activity to backend
-        - Parameter values: the values of a running activity
-    */
+     Add new running activity to backend
+     - Parameter values: the values of a running activity
+     */
     func setRunActivity(values: [NSObject: AnyObject],
-        completionHandler: (() -> Void)?) -> Void {
+                        completionHandler: (() -> Void)?) -> Void {
         
         if baseRef.authData != nil {
             let userId = self.baseRef.authData.uid
@@ -249,64 +201,7 @@ class FirebaseManager {
             })
         }
     }
-    
-    
-    
-    /**
-        Add new challenge. Whenever a challenge is created. the challengeId
-        is also added to pending table and the hosted table
-     
-        - Parameter
-    */
-    func createNewChallenge(values: [NSObject: AnyObject],
-        completionHandler: (() -> Void)?) -> Void {
-        if baseRef.authData != nil {
-            let challengeRef = baseRef.childByAppendingPath(Paths.Challenges)
-                                .childByAutoId()
-            
-            challengeRef.setValue(values, withCompletionBlock: {
-                (error, ref) -> Void in
-                let userId = self.baseRef.authData.uid
-                // set id to hosted/user_id/challenge_id
-                let hostedPath:String = "\(Paths.Hosted)/\(userId)/\(challengeRef.key)"
-                
-                // set id to live/user_id/pending/challenge_id
-               
-                // setting path to active right now, so we can test the single player mode without
-                // dealing with friends list for now
-                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Active)/\(challengeRef.key)"
-           
-//                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challengeRef.key)"
-               
-                
-                
-                self.baseRef.updateChildValues([
-                        hostedPath: true,
-                        livePath: true
-                    ],
-                    withCompletionBlock: { (error, ref) -> Void in
-                        if error == nil { completionHandler?() }
-                })
-            })
-        }
-    }
-    
-    /**
-        Update challenge
-    */
-    func updateChallenge(id: String, values: [NSObject: AnyObject],
-        completionHandler: (() -> Void)?) -> Void {
-        if baseRef.authData != nil {
-            baseRef.childByAppendingPath(Paths.Challenges)
-                .childByAppendingPath(id)
-                .updateChildValues(values, withCompletionBlock: { (error, ref) -> Void in
-                    if error == nil {
-                        completionHandler?()
-                    }
-                })
-        }
-    }
-    
+
     /**
         return a list of friends
      */
