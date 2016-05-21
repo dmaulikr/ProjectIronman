@@ -9,6 +9,7 @@
 import Foundation
 
 class FChallenge: FModel{
+    var id:String? //
     var type:ChallengeType!
     var mode:ChallengeMode!
     var status:ChallengeStatus!
@@ -57,6 +58,14 @@ class FChallenge: FModel{
             return userProgress
         }
         return nil
+    }
+    
+    /**
+        create an instance of FChallenge with an id
+    */
+    func mapToModelWithId(rawData: NSDictionary, id:String){
+        self.id = id
+        mapToModel(rawData)
     }
     
     override func mapToModel(rawData: NSDictionary){

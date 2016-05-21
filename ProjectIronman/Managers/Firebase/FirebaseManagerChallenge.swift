@@ -74,7 +74,8 @@ extension FirebaseManager{
                         (snapshot) in
                         
                         if let valueDict = snapshot.value as? NSDictionary {
-                            let challenge = FChallenge(rawData: valueDict)
+                            let challenge = FChallenge()
+                            challenge.mapToModelWithId(valueDict, id: snapshot.key)
                             returnChallenges.append(challenge)
                         }
                         
@@ -91,7 +92,7 @@ extension FirebaseManager{
         - Parameter challenge: the new challenge that is going to be created
     */
     func createNewChallenge(challenge: FChallenge,
-                            completionHandler: (() -> Void)?) -> Void {
+                            completionHandler: (() -> Void)?) {
         if baseRef.authData != nil {
             let challengeRef = baseRef.childByAppendingPath(Paths.Challenges)
                 .childByAutoId()
@@ -122,11 +123,33 @@ extension FirebaseManager{
         }
     }
     
+    func acceptChallenge(challenge:FChallenge, completionHandler:()->Void){
+        
+        let userId = self.baseRef.authData.uid
+        // host... pending -> active (maybe do this from backend...listen to change in public challenge)
+        
+        // member... invitation -> live_active
+        let invitationPath:String = "\(Paths.ChallengeInvitation)/\(challenge.memberId)/\(challenge.id)"
+        let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challenge.id)"
+        
+        self.baseRef.updateChildValues([
+            invitationPath: NSNull(),
+            livePath: true
+            ],
+            withCompletionBlock:{ (error, ref) -> Void in
+                completionHandler()
+        })
+        
+        // public challenge status... pending -> active
+        updateChallenge(challenge.id!, values: ["status": "Active"], completionHandler: nil)
+    }
+    
     /**
         Update challenge
     */
-    func updateChallenge(id: String, values: [NSObject: AnyObject],
-                         completionHandler: (() -> Void)?) -> Void {
+    private func updateChallenge(id: String, values: [NSObject: AnyObject],
+                         completionHandler: (() -> Void)?) {
+        
         if baseRef.authData != nil {
             baseRef.childByAppendingPath(Paths.Challenges)
                 .childByAppendingPath(id)

@@ -19,6 +19,9 @@
 		9627A9771CC93DE6003601E2 /* DashboardChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627A9761CC93DE6003601E2 /* DashboardChallengeCell.xib */; };
 		9627A97A1CCA984A003601E2 /* DashboardChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627A9791CCA984A003601E2 /* DashboardChallengeTableViewCell.swift */; };
 		96313A661CEBFFB7003DE641 /* FirebaseManagerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96313A651CEBFFB7003DE641 /* FirebaseManagerChallenge.swift */; };
+		9632EC931CEEF99A0046933B /* FirebaseManagerChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632EC921CEEF99A0046933B /* FirebaseManagerChallengeTests.swift */; };
+		9632EC961CEFFFB60046933B /* InvitationChallengeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632EC951CEFFFB60046933B /* InvitationChallengeTableViewController.swift */; };
+		9632EC981CF000E40046933B /* InvitationChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632EC971CF000E40046933B /* InvitationChallengeTableViewCell.swift */; };
 		96C28BD61CD915640040149E /* PendingChallengesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C28BD51CD915640040149E /* PendingChallengesTableViewController.swift */; };
 		96C28BD81CDA6A1B0040149E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C28BD71CDA6A1B0040149E /* Assets.xcassets */; };
 		96C28BDC1CDA70080040149E /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C28BDB1CDA70080040149E /* FriendCell.xib */; };
@@ -90,6 +93,9 @@
 		9627A9761CC93DE6003601E2 /* DashboardChallengeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardChallengeCell.xib; sourceTree = "<group>"; };
 		9627A9791CCA984A003601E2 /* DashboardChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		96313A651CEBFFB7003DE641 /* FirebaseManagerChallenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManagerChallenge.swift; sourceTree = "<group>"; };
+		9632EC921CEEF99A0046933B /* FirebaseManagerChallengeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManagerChallengeTests.swift; sourceTree = "<group>"; };
+		9632EC951CEFFFB60046933B /* InvitationChallengeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationChallengeTableViewController.swift; sourceTree = "<group>"; };
+		9632EC971CF000E40046933B /* InvitationChallengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationChallengeTableViewCell.swift; sourceTree = "<group>"; };
 		96C28BD51CD915640040149E /* PendingChallengesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingChallengesTableViewController.swift; sourceTree = "<group>"; };
 		96C28BD71CDA6A1B0040149E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96C28BDB1CDA70080040149E /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -207,6 +213,17 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		9632EC941CEFFCCD0046933B /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */,
+				962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */,
+				9632EC951CEFFFB60046933B /* InvitationChallengeTableViewController.swift */,
+				9632EC971CF000E40046933B /* InvitationChallengeTableViewCell.swift */,
+			);
+			name = Challenge;
+			sourceTree = "<group>";
+		};
 		96D42DDF1CE4573800314498 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,8 +269,7 @@
 				96DB4D271C84CC7400ACAF00 /* AppDelegate.swift */,
 				96C28BD71CDA6A1B0040149E /* Assets.xcassets */,
 				96DB4D301C84CC7400ACAF00 /* LaunchScreen.storyboard */,
-				962316971CB48E1E0001D999 /* LiveChallengeTableViewCell.swift */,
-				96FE09D81CADA8AB00105C81 /* LiveChallengesTableViewController.swift */,
+				9632EC941CEFFCCD0046933B /* Challenge */,
 				96DB4D2B1C84CC7400ACAF00 /* Main.storyboard */,
 				96DB4D7B1C86926B00ACAF00 /* SettingViewController.swift */,
 				96DB4D811C86974D00ACAF00 /* SidebarMenuTableViewController.swift */,
@@ -268,6 +284,7 @@
 				96FE09C51CA492A900105C81 /* FirebaseManagerTests.swift */,
 				96DB4D3E1C84CC7400ACAF00 /* Info.plist */,
 				96DB4D3C1C84CC7400ACAF00 /* ProjectIronmanTests.swift */,
+				9632EC921CEEF99A0046933B /* FirebaseManagerChallengeTests.swift */,
 			);
 			path = ProjectIronmanTests;
 			sourceTree = "<group>";
@@ -563,9 +580,11 @@
 				96C28BDE1CDA75D70040149E /* FriendTableViewCell.swift in Sources */,
 				962316941CB442800001D999 /* DataProvider.swift in Sources */,
 				962316981CB48E1E0001D999 /* LiveChallengeTableViewCell.swift in Sources */,
+				9632EC981CF000E40046933B /* InvitationChallengeTableViewCell.swift in Sources */,
 				96313A661CEBFFB7003DE641 /* FirebaseManagerChallenge.swift in Sources */,
 				96FE09BF1CA32B6000105C81 /* FModel.swift in Sources */,
 				96DB4D821C86974D00ACAF00 /* SidebarMenuTableViewController.swift in Sources */,
+				9632EC961CEFFFB60046933B /* InvitationChallengeTableViewController.swift in Sources */,
 				9627A9751CC93BFB003601E2 /* ActiveChallengesTableViewController.swift in Sources */,
 				96DB4D5A1C85580800ACAF00 /* FirebaseManager.swift in Sources */,
 				960753201C99C8F200388AC7 /* Enums.swift in Sources */,
@@ -586,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9632EC931CEEF99A0046933B /* FirebaseManagerChallengeTests.swift in Sources */,
 				96FE09C21CA33F2100105C81 /* FModelTests.swift in Sources */,
 				96FE09C61CA492A900105C81 /* FirebaseManagerTests.swift in Sources */,
 				96DB4D3D1C84CC7400ACAF00 /* ProjectIronmanTests.swift in Sources */,
