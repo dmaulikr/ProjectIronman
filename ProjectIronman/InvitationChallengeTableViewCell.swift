@@ -17,6 +17,7 @@ class InvitationChallengeTableViewCell: UITableViewCell {
     
     @IBAction func acceptChallenge(sender: UIButton) {
         sender.enabled = false
+        declineButton.enabled = false
         
         FirebaseManager.sharedInstance.acceptChallenge(self.challenge) { 
             self.challengeAcceptedCallback()

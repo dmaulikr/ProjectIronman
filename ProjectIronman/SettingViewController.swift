@@ -8,11 +8,15 @@
 
 import UIKit
 import SWRevealViewController
+import FBSDKLoginKit
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBAction func logoutButton(sender: AnyObject) {
         FirebaseManager.sharedInstance.unauth()
+        
+        let facebookLogin = FBSDKLoginManager()
+        facebookLogin.logOut()
     }
     
     override func viewDidLoad() {

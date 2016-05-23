@@ -17,7 +17,7 @@ extension FirebaseManager{
         - Parameter completionHandler: function to handle the array of FChallenge
     */
     func getActiveChallenges(completionHandler: ([FChallenge] -> Void)){
-        getLiveChallenges(completionHandler, specificPath: Paths.Active)
+        getLiveChallenges(completionHandler, filter: ChallengeStatus.Active.rawValue)
     }
     
     /**
@@ -25,7 +25,7 @@ extension FirebaseManager{
         - Parameter completionHandler: function to handle the array of FChallenge
     */
     func getPendingChallenges(completionHandler: ([FChallenge] -> Void)){
-        getLiveChallenges(completionHandler, specificPath: Paths.Pending)
+        getLiveChallenges(completionHandler, filter: ChallengeStatus.Pending.rawValue)
     }
     
     /**
@@ -42,16 +42,15 @@ extension FirebaseManager{
         }
     }
     
-    private func getLiveChallenges(completionHandler: ([FChallenge] -> Void), specificPath: String){
+    private func getLiveChallenges(completionHandler: ([FChallenge] -> Void), filter: String){
         if baseRef.authData != nil {
             // get all live challenge Id of the user
             baseRef.childByAppendingPath(Paths.Live)
                 .childByAppendingPath(baseRef.authData.uid)
-                .childByAppendingPath(specificPath)
                 .observeSingleEventOfType(.Value, withBlock: {
                     (snapshot) in
                     
-                    self.getChallenges(snapshot, completionHandler: completionHandler)
+                    self.getChallenges(snapshot, completionHandler: completionHandler, statusFilter: filter)
                 })
         }
     }
@@ -59,7 +58,9 @@ extension FirebaseManager{
     /**
         Go through a snapshot to retrieve detail information of the challenges
     */
-    private func getChallenges(snapshot:FDataSnapshot, completionHandler: ([FChallenge] -> Void)){
+    private func getChallenges(snapshot:FDataSnapshot, completionHandler: ([FChallenge] -> Void),
+                               statusFilter: String? = nil){
+        
         var returnChallenges:[FChallenge] = []
         if !snapshot.value.isEqual(NSNull){
             
@@ -76,10 +77,19 @@ extension FirebaseManager{
                         if let valueDict = snapshot.value as? NSDictionary {
                             let challenge = FChallenge()
                             challenge.mapToModelWithId(valueDict, id: snapshot.key)
-                            returnChallenges.append(challenge)
+                            
+                            if let filter = statusFilter {
+                                if challenge.status == ChallengeStatus(rawValue: filter){
+                                   returnChallenges.append(challenge)
+                                }
+                            }
+                            else {
+                                returnChallenges.append(challenge)
+                            }
                         }
                         
                         completionHandler(returnChallenges)
+                        
                     })
             }
         } else { completionHandler(returnChallenges) }
@@ -106,7 +116,8 @@ extension FirebaseManager{
                 let hostedPath:String = "\(Paths.Hosted)/\(userId)/\(challengeRef.key)"
                 
                 // set id to live/user_id/pending/challenge_id
-                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challengeRef.key)"
+//                let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challengeRef.key)"
+                let livePath:String = "\(Paths.Live)/\(userId)/\(challengeRef.key)"
                 
                 //invitation_challenges/user_id/challenge_id
                 let invitationPath:String = "\(Paths.ChallengeInvitation)/\(friendId)/\(challengeRef.key)"
@@ -126,11 +137,11 @@ extension FirebaseManager{
     func acceptChallenge(challenge:FChallenge, completionHandler:()->Void){
         
         let userId = self.baseRef.authData.uid
-        // host... pending -> active (maybe do this from backend...listen to change in public challenge)
         
         // member... invitation -> live_active
-        let invitationPath:String = "\(Paths.ChallengeInvitation)/\(challenge.memberId)/\(challenge.id)"
-        let livePath:String = "\(Paths.Live)/\(userId)/\(Paths.Pending)/\(challenge.id)"
+        let challengeId = challenge.id!
+        let invitationPath:String = "\(Paths.ChallengeInvitation)/\(challenge.memberId)/\(challengeId)"
+        let livePath:String = "\(Paths.Live)/\(userId)/\(challengeId)"
         
         self.baseRef.updateChildValues([
             invitationPath: NSNull(),

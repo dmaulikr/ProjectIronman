@@ -26,8 +26,7 @@ class FirebaseManager {
         static let Hosted = "hosted_challenges"
         static let Live = "live_challenges"
         static let Dead = "dead_challenges"
-        static let Pending = "pending"
-        static let Active = "active"
+        
 //        static let Completed = "completed"
         
     }
